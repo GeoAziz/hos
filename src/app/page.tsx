@@ -1,16 +1,18 @@
 import Image from 'next/image';
-import {Button} from '@/components/ui/button';
-import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import {
   HeartPulse,
   Stethoscope,
-  Syringe,
-  Microscope,
+  Users,
+  ShieldCheck,
   Phone,
   MapPin,
+  Medal,
 } from 'lucide-react';
-import {AppointmentForm} from '@/components/appointment-form';
-import {InquiryForm} from '@/components/inquiry-form';
+import { AppointmentForm } from '@/components/appointment-form';
+import { InquiryForm } from '@/components/inquiry-form';
+import Link from 'next/link';
 
 export default function Home() {
   const services = [
@@ -25,14 +27,50 @@ export default function Home() {
       icon: <Stethoscope className="h-10 w-10 text-primary" />,
     },
     {
-      name: 'Vaccinations',
-      description: 'Preventive immunization services.',
-      icon: <Syringe className="h-10 w-10 text-primary" />,
+      name: 'Pediatrics',
+      description: 'Specialized care for infants and children.',
+      icon: <Users className="h-10 w-10 text-primary" />,
     },
     {
-      name: 'Lab Tests',
-      description: 'Accurate and fast diagnostic testing.',
-      icon: <Microscope className="h-10 w-10 text-primary" />,
+      name: 'Emergency Care',
+      description: '24/7 immediate medical attention.',
+      icon: <ShieldCheck className="h-10 w-10 text-primary" />,
+    },
+  ];
+
+  const whyChooseUs = [
+      {
+          title: "Certified Specialists",
+          description: "Our team consists of board-certified doctors with extensive experience.",
+          icon: <Medal className="h-10 w-10 text-primary" />
+      },
+      {
+          title: "Modern Facilities",
+          description: "We use state-of-the-art technology for accurate diagnosis and treatment.",
+          icon: <HeartPulse className="h-10 w-10 text-primary" />
+      },
+      {
+          title: "Patient-First Approach",
+          description: "Your comfort and well-being are our top priorities at every step.",
+          icon: <Users className="h-10 w-10 text-primary" />
+      }
+  ];
+
+  const featuredDoctors = [
+    {
+        name: "Dr. Evelyn Reed",
+        specialty: "Cardiology",
+        imageUrl: "https://placehold.co/400x400.png",
+    },
+    {
+        name: "Dr. Marcus Chen",
+        specialty: "Neurology",
+        imageUrl: "https://placehold.co/400x400.png",
+    },
+    {
+        name: "Dr. Sofia Garcia",
+        specialty: "Pediatrics",
+        imageUrl: "https://placehold.co/400x400.png",
     },
   ];
 
@@ -54,63 +92,68 @@ export default function Home() {
     },
   ];
 
-  const branches = [
-    {
-      name: 'Downtown Clinic',
-      address: '123 Health St, Medical City',
-      phone: '555-123-4567',
-    },
-    {
-      name: 'Uptown Medical Center',
-      address: '456 Wellness Ave, Medical City',
-      phone: '555-987-6543',
-    },
-  ];
-
   return (
     <div>
       <section
         id="hero"
-        className="relative w-full h-[80vh] flex items-center justify-center text-center bg-background"
+        className="relative w-full h-[85vh] flex items-center justify-center text-white"
       >
-        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-          <div className="text-left">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
+        <Image 
+            src="https://placehold.co/1600x900.png"
+            alt="Hero background image of a modern hospital interior"
+            layout="fill"
+            objectFit="cover"
+            className="z-0"
+            data-ai-hint="modern hospital interior"
+        />
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="container mx-auto px-4 z-20 text-center">
+             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               Your Health, Our Priority
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-600">
-              Providing compassionate and quality healthcare you can trust.
+            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+              Providing compassionate, comprehensive, and high-quality healthcare you can trust. Welcome to a better healthcare experience.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center">
               <Button size="lg" asChild>
                 <a href="#appointment">Book an Appointment</a>
               </Button>
                <Button size="lg" variant="secondary" asChild>
-                <a href="/branches">View Branches</a>
+                <Link href="/about">Learn More</Link>
               </Button>
             </div>
-          </div>
-          <div className="relative w-full h-96">
-            <Image
-              src="https://placehold.co/600x400.png"
-              alt="Doctor assisting patient"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg shadow-lg"
-              data-ai-hint="doctor patient interaction"
-            />
-          </div>
         </div>
+      </section>
+
+      <section id="why-choose-us" className="py-20 bg-background">
+          <div className="container mx-auto px-4 text-center">
+              <h2 className="text-3xl font-bold mb-2">Why Choose MediBook?</h2>
+              <p className="text-muted-foreground mb-12">Your health is in the best hands.</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {whyChooseUs.map(feature => (
+                      <Card key={feature.title} className="bg-card text-card-foreground shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                          <CardHeader>
+                              <div className="flex justify-center mb-4">{feature.icon}</div>
+                              <CardTitle>{feature.title}</CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                              <p className="text-muted-foreground">{feature.description}</p>
+                          </CardContent>
+                      </Card>
+                  ))}
+              </div>
+          </div>
       </section>
 
       <section id="services" className="py-20 bg-secondary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-12">Our Services</h2>
+          <h2 className="text-3xl font-bold mb-2">Our Core Services</h2>
+          <p className="text-muted-foreground mb-12">Comprehensive care for all your needs.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service) => (
               <Card
                 key={service.name}
-                className="bg-card text-card-foreground shadow-lg transform hover:scale-105 transition-transform duration-300"
+                className="bg-card text-card-foreground shadow-md text-center"
               >
                 <CardHeader>
                   <div className="flex justify-center mb-4">
@@ -119,21 +162,52 @@ export default function Home() {
                   <CardTitle>{service.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>{service.description}</p>
+                  <p className="text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
+           <Button size="lg" variant="outline" className="mt-12" asChild>
+              <Link href="/services/departments">View All Services</Link>
+            </Button>
         </div>
       </section>
 
-      <section id="appointment" className="py-20">
+       <section id="specialists" className="py-20 bg-background">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-2">Meet Our Specialists</h2>
+           <p className="text-muted-foreground mb-12">A team of dedicated professionals at your service.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {featuredDoctors.map((doctor) => (
+                <Card key={doctor.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col text-center">
+                    <CardHeader className="p-0">
+                       <div className="relative h-64 w-full">
+                         <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} layout="fill" objectFit="cover" data-ai-hint="doctor portrait" />
+                       </div>
+                    </CardHeader>
+                    <CardContent className="p-6">
+                        <CardTitle className="text-2xl">{doctor.name}</CardTitle>
+                        <p className="text-primary font-semibold mt-1">{doctor.specialty}</p>
+                    </CardContent>
+                </Card>
+            ))}
+          </div>
+            <Button size="lg" className="mt-12" asChild>
+              <Link href="/doctors">View All Doctors</Link>
+            </Button>
+        </div>
+      </section>
+
+      <section id="appointment" className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
-          <Card className="max-w-4xl mx-auto shadow-xl">
+          <Card className="max-w-4xl mx-auto shadow-xl border-t-4 border-primary">
             <CardHeader className="text-center">
               <CardTitle className="text-3xl font-bold">
                 Book an Appointment
               </CardTitle>
+              <CardDescription>
+                Fill out the form below to schedule your visit. It's quick and easy.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <AppointmentForm />
@@ -142,7 +216,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 bg-secondary">
+      <section id="testimonials" className="py-20 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-12">
             What Our Patients Say
@@ -157,7 +231,7 @@ export default function Home() {
                   <p className="italic text-muted-foreground mb-4">
                     "{testimonial.quote}"
                   </p>
-                  <p className="font-bold">{testimonial.name}</p>
+                  <p className="font-bold text-primary">{testimonial.name}</p>
                 </CardContent>
               </Card>
             ))}
@@ -165,38 +239,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="branches" className="py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-12">Our Branches</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {branches.map((branch) => (
-              <Card
-                key={branch.name}
-                className="bg-card text-card-foreground shadow-lg"
-              >
-                <CardHeader>
-                  <CardTitle>{branch.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <p className="flex items-center justify-center">
-                    <MapPin className="h-5 w-5 mr-2 text-primary" />
-                    {branch.address}
-                  </p>
-                  <p className="flex items-center justify-center">
-                    <Phone className="h-5 w-5 mr-2 text-primary" />
-                    {branch.phone}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
       <section id="contact" className="py-20 bg-secondary">
         <div className="container mx-auto px-4 max-w-2xl text-center">
           <h2 className="text-3xl font-bold mb-4">Have Questions?</h2>
           <p className="text-muted-foreground mb-8">
-            Fill out the form below and we'll get back to you as soon as possible.
+            Fill out the form below and our AI assistant will analyze and route your inquiry.
           </p>
           <InquiryForm />
         </div>
