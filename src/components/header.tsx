@@ -7,14 +7,9 @@ import {
   Menu,
   Hospital,
   Phone,
-  ChevronDown,
   Stethoscope,
-  Users,
-  Building,
   HeartPulse,
-  Info,
   Briefcase,
-  GraduationCap,
 } from 'lucide-react';
 import {
   Sheet,
@@ -125,11 +120,9 @@ export function Header() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/" passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Home
-                </NavigationMenuLink>
-              </Link>
+               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link href="/">Home</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
@@ -210,11 +203,9 @@ export function Header() {
             </NavigationMenuItem>
 
              <NavigationMenuItem>
-              <Link href="/contact" passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Contact
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                    <Link href="/contact">Contact</Link>
                 </NavigationMenuLink>
-              </Link>
             </NavigationMenuItem>
 
           </NavigationMenuList>
