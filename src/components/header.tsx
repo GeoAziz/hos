@@ -120,9 +120,9 @@ export function Header() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-               <Link href="/" legacyBehavior passHref>
+               <Link href="/" passHref>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                 <a>Home</a>
+                 Home
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
@@ -205,9 +205,9 @@ export function Header() {
             </NavigationMenuItem>
 
              <NavigationMenuItem>
-                <Link href="/contact" legacyBehavior passHref>
+                <Link href="/contact" passHref>
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                        <a>Contact</a>
+                        Contact
                     </NavigationMenuLink>
                 </Link>
             </NavigationMenuItem>
