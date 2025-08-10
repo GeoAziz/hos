@@ -8,7 +8,7 @@ export function Footer() {
         <div className="space-y-4">
           <Link href="/" className="flex items-center gap-2">
             <Hospital className="h-8 w-8 text-primary" />
-            <span className="font-bold text-xl">City Hospital</span>
+            <span className="font-bold text-xl">MediBook</span>
           </Link>
           <p className="text-sm">
             Your partner in health and wellness. Providing quality care since
@@ -18,15 +18,20 @@ export function Footer() {
         <div>
           <h3 className="font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2">
+             <li>
+              <Link href="/" className="hover:text-primary">
+                Home
+              </Link>
+            </li>
             <li>
               <a href="#services" className="hover:text-primary">
                 Services
               </a>
             </li>
-            <li>
-              <a href="#appointment" className="hover:text-primary">
-                Appointment
-              </a>
+             <li>
+              <Link href="/doctors" className="hover:text-primary">
+                Doctors
+              </Link>
             </li>
             <li>
               <a href="#branches" className="hover:text-primary">
@@ -45,10 +50,10 @@ export function Footer() {
             <li className="flex items-center">
               <Mail className="h-4 w-4 mr-2 text-primary" />
               <a
-                href="mailto:contact@cityhospital.com"
+                href="mailto:contact@medibook.com"
                 className="hover:text-primary"
               >
-                contact@cityhospital.com
+                contact@medibook.com
               </a>
             </li>
             <li className="flex items-start">
@@ -63,7 +68,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container mx-auto px-4 mt-8 pt-8 border-t border-border text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} City Hospital. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} MediBook. All rights reserved.</p>
       </div>
     </footer>
   );

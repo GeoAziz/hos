@@ -5,8 +5,8 @@ import {Footer} from '@/components/footer';
 import {Toaster} from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'City Hospital',
-  description: 'Comprehensive healthcare services',
+  title: 'MediBook',
+  description: 'Online appointment booking system.',
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
           rel="stylesheet"
         ></link>
       </head>

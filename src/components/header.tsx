@@ -16,9 +16,9 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
+    {href: '/', label: 'Home'},
     {href: '#services', label: 'Services'},
-    {href: '#appointment', label: 'Book Now'},
-    {href: '#testimonials', label: 'Testimonials'},
+    {href: '/doctors', label: 'Doctors'},
     {href: '#branches', label: 'Branches'},
     {href: '#contact', label: 'Contact'},
   ];
@@ -33,14 +33,15 @@ export function Header() {
     isSheet?: boolean;
   }) => {
     const Comp = isSheet ? SheetClose : 'a';
+    const asChildProp = isSheet ? {asChild: true} : {};
     return (
       <Comp
-        asChild={isSheet}
+        {...asChildProp}
         href={href}
         className="text-sm font-medium text-foreground hover:text-primary transition-colors"
         onClick={() => setIsOpen(false)}
       >
-        {label}
+        {isSheet ? <Link href={href}>{label}</Link> : label}
       </Comp>
     );
   };
@@ -50,18 +51,21 @@ export function Header() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Hospital className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg">City Hospital</span>
+          <span className="font-bold text-lg">MediBook</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <NavLink key={link.href} {...link} />
           ))}
         </nav>
-        <div className="flex items-center gap-2">
-          <Button variant="destructive" className="hidden sm:flex">
+        <div className="flex items-center gap-4">
+          <Button variant="destructive" className="hidden sm:flex items-center">
             <Phone className="mr-2 h-4 w-4" />
-            Emergency
+            <span>Emergency</span>
           </Button>
+          <a href="#appointment">
+            <Button className="hidden md:flex">Book Appointment</Button>
+          </a>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
@@ -73,14 +77,17 @@ export function Header() {
               <div className="flex flex-col p-6">
                 <Link href="/" className="flex items-center gap-2 mb-8">
                   <Hospital className="h-6 w-6 text-primary" />
-                  <span className="font-bold text-lg">City Hospital</span>
+                  <span className="font-bold text-lg">MediBook</span>
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) => (
                     <NavLink key={link.href} {...link} isSheet />
                   ))}
                 </nav>
-                <Button variant="destructive" className="mt-8">
+                <a href="#appointment" className="mt-4">
+                 <Button className="w-full">Book Appointment</Button>
+                </a>
+                <Button variant="destructive" className="mt-4">
                   <Phone className="mr-2 h-4 w-4" />
                   Emergency
                 </Button>

@@ -13,6 +13,7 @@ import {
   Calendar,
 } from 'lucide-react';
 import {AppointmentForm} from '@/components/appointment-form';
+import Link from 'next/link';
 
 export default function Home() {
   const services = [
@@ -74,27 +75,30 @@ export default function Home() {
       <main className="flex-1">
         <section
           id="hero"
-          className="relative w-full h-[80vh] flex items-center justify-center text-center text-white"
+          className="relative w-full h-[80vh] flex items-center justify-center text-center bg-background"
         >
-          <Image
-            src="https://placehold.co/1600x900.png"
-            alt="Hospital building"
-            layout="fill"
-            objectFit="cover"
-            className="z-0"
-            data-ai-hint="hospital building"
-          />
-          <div className="absolute inset-0 bg-black/60 z-10"></div>
-          <div className="relative z-20 container mx-auto px-4">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Your Health, Our Priority
-            </h1>
-            <p className="text-lg md:text-xl mb-8">
-              Providing compassionate and quality healthcare you can trust.
-            </p>
-            <Button size="lg" asChild>
-              <a href="#appointment">Book an Appointment</a>
-            </Button>
+          <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+            <div className="text-left">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
+                Your Health, Our Priority
+              </h1>
+              <p className="text-lg md:text-xl mb-8 text-gray-600">
+                Providing compassionate and quality healthcare you can trust.
+              </p>
+              <Button size="lg" asChild>
+                <a href="#appointment">Book an Appointment</a>
+              </Button>
+            </div>
+            <div className="relative w-full h-96">
+              <Image
+                src="https://placehold.co/600x400.png"
+                alt="Hospital building"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg shadow-lg"
+                data-ai-hint="hospital building"
+              />
+            </div>
           </div>
         </section>
 
@@ -187,31 +191,46 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <section id="contact" className="py-20 bg-secondary">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+          <div className="container mx-auto px-4 max-w-2xl text-center">
+            <h2 className="text-3xl font-bold mb-4">Have Questions?</h2>
             <p className="text-muted-foreground mb-8">
-              Have questions? We're here to help.
+              Fill out the form below and we'll get back to you as soon as possible.
             </p>
-            <div className="flex justify-center items-center space-x-8">
-              <div className="flex items-center">
-                <Mail className="h-6 w-6 mr-2 text-primary" />
-                <a
-                  href="mailto:contact@cityhospital.com"
-                  className="hover:underline"
-                >
-                  contact@cityhospital.com
-                </a>
-              </div>
-              <div className="flex items-center">
-                <Phone className="h-6 w-6 mr-2 text-primary" />
-                <span>(123) 456-7890</span>
-              </div>
-            </div>
+            <InquiryForm />
           </div>
         </section>
       </main>
     </div>
   );
+}
+
+function InquiryForm() {
+  return (
+    <form className="space-y-4">
+      <Input placeholder="Your Name" />
+      <Input type="email" placeholder="Your Email" />
+      <Textarea placeholder="Your Message" />
+      <Button type="submit" className="w-full">Send Message</Button>
+    </form>
+  )
+}
+
+function Input(props: React.ComponentProps<'input'>) {
+  return (
+    <input
+      {...props}
+      className="w-full p-3 rounded-md border border-gray-300 focus:ring-primary focus:border-primary"
+    />
+  )
+}
+
+function Textarea(props: React.ComponentProps<'textarea'>) {
+  return (
+    <textarea
+      {...props}
+      className="w-full p-3 rounded-md border border-gray-300 focus:ring-primary focus:border-primary"
+      rows={4}
+    />
+  )
 }

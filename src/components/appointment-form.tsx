@@ -21,10 +21,13 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import {useToast} from '@/hooks/use-toast';
-import {User, Calendar, Stethoscope, Building} from 'lucide-react';
+import {User, Calendar, Stethoscope, Building, MessageSquare, Phone} from 'lucide-react';
+import { bookAppointment } from '@/ai/flows/book-appointment-flow';
+import { Textarea } from './ui/textarea';
 
 const appointmentFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
+  phone: z.string().min(10, 'Please enter a valid phone number.'),
   date: z.string().refine((val) => !isNaN(Date.parse(val)), {
     message: 'Please select a valid date.',
   }),
@@ -34,6 +37,7 @@ const appointmentFormSchema = z.object({
   branch: z.string({
     required_error: 'Please select a branch.',
   }),
+  notes: z.string().optional(),
 });
 
 type AppointmentFormValues = z.infer<typeof appointmentFormSchema>;
@@ -44,16 +48,26 @@ export function AppointmentForm() {
     resolver: zodResolver(appointmentFormSchema),
     defaultValues: {
       name: '',
+      phone: '',
+      notes: '',
     },
   });
 
-  function onSubmit(data: AppointmentFormValues) {
-    console.log(data);
-    toast({
-      title: 'Appointment Booked!',
-      description: `Thank you, ${data.name}. Your appointment for the ${data.department} department at our ${data.branch} branch on ${data.date} has been requested. We will contact you shortly to confirm.`,
-    });
-    form.reset();
+  async function onSubmit(data: AppointmentFormValues) {
+    try {
+      await bookAppointment(data);
+      toast({
+        title: 'Appointment Booked!',
+        description: `Thank you, ${data.name}. Your appointment has been requested. We will contact you shortly to confirm.`,
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'There was an error booking your appointment. Please try again.',
+        variant: 'destructive',
+      });
+    }
   }
 
   return (
@@ -70,6 +84,22 @@ export function AppointmentForm() {
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                   <FormControl>
                     <Input placeholder="John Doe" {...field} className="pl-10" />
+                  </FormControl>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+           <FormField
+            control={form.control}
+            name="phone"
+            render={({field}) => (
+              <FormItem>
+                <FormLabel>Phone Number</FormLabel>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <FormControl>
+                    <Input placeholder="555-555-5555" {...field} className="pl-10" />
                   </FormControl>
                 </div>
                 <FormMessage />
@@ -151,6 +181,22 @@ export function AppointmentForm() {
                   </Select>
                 </div>
 
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+           <FormField
+            control={form.control}
+            name="notes"
+            render={({field}) => (
+              <FormItem className="md:col-span-2">
+                <FormLabel>Additional Notes</FormLabel>
+                <div className="relative">
+                   <MessageSquare className="absolute left-3 top-4 h-5 w-5 text-muted-foreground" />
+                  <FormControl>
+                    <Textarea placeholder="Anything else we should know?" {...field} className="pl-10" />
+                  </FormControl>
+                </div>
                 <FormMessage />
               </FormItem>
             )}
