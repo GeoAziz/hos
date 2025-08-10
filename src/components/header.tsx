@@ -217,7 +217,7 @@ export function Header() {
                 <span>Emergency Call</span>
             </Button>
             <Button asChild>
-                <a href="/#appointment">Book Appointment</a>
+                <Link href="/#appointment">Book Appointment</Link>
             </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
