@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Eye, Droplets, Foot, Ear } from "lucide-react";
+import { Eye, Droplets, Footprints, Ear } from "lucide-react";
 import Image from "next/image";
 import Link from 'next/link';
 
@@ -22,7 +22,7 @@ const clinics = [
     {
         name: "Physiotherapy & Rehab",
         description: "Personalized rehabilitation programs to help you recover from injury and surgery.",
-        icon: <Foot className="w-12 h-12 text-primary" />,
+        icon: <Footprints className="w-12 h-12 text-primary" />,
         imageUrl: "https://placehold.co/600x400.png",
         hint: "physical therapy",
     },
