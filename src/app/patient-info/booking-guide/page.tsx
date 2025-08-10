@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const steps = [
     {
@@ -76,7 +77,7 @@ export default function BookingGuidePage() {
                 <h2 className="text-2xl font-bold">Ready to book?</h2>
                 <p className="text-muted-foreground my-2">It only takes a minute.</p>
                 <Button size="lg" asChild>
-                    <a href="/#appointment">Book an Appointment Now</a>
+                    <Link href="/#appointment">Book an Appointment Now</Link>
                 </Button>
             </div>
         </div>

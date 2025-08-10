@@ -116,7 +116,7 @@ export default function Home() {
             </p>
             <div className="flex gap-4 justify-center">
               <Button size="lg" asChild>
-                <a href="#appointment">Book an Appointment</a>
+                <Link href="/#appointment">Book an Appointment</Link>
               </Button>
                <Button size="lg" variant="secondary" asChild>
                 <Link href="/about">Learn More</Link>

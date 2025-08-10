@@ -79,7 +79,7 @@ export default function BranchesPage() {
                                 </div>
                                 <div className="flex gap-2">
                                     <Button asChild>
-                                      <Link href="#appointment">Book Now</Link>
+                                      <Link href="/#appointment">Book Now</Link>
                                     </Button>
                                     <Button variant="outline">View Details</Button>
                                 </div>

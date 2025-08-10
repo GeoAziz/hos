@@ -54,7 +54,7 @@ export default function DoctorsPage() {
                         <p className="text-sm text-muted-foreground mb-4">{doctor.experience} of experience</p>
                         <p className="text-muted-foreground mb-6 flex-grow">{doctor.bio}</p>
                         <Button className="w-full mt-auto" asChild>
-                            <Link href="#appointment">Book with Dr. {doctor.name.split(' ').pop()}</Link>
+                            <Link href="/#appointment">Book with Dr. {doctor.name.split(' ').pop()}</Link>
                         </Button>
                     </CardContent>
                 </Card>
