@@ -17,32 +17,32 @@ export function Footer() {
         </div>
         <div>
           <h3 className="font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-sm">
              <li>
-              <Link href="/" className="hover:text-primary">
-                Home
+              <Link href="/about" className="hover:text-primary">
+                About Us
               </Link>
             </li>
             <li>
-              <a href="#services" className="hover:text-primary">
-                Services
-              </a>
-            </li>
-             <li>
               <Link href="/doctors" className="hover:text-primary">
                 Doctors
               </Link>
             </li>
-            <li>
-              <a href="#branches" className="hover:text-primary">
+             <li>
+              <Link href="/branches" className="hover:text-primary">
                 Branches
-              </a>
+              </Link>
+            </li>
+            <li>
+               <Link href="/contact" className="hover:text-primary">
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
         <div>
           <h3 className="font-semibold mb-4">Contact Us</h3>
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-sm">
             <li className="flex items-center">
               <Phone className="h-4 w-4 mr-2 text-primary" />
               <span>(123) 456-7890</span>
@@ -64,7 +64,7 @@ export function Footer() {
         </div>
         <div>
           <h3 className="font-semibold mb-4">Follow Us</h3>
-          <p className="text-sm">Social media links coming soon.</p>
+          <p className="text-sm text-muted-foreground">Social media links coming soon.</p>
         </div>
       </div>
       <div className="container mx-auto px-4 mt-8 pt-8 border-t border-border text-center text-sm">
