@@ -125,7 +125,7 @@ export function Header() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
+              <Link href="/" passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Home
                 </NavigationMenuLink>
@@ -210,7 +210,7 @@ export function Header() {
             </NavigationMenuItem>
 
              <NavigationMenuItem>
-              <Link href="/contact" legacyBehavior passHref>
+              <Link href="/contact" passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Contact
                 </NavigationMenuLink>
@@ -226,7 +226,7 @@ export function Header() {
                 <span>Emergency Call</span>
             </Button>
             <Button asChild>
-                <a href="#appointment">Book Appointment</a>
+                <a href="/#appointment">Book Appointment</a>
             </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
