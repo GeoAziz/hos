@@ -16,6 +16,9 @@ import {
   SheetContent,
   SheetTrigger,
   SheetClose,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
 } from '@/components/ui/sheet';
 import {
   NavigationMenu,
@@ -120,9 +123,11 @@ export function Header() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                    <Link href="/" className={navigationMenuTriggerStyle()}>Home</Link>
+              <Link href="/" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Home
                 </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
@@ -203,9 +208,11 @@ export function Header() {
             </NavigationMenuItem>
 
              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                    <Link href="/contact" className={navigationMenuTriggerStyle()}>Contact</Link>
+               <Link href="/contact" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Contact
                 </NavigationMenuLink>
+              </Link>
             </NavigationMenuItem>
 
           </NavigationMenuList>
@@ -227,11 +234,18 @@ export function Header() {
                     </Button>
                 </SheetTrigger>
                 <SheetContent side="left">
-                <div className="flex flex-col p-6">
-                    <Link href="/" className="flex items-center gap-2 mb-8">
-                    <Hospital className="h-6 w-6 text-primary" />
-                    <span className="font-bold text-lg">MediBook</span>
-                    </Link>
+                <SheetHeader>
+                    <SheetTitle>
+                        <Link href="/" className="flex items-center gap-2 mb-8">
+                            <Hospital className="h-6 w-6 text-primary" />
+                            <span className="font-bold text-lg">MediBook</span>
+                        </Link>
+                    </SheetTitle>
+                    <SheetDescription>
+                        Navigate through our services and options.
+                    </SheetDescription>
+                </SheetHeader>
+                <div className="flex flex-col p-6 pt-0">
                     <nav className="flex flex-col gap-4">
                        {/* Mobile Nav items here */}
                        <SheetClose asChild><Link href="/">Home</Link></SheetClose>
