@@ -10,6 +10,10 @@ import {
   Stethoscope,
   HeartPulse,
   Briefcase,
+  Newspaper,
+  Image as ImageIcon,
+  Video,
+  Book,
 } from 'lucide-react';
 import {
   Sheet,
@@ -105,7 +109,30 @@ const patientInfoItems: { title: string; href: string; description: string }[] =
         href: "/patient-info/rights",
         description: "Understand your rights and responsibilities as our patient."
     }
-]
+];
+
+const mediaItems: { title: string; href: string; description: string }[] = [
+  {
+    title: 'News & Events',
+    href: '/media/news',
+    description: 'Read our latest announcements and find out about upcoming events.',
+  },
+  {
+    title: 'Photo Gallery',
+    href: '/media/gallery',
+    description: 'Explore our facilities, staff, and moments from our community.',
+  },
+  {
+    title: 'Video Gallery',
+    href: '/media/videos',
+    description: 'Watch videos about our services, patient stories, and health tips.',
+  },
+  {
+    title: 'Blog',
+    href: '/media/blog',
+    description: 'Check out our blog for articles on health, wellness, and more.',
+  },
+];
 
 
 export function Header() {
@@ -188,6 +215,23 @@ export function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
+             <NavigationMenuItem>
+              <NavigationMenuTrigger>Media</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {mediaItems.map((component) => (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}
+                    >
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
             <NavigationMenuItem>
               <NavigationMenuTrigger>Patient Info</NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -232,7 +276,7 @@ export function Header() {
                 <SheetContent side="left">
                 <SheetHeader>
                     <SheetTitle>
-                        <Link href="/" className="flex items-center gap-2 mb-8">
+                        <Link href="/" className="flex items-center gap-2 mb-4">
                             <Hospital className="h-6 w-6 text-primary" />
                             <span className="font-bold text-lg">MediBook</span>
                         </Link>
@@ -241,7 +285,7 @@ export function Header() {
                         Navigate through our services and options.
                     </SheetDescription>
                 </SheetHeader>
-                <div className="flex flex-col p-6 pt-0">
+                <div className="flex flex-col p-6 pt-4">
                     <nav className="flex flex-col gap-4">
                        {/* Mobile Nav items here */}
                        <SheetClose asChild><Link href="/">Home</Link></SheetClose>
@@ -249,6 +293,7 @@ export function Header() {
                        <SheetClose asChild><Link href="/doctors">Doctors</Link></SheetClose>
                        <SheetClose asChild><Link href="/services/departments">Services</Link></SheetClose>
                        <SheetClose asChild><Link href="/branches">Branches</Link></SheetClose>
+                       <SheetClose asChild><Link href="/media/news">Media</Link></SheetClose>
                        <SheetClose asChild><Link href="/contact">Contact</Link></SheetClose>
                     </nav>
                     <Button variant="destructive" className="mt-6">
@@ -273,6 +318,7 @@ const ListItem = React.forwardRef<
       <NavigationMenuLink asChild>
         <Link
           ref={ref}
+          href={props.href || ''}
           className={cn(
             'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
             className
