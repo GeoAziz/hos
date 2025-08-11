@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -13,6 +14,7 @@ import {
 import { AppointmentForm } from '@/components/appointment-form';
 import { InquiryForm } from '@/components/inquiry-form';
 import Link from 'next/link';
+import { ChatBot } from '@/components/chat-bot';
 
 export default function Home() {
   const services = [
@@ -248,6 +250,7 @@ export default function Home() {
           <InquiryForm />
         </div>
       </section>
+      <ChatBot />
     </div>
   );
 }

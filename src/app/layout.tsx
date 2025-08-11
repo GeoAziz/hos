@@ -1,8 +1,10 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import {Header} from '@/components/header';
 import {Footer} from '@/components/footer';
 import {Toaster} from '@/components/ui/toaster';
+import { SocialSidebar } from '@/components/social-sidebar';
 
 export const metadata: Metadata = {
   title: 'MediBook',
@@ -29,6 +31,7 @@ export default function RootLayout({
         ></link>
       </head>
       <body className="antialiased">
+        <SocialSidebar />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
