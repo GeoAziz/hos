@@ -1,6 +1,10 @@
 import Link from 'next/link';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import {Hospital, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, Linkedin} from 'lucide-react';
+=======
+import {Hospital, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube} from 'lucide-react';
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 =======
 import {Hospital, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube} from 'lucide-react';
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
@@ -10,7 +14,11 @@ export function Footer() {
     <footer className="bg-secondary text-secondary-foreground pt-16 pb-8">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div className="space-y-4">
+=======
+        <div className="space-y-4 md:col-span-2 lg:col-span-1">
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 =======
         <div className="space-y-4 md:col-span-2 lg:col-span-1">
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
@@ -24,6 +32,7 @@ export function Footer() {
           </p>
         </div>
         <div>
+<<<<<<< HEAD
 <<<<<<< HEAD
           <h3 className="font-semibold mb-4">Our Company</h3>
           <ul className="space-y-2 text-sm">
@@ -43,6 +52,8 @@ export function Footer() {
              <li><Link href="/patient-info/insurance" className="hover:text-primary">Insurance Info</Link></li>
              <li><Link href="/patient-info/rights" className="hover:text-primary">Patient Rights</Link></li>
 =======
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
           <h3 className="font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
              <li><Link href="/about" className="hover:text-primary">About Us</Link></li>
@@ -73,6 +84,9 @@ export function Footer() {
               <MapPin className="h-4 w-4 mr-3 mt-1 text-primary flex-shrink-0" />
               <span>123 Health St, Medical City, 12345</span>
             </li>
+<<<<<<< HEAD
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
+=======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
           </ul>
         </div>
@@ -92,9 +106,12 @@ export function Footer() {
                   <Youtube className="h-5 w-5" />
               </Link>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Link href="#" className="p-2 bg-background rounded-full hover:bg-primary hover:text-white transition-colors">
                   <Linkedin className="h-5 w-5" />
               </Link>
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 =======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
           </div>

@@ -9,7 +9,10 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { db } from '@/lib/firebase';
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 =======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 
@@ -66,6 +69,7 @@ const inquiryFlow = ai.defineFlow(
     console.log('Handling inquiry with data:', input);
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     const { output } = await inquiryAnalysisPrompt(input);
 
     const analysisResult = output || {
@@ -88,6 +92,8 @@ const inquiryFlow = ai.defineFlow(
     
     return analysisResult;
 =======
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
     // Here you would typically save the message to a database (e.g., Firestore).
     // For now, we'll just log it.
     
@@ -107,6 +113,9 @@ const inquiryFlow = ai.defineFlow(
       department: 'General Inquiry',
       summary: 'Could not automatically analyze message.',
     };
+<<<<<<< HEAD
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
+=======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
   }
 );

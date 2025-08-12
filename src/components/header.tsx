@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 =======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 'use client';
@@ -15,11 +18,17 @@ import {
   HeartPulse,
   Briefcase,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
   Newspaper,
   Image as ImageIcon,
   Video,
   Book,
+<<<<<<< HEAD
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
+=======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 } from 'lucide-react';
 import {
@@ -42,7 +51,10 @@ import {
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 =======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 
@@ -162,9 +174,15 @@ export function Header() {
           <NavigationMenuList>
             <NavigationMenuItem>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="/">Home</Link>
                 </NavigationMenuLink>
+=======
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                 <Link href="/">Home</Link>
+              </NavigationMenuLink>
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 =======
               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                  <Link href="/">Home</Link>
@@ -267,7 +285,11 @@ export function Header() {
             </NavigationMenuItem>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             <NavigationMenuItem>
+=======
+             <NavigationMenuItem>
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 =======
              <NavigationMenuItem>
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
@@ -306,6 +328,7 @@ export function Header() {
                         Navigate through our services and options.
                     </SheetDescription>
                 </SheetHeader>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <div className="py-4">
                     <Accordion type="multiple" className="w-full">
@@ -378,6 +401,8 @@ export function Header() {
                   Emergency
                 </Button>
 =======
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
                 <div className="flex flex-col p-6 pt-4">
                     <nav className="flex flex-col gap-4">
                        {/* Mobile Nav items here */}
@@ -394,6 +419,9 @@ export function Header() {
                       Emergency
                     </Button>
                 </div>
+<<<<<<< HEAD
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
+=======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
                 </SheetContent>
             </Sheet>

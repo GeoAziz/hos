@@ -16,9 +16,12 @@ import { InquiryForm } from '@/components/inquiry-form';
 import Link from 'next/link';
 import { ChatBot } from '@/components/chat-bot';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { SocialSidebar } from '@/components/social-sidebar';
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 =======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 
@@ -102,6 +105,7 @@ export default function Home() {
 
   return (
     <div>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <SocialSidebar />
       <Header />
@@ -264,6 +268,8 @@ export default function Home() {
       </div>
       <Footer />
 =======
+=======
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
       <section
         id="hero"
         className="relative w-full h-[85vh] flex items-center justify-center text-white"
@@ -419,6 +425,9 @@ export default function Home() {
         </div>
       </section>
       <ChatBot />
+<<<<<<< HEAD
+>>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
+=======
 >>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
     </div>
   );
