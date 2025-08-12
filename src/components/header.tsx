@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 'use client';
 
 import * as React from 'react';
@@ -17,19 +10,6 @@ import {
   Stethoscope,
   HeartPulse,
   Briefcase,
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-  Newspaper,
-  Image as ImageIcon,
-  Video,
-  Book,
-<<<<<<< HEAD
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 } from 'lucide-react';
 import {
   Sheet,
@@ -50,13 +30,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 
 const aboutUsItems: { title: string; href: string; description: string }[] = [
   {
@@ -173,21 +147,9 @@ export function Header() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-<<<<<<< HEAD
-<<<<<<< HEAD
                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="/">Home</Link>
                 </NavigationMenuLink>
-=======
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                 <Link href="/">Home</Link>
-              </NavigationMenuLink>
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
-              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                 <Link href="/">Home</Link>
-              </NavigationMenuLink>
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
             </NavigationMenuItem>
             
             <NavigationMenuItem>
@@ -284,15 +246,7 @@ export function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             <NavigationMenuItem>
-=======
-             <NavigationMenuItem>
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
-             <NavigationMenuItem>
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link href="/contact">Contact</Link>
                 </NavigationMenuLink>
@@ -328,8 +282,6 @@ export function Header() {
                         Navigate through our services and options.
                     </SheetDescription>
                 </SheetHeader>
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <div className="py-4">
                     <Accordion type="multiple" className="w-full">
                         <SheetClose asChild>
@@ -400,29 +352,6 @@ export function Header() {
                   <Phone className="mr-2 h-4 w-4" />
                   Emergency
                 </Button>
-=======
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-                <div className="flex flex-col p-6 pt-4">
-                    <nav className="flex flex-col gap-4">
-                       {/* Mobile Nav items here */}
-                       <SheetClose asChild><Link href="/">Home</Link></SheetClose>
-                       <SheetClose asChild><Link href="/about">About Us</Link></SheetClose>
-                       <SheetClose asChild><Link href="/doctors">Doctors</Link></SheetClose>
-                       <SheetClose asChild><Link href="/services/departments">Services</Link></SheetClose>
-                       <SheetClose asChild><Link href="/branches">Branches</Link></SheetClose>
-                       <SheetClose asChild><Link href="/media/news">Media</Link></SheetClose>
-                       <SheetClose asChild><Link href="/contact">Contact</Link></SheetClose>
-                    </nav>
-                    <Button variant="destructive" className="mt-6">
-                      <Phone className="mr-2 h-4 w-4" />
-                      Emergency
-                    </Button>
-                </div>
-<<<<<<< HEAD
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
                 </SheetContent>
             </Sheet>
         </div>

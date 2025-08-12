@@ -72,18 +72,8 @@ export function AppointmentForm() {
 
   return (
     <Form {...form}>
-<<<<<<< HEAD
-<<<<<<< HEAD
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-=======
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
           <FormField
             control={form.control}
             name="name"

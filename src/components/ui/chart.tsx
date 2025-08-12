@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 "use client"
 
 import * as React from "react"
@@ -261,15 +255,7 @@ const ChartTooltipContent = React.forwardRef<
     )
   }
 )
-<<<<<<< HEAD
-<<<<<<< HEAD
 ChartTooltipContent.displayName = "ChartTooltipContent"
-=======
-ChartTooltipContent.displayName = "ChartTooltip"
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
-ChartTooltipContent.displayName = "ChartTooltip"
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 
 const ChartLegend = RechartsPrimitive.Legend
 

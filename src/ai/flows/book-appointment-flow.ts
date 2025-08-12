@@ -9,13 +9,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { db } from '@/lib/firebase';
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
 
 const BookAppointmentInputSchema = z.object({
   name: z.string().describe('The name of the patient.'),
@@ -57,8 +51,6 @@ const bookAppointmentFlow = ai.defineFlow(
     outputSchema: BookAppointmentOutputSchema,
   },
   async (input) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
     console.log('Saving appointment to Firestore with data:', input);
 
     // Save to Firestore
@@ -68,16 +60,6 @@ const bookAppointmentFlow = ai.defineFlow(
       status: 'pending', // Default status
     });
 
-=======
-    console.log('Booking appointment with data:', input);
-    // In a real app, you would save this to a database like Firestore.
-    // For this prototype, we'll just log it and simulate a success response from the AI.
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
-    console.log('Booking appointment with data:', input);
-    // In a real app, you would save this to a database like Firestore.
-    // For this prototype, we'll just log it and simulate a success response from the AI.
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
     const { output } = await appointmentPrompt(input);
     return output || { success: true, message: "Your appointment has been successfully booked." };
   }
