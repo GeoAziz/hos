@@ -13,10 +13,15 @@ if (process.env.SERVICE_ACCOUNT_PRIVATE_KEY) {
         privateKey: process.env.SERVICE_ACCOUNT_PRIVATE_KEY.replace(/\\n/g, '\n'),
     };
 } else {
-    serviceAccount = require('../../serviceAccountKey.json');
+    try {
+        serviceAccount = require('../../serviceAccountKey.json');
+    } catch (e) {
+        console.error("serviceAccountKey.json not found. Make sure you have the file for local development, or set environment variables for production.");
+        serviceAccount = undefined;
+    }
 }
 
-if (!getApps().length) {
+if (serviceAccount && !getApps().length) {
   initializeApp({
     credential: cert(serviceAccount),
   });
