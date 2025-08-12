@@ -9,16 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "typecheck": "tsc --noEmit",
     "setup:admin": "tsx scripts/create-admin.ts"
-=======
-    "typecheck": "tsc --noEmit"
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
-    "typecheck": "tsc --noEmit"
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.14.1",
@@ -52,13 +44,7 @@
     "dotenv": "^16.5.0",
     "embla-carousel-react": "^8.6.0",
     "firebase": "^11.9.1",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "firebase-admin": "^12.1.0",
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
     "genkit": "^1.14.1",
     "lucide-react": "^0.475.0",
     "next": "15.3.3",
@@ -79,13 +65,7 @@
     "genkit-cli": "^1.14.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "tsx": "^4.16.2",
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
-=======
->>>>>>> c1c10e9600d6848c7c3c7535079d9699ae989873
     "typescript": "^5"
   }
 }
