@@ -26,11 +26,14 @@ if (process.env.SERVICE_ACCOUNT_CLIENT_EMAIL && process.env.SERVICE_ACCOUNT_PRIV
 }
 
 // --- Firebase Initialization ---
-if (!getApps().length) {
+if (serviceAccount && !getApps().length) {
   initializeApp({
     credential: cert(serviceAccount),
   });
+} else if (!serviceAccount) {
+    console.warn("Firebase Admin SDK credentials not found. Skipping initialization.");
 }
+
 
 const db = getFirestore();
 
@@ -106,6 +109,10 @@ const doctors = [
 
 // --- Seeding Function ---
 async function seedDoctors() {
+    if (!serviceAccount) {
+        console.error('Firebase Admin SDK not initialized. Cannot seed database. Please provide credentials.');
+        return;
+    }
     const doctorsCollection = db.collection('doctors');
     console.log('Starting to seed doctors with enhanced data...');
 

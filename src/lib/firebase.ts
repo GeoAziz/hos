@@ -16,16 +16,23 @@ if (process.env.SERVICE_ACCOUNT_CLIENT_EMAIL && process.env.SERVICE_ACCOUNT_PRIV
     try {
         serviceAccount = require('../../serviceAccountKey.json');
     } catch (e) {
-        console.error("serviceAccountKey.json not found. Make sure you have the file for local development, or set environment variables for production.");
+        console.warn("serviceAccountKey.json not found. This is okay for client-side rendering, but server-side features will be disabled.");
         serviceAccount = undefined; // Set to undefined if no credentials are found
     }
 }
 
 // Initialize Firebase Admin SDK only if it hasn't been initialized yet and credentials exist
 if (serviceAccount && !getApps().length) {
-  initializeApp({
-    credential: cert(serviceAccount),
-  });
+  try {
+    initializeApp({
+      credential: cert(serviceAccount),
+    });
+     console.log("Firebase Admin SDK initialized successfully.");
+  } catch (error: any) {
+    console.error("Firebase Admin SDK initialization error:", error.message);
+  }
+} else if (!getApps().length) {
+    console.warn("Firebase Admin SDK credentials not found. Skipping Admin SDK initialization.");
 }
 
 const db = getFirestore();
