@@ -4,34 +4,15 @@
  * To run: `npm run seed:doctors`
  */
 
-import { initializeApp, getApps, cert } from 'firebase-admin/app';
+import { initializeApp, getApps } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import "dotenv/config";
 
-// --- Credentials Setup ---
-let serviceAccount: any;
-if (process.env.SERVICE_ACCOUNT_CLIENT_EMAIL && process.env.SERVICE_ACCOUNT_PRIVATE_KEY) {
-    serviceAccount = {
-        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-        clientEmail: process.env.SERVICE_ACCOUNT_CLIENT_EMAIL,
-        privateKey: process.env.SERVICE_ACCOUNT_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    };
-} else {
-    try {
-        serviceAccount = require('../serviceAccountKey.json');
-    } catch (e) {
-        console.error("serviceAccountKey.json not found. Make sure you have the file for local development, or set environment variables.");
-        process.exit(1);
-    }
-}
-
 // --- Firebase Initialization ---
-if (serviceAccount && !getApps().length) {
-  initializeApp({
-    credential: cert(serviceAccount),
-  });
-} else if (!serviceAccount) {
-    console.warn("Firebase Admin SDK credentials not found. Skipping initialization.");
+// In a managed environment, initializeApp() will automatically use the
+// available service account credentials.
+if (!getApps().length) {
+  initializeApp();
 }
 
 
@@ -109,8 +90,8 @@ const doctors = [
 
 // --- Seeding Function ---
 async function seedDoctors() {
-    if (!serviceAccount) {
-        console.error('Firebase Admin SDK not initialized. Cannot seed database. Please provide credentials.');
+    if (!getApps().length) {
+        console.error('Firebase Admin SDK not initialized. Cannot seed database.');
         return;
     }
     const doctorsCollection = db.collection('doctors');

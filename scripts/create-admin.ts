@@ -4,34 +4,14 @@
  * To run: `npm run setup:admin`
  */
 
-import { initializeApp, getApps, cert } from 'firebase-admin/app';
+import { initializeApp, getApps } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
 import "dotenv/config";
 
-let serviceAccount: any;
-
-// Conditionally import the service account key
-if (process.env.SERVICE_ACCOUNT_CLIENT_EMAIL && process.env.SERVICE_ACCOUNT_PRIVATE_KEY) {
-    serviceAccount = {
-        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-        clientEmail: process.env.SERVICE_ACCOUNT_CLIENT_EMAIL,
-        privateKey: process.env.SERVICE_ACCOUNT_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    };
-} else {
-    try {
-      serviceAccount = require('../serviceAccountKey.json');
-    } catch (e) {
-        console.error("serviceAccountKey.json not found. Make sure you have the file for local development.");
-        process.exit(1);
-    }
-}
-
-
-// Initialize Firebase Admin SDK if not already initialized
+// Initialize Firebase Admin SDK if not already initialized.
+// This will use Application Default Credentials in a managed environment.
 if (!getApps().length) {
-  initializeApp({
-    credential: cert(serviceAccount),
-  });
+  initializeApp();
 }
 
 const auth = getAuth();
