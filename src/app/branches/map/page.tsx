@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -33,7 +34,6 @@ export default function BranchMapPage() {
                             layout="fill"
                             objectFit="cover"
                             alt="Map of hospital branches"
-                            data-ai-hint="city map"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
                            <p className="text-lg bg-black/50 text-white p-4 rounded-md">Interactive Map Placeholder</p>

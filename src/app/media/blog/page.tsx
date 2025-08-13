@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,7 +13,6 @@ const blogPosts = [
         author: "Dr. Evelyn Reed",
         excerpt: "Regular health check-ups can help find problems before they start. They also can help find problems early, when your chances for treatment and cure are better.",
         imageUrl: "https://placehold.co/600x400.png",
-        hint: "doctor consulting patient"
     },
     {
         title: "Eating for a Healthy Heart: A Guide by Our Cardiologists",
@@ -20,7 +20,6 @@ const blogPosts = [
         author: "Dr. Evelyn Reed",
         excerpt: "A healthy diet is one of the best weapons you have to fight cardiovascular disease. Our experts share tips on what to eat to keep your heart in top shape.",
         imageUrl: "https://placehold.co/600x400.png",
-        hint: "healthy heart food"
     },
     {
         title: "Understanding Your Child's Vaccination Schedule",
@@ -28,7 +27,6 @@ const blogPosts = [
         author: "Dr. Sofia Garcia",
         excerpt: "Vaccinations are a key part of keeping your child healthy. Here’s a guide to understanding the recommended vaccination schedule and why it’s important.",
         imageUrl: "https://placehold.co/600x400.png",
-        hint: "child vaccination doctor"
     },
     {
         title: "5 Common Neurological Disorders: Signs and Symptoms",
@@ -36,7 +34,6 @@ const blogPosts = [
         author: "Dr. Marcus Chen",
         excerpt: "From migraines to epilepsy, our lead neurologist discusses the common signs and symptoms of neurological disorders and when to seek help.",
         imageUrl: "https://placehold.co/600x400.png",
-        hint: "brain scan mri"
     }
 ];
 
@@ -57,7 +54,7 @@ export default function BlogPage() {
                             {blogPosts.map(post => (
                                 <Card key={post.title} className="flex flex-col md:flex-row overflow-hidden shadow-lg">
                                     <div className="relative md:w-1/3 h-64 md:h-auto">
-                                        <Image src={post.imageUrl} alt={post.title} layout="fill" objectFit="cover" data-ai-hint={post.hint} />
+                                        <Image src={post.imageUrl} alt={post.title} layout="fill" objectFit="cover" />
                                     </div>
                                     <div className="md:w-2/3 p-6 flex flex-col">
                                         <CardHeader className="p-0">

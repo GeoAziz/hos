@@ -112,7 +112,6 @@ export default function Home() {
               layout="fill"
               objectFit="cover"
               className="z-0"
-              data-ai-hint="modern hospital interior"
           />
           <div className="absolute inset-0 bg-black/50 z-10" />
           <div className="container mx-auto px-4 z-20 text-center">
@@ -190,7 +189,7 @@ export default function Home() {
                   <Card key={doctor.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col text-center">
                       <CardHeader className="p-0">
                         <div className="relative h-64 w-full">
-                          <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} layout="fill" objectFit="cover" data-ai-hint="doctor portrait" />
+                          <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} layout="fill" objectFit="cover" />
                         </div>
                       </CardHeader>
                       <CardContent className="p-6">

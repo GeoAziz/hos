@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -9,28 +10,24 @@ const newsItems = [
         date: "July 25, 2024",
         excerpt: "We are thrilled to announce the opening of our new Advanced Imaging Center, featuring the latest in MRI and CT scan technology to provide faster, more accurate diagnoses.",
         imageUrl: "https://placehold.co/600x400.png",
-        hint: "mri machine",
     },
     {
         title: "Annual Charity Marathon Raises Record Funds for Children's Wing",
         date: "July 20, 2024",
         excerpt: "This year's MediBook Charity Marathon was a massive success, raising over $100,000 to support our pediatric care services and facilities. A huge thank you to all participants and sponsors!",
         imageUrl: "https://placehold.co/600x400.png",
-        hint: "charity marathon finish",
     },
     {
         title: "Dr. Evelyn Reed Named 'Cardiologist of the Year'",
         date: "July 15, 2024",
         excerpt: "Our very own Dr. Evelyn Reed has been awarded the prestigious 'Cardiologist of the Year' award for her groundbreaking research and dedication to patient care.",
         imageUrl: "https://placehold.co/600x400.png",
-        hint: "doctor receiving award",
     },
      {
         title: "Free Community Health Fair - August 10th",
         date: "July 10, 2024",
         excerpt: "Join us on August 10th for our annual Community Health Fair. We'll be offering free health screenings, wellness workshops, and fun activities for the whole family.",
         imageUrl: "https://placehold.co/600x400.png",
-        hint: "community health fair",
     },
 ];
 
@@ -49,7 +46,7 @@ export default function NewsPage() {
                     <Card key={item.title} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <CardHeader className="p-0">
                              <div className="relative h-64 w-full">
-                                <Image src={item.imageUrl} alt={item.title} layout="fill" objectFit="cover" data-ai-hint={item.hint} />
+                                <Image src={item.imageUrl} alt={item.title} layout="fill" objectFit="cover" />
                             </div>
                         </CardHeader>
                         <CardContent className="p-6 flex-grow">

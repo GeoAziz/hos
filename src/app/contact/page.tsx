@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,7 +49,7 @@ export default function ContactPage() {
                     </div>
                 </div>
                  <div className="relative w-full h-64 rounded-lg overflow-hidden">
-                    <Image src="https://placehold.co/600x400.png" alt="Map to headquarters" layout="fill" objectFit="cover" data-ai-hint="city map" />
+                    <Image src="https://placehold.co/600x400.png" alt="Map to headquarters" layout="fill" objectFit="cover" />
                  </div>
             </div>
         </div>

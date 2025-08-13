@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
@@ -9,31 +10,26 @@ const steps = [
         title: "1. Select 'Book Appointment'",
         description: "Click the 'Book Appointment' button from anywhere on our site to open the booking form.",
         image: "https://placehold.co/600x400.png",
-        hint: "website screenshot button",
     },
     {
         title: "2. Choose Branch & Department",
         description: "Select your preferred hospital branch and the medical department you wish to visit from the dropdown menus.",
         image: "https://placehold.co/600x400.png",
-         hint: "form dropdown menu",
     },
     {
         title: "3. Pick a Date",
         description: "Use the calendar to select a date that works for you. Available slots will be shown.",
         image: "https://placehold.co/600x400.png",
-        hint: "calendar interface",
     },
     {
         title: "4. Enter Your Details",
         description: "Fill in your name, contact information, and any additional notes for the doctor.",
         image: "https://placehold.co/600x400.png",
-        hint: "patient information form",
     },
     {
         title: "5. Confirm Your Booking",
         description: "Review your appointment details and click 'Confirm Booking'. You'll receive a confirmation via SMS and email shortly.",
         image: "https://placehold.co/600x400.png",
-        hint: "confirmation message success",
     },
 ];
 
@@ -65,7 +61,6 @@ export default function BookingGuidePage() {
                                     alt={step.title} 
                                     layout="fill" 
                                     objectFit="cover" 
-                                    data-ai-hint={step.hint}
                                 />
                             </div>
                        </div>

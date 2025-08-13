@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Award, BookOpen } from "lucide-react";
@@ -45,7 +46,7 @@ export default function DoctorsPage() {
                 <Card key={doctor.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
                     <CardHeader className="p-0">
                        <div className="relative h-64 w-full">
-                         <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} layout="fill" objectFit="cover" data-ai-hint="doctor portrait" />
+                         <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} layout="fill" objectFit="cover" />
                        </div>
                     </CardHeader>
                     <CardContent className="p-6 flex flex-col flex-grow">

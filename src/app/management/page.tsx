@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
@@ -42,7 +43,7 @@ export default function ManagementPage() {
                     <Card key={member.name} className="text-center overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <CardHeader className="p-0">
                             <div className="relative h-64 w-full">
-                                <Image src={member.imageUrl} alt={member.name} layout="fill" objectFit="cover" data-ai-hint="professional headshot" />
+                                <Image src={member.imageUrl} alt={member.name} layout="fill" objectFit="cover" />
                             </div>
                         </CardHeader>
                         <CardContent className="p-6">

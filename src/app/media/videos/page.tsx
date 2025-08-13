@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlayCircle } from "lucide-react";
 import Image from "next/image";
@@ -7,37 +8,31 @@ const videos = [
         title: "A Virtual Tour of MediBook Hospital",
         duration: "5:42",
         thumbnailUrl: "https://placehold.co/600x400.png",
-        hint: "hospital hallway"
     },
     {
         title: "Patient Testimonial: Sarah's Recovery Journey",
         duration: "3:15",
         thumbnailUrl: "https://placehold.co/600x400.png",
-        hint: "patient smiling"
     },
     {
         title: "Meet Our Cardiology Team",
         duration: "8:30",
         thumbnailUrl: "https://placehold.co/600x400.png",
-        hint: "doctors team"
     },
     {
         title: "Understanding Minimally Invasive Surgery",
         duration: "10:05",
         thumbnailUrl: "https://placehold.co/600x400.png",
-        hint: "surgery in progress"
     },
     {
         title: "A Day in the Life of a MediBook Nurse",
         duration: "6:50",
         thumbnailUrl: "https://placehold.co/600x400.png",
-        hint: "nurse at work"
     },
      {
         title: "The Importance of Physical Therapy",
         duration: "4:20",
         thumbnailUrl: "https://placehold.co/600x400.png",
-        hint: "physical therapy session"
     },
 ];
 
@@ -55,7 +50,7 @@ export default function VideoGalleryPage() {
                     <Card key={video.title} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
                         <CardHeader className="p-0 relative">
                             <div className="relative h-64 w-full">
-                                <Image src={video.thumbnailUrl} alt={video.title} layout="fill" objectFit="cover" data-ai-hint={video.hint} />
+                                <Image src={video.thumbnailUrl} alt={video.title} layout="fill" objectFit="cover" />
                                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <PlayCircle className="h-16 w-16 text-white" />
                                 </div>
