@@ -1,5 +1,5 @@
 
-import { initializeApp, getApps, cert } from 'firebase-admin/app';
+import { initializeApp, getApps, cert, App } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import "dotenv/config";
 
@@ -18,21 +18,24 @@ const getFirebaseAdminCredentials = () => {
   };
 };
 
+let app: App;
 const serviceAccount = getFirebaseAdminCredentials();
 
-if (!getApps().length) {
+if (getApps().length === 0) {
   if (serviceAccount) {
-    try {
-      initializeApp({
-        credential: cert(serviceAccount)
-      });
-      console.log("Firebase Admin SDK initialized successfully.");
-    } catch (error: any) {
-        console.error("Firebase Admin SDK initialization error:", error.message);
-    }
+    app = initializeApp({
+      credential: cert(serviceAccount)
+    });
+    console.log("Firebase Admin SDK initialized successfully.");
+  } else {
+    // This will happen if the env vars are not set.
+    // It allows the app to build but will fail at runtime if Firebase is accessed.
+    app = initializeApp();
   }
+} else {
+  app = getApps()[0];
 }
 
-const db = getFirestore();
+const db = getFirestore(app);
 
 export { db };
