@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "setup:admin": "tsx scripts/create-admin.ts"
+    "setup:admin": "tsx scripts/create-admin.ts",
+    "seed:doctors": "tsx scripts/seed-doctors.ts"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.14.1",

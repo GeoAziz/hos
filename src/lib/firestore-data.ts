@@ -33,3 +33,27 @@ export async function getInquiries() {
         ...doc.data()
     }));
 }
+
+export interface Doctor {
+    id: string;
+    name: string;
+    specialty: string;
+    experience: string;
+    bio: string;
+    imageUrl: string;
+}
+
+export async function getDoctors(): Promise<Doctor[]> {
+    const snapshot = await db.collection('doctors')
+        .orderBy('name', 'asc')
+        .get();
+
+    if (snapshot.empty) {
+        return [];
+    }
+    
+    return snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    })) as Doctor[];
+}
