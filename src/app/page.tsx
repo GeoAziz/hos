@@ -23,21 +23,25 @@ export default function Home() {
   const services = [
     {
       name: 'Cardiology',
+      slug: 'cardiology',
       description: 'Expert heart care and diagnostics.',
       icon: <HeartPulse className="h-10 w-10 text-primary" />,
     },
     {
-      name: 'General Check-up',
-      description: 'Comprehensive health assessments.',
+      name: 'Neurology',
+      slug: 'neurology',
+      description: 'Specialized care for the nervous system.',
       icon: <Stethoscope className="h-10 w-10 text-primary" />,
     },
     {
       name: 'Pediatrics',
+      slug: 'pediatrics',
       description: 'Specialized care for infants and children.',
       icon: <Users className="h-10 w-10 text-primary" />,
     },
     {
       name: 'Emergency Care',
+      slug: 'emergency',
       description: '24/7 immediate medical attention.',
       icon: <ShieldCheck className="h-10 w-10 text-primary" />,
     },
@@ -65,17 +69,20 @@ export default function Home() {
     {
         name: "Dr. Evelyn Reed",
         specialty: "Cardiology",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,professional,headshot",
+        dataAiHint: 'doctor portrait'
     },
     {
         name: "Dr. Marcus Chen",
         specialty: "Neurology",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?doctor,man,professional,headshot",
+        dataAiHint: 'doctor portrait'
     },
     {
         name: "Dr. Sofia Garcia",
         specialty: "Pediatrics",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician,headshot",
+        dataAiHint: 'doctor portrait'
     },
   ];
 
@@ -107,11 +114,12 @@ export default function Home() {
           className="relative w-full h-[85vh] flex items-center justify-center text-white"
         >
           <Image 
-              src="https://placehold.co/1600x900.png"
+              src="https://source.unsplash.com/1600x900/?hospital,interior,modern"
               alt="Hero background image of a modern hospital interior"
               layout="fill"
               objectFit="cover"
               className="z-0"
+              data-ai-hint="modern hospital interior"
           />
           <div className="absolute inset-0 bg-black/50 z-10" />
           <div className="container mx-auto px-4 z-20 text-center">
@@ -158,20 +166,21 @@ export default function Home() {
             <p className="text-muted-foreground mb-12">Comprehensive care for all your needs.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {services.map((service) => (
-                <Card
-                  key={service.name}
-                  className="bg-card text-card-foreground shadow-md text-center"
-                >
-                  <CardHeader>
-                    <div className="flex justify-center mb-4">
-                      {service.icon}
-                    </div>
-                    <CardTitle>{service.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
-                  </CardContent>
-                </Card>
+                <Link href={`/services/${service.slug}`} key={service.name} className="block">
+                  <Card
+                    className="bg-card text-card-foreground shadow-md text-center h-full hover:shadow-xl hover:-translate-y-1 transition-all"
+                  >
+                    <CardHeader>
+                      <div className="flex justify-center mb-4">
+                        {service.icon}
+                      </div>
+                      <CardTitle>{service.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
             <Button size="lg" variant="outline" className="mt-12" asChild>
@@ -189,7 +198,7 @@ export default function Home() {
                   <Card key={doctor.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col text-center">
                       <CardHeader className="p-0">
                         <div className="relative h-64 w-full">
-                          <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} layout="fill" objectFit="cover" />
+                          <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} layout="fill" objectFit="cover" data-ai-hint={doctor.dataAiHint} />
                         </div>
                       </CardHeader>
                       <CardContent className="p-6">
