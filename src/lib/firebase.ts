@@ -1,4 +1,4 @@
-'use server';
+
 
 import { initializeApp, getApps } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
@@ -12,7 +12,7 @@ if (!getApps().length) {
   try {
     initializeApp();
      console.log("Firebase Admin SDK initialized successfully.");
-  } catch (error: any) {
+  } catch (error: any) => {
     console.error("Firebase Admin SDK initialization error:", error.message);
   }
 }
