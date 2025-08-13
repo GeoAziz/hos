@@ -167,21 +167,20 @@ export function Header() {
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] lg:grid-cols-3">
                   {servicesItems.map((item) => (
-                     <li key={item.title}>
-                        <NavigationMenuLink asChild>
-                           <Link
-                            href={item.href}
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                          >
-                           {item.icon}
+                    <li key={item.title}>
+                      <NavigationMenuLink asChild>
+                        <Link href={item.href} legacyBehavior passHref>
+                          <a className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                            {item.icon}
                             <div className="mb-2 mt-4 text-lg font-medium">
                               {item.title}
                             </div>
                             <p className="text-sm leading-tight text-muted-foreground">
                               {item.description}
                             </p>
-                          </Link>
-                        </NavigationMenuLink>
+                          </a>
+                        </Link>
+                      </NavigationMenuLink>
                     </li>
                   ))}
                 </ul>
@@ -360,4 +359,3 @@ const ListItem = React.forwardRef<
     </li>
   );
 });
-ListItem.displayName = 'ListItem';

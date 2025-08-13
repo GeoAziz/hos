@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Clock, Phone, Mail, MapPin, Building, Stethoscope, UserMd, Users } from 'lucide-react';
+import { Clock, Phone, Mail, MapPin, Building, Stethoscope, User, Users } from 'lucide-react';
 import Link from 'next/link';
 import { GoogleMap } from '@/components/google-map';
 
