@@ -1,14 +1,15 @@
-
 'use client';
 
 import { useState, useMemo } from 'react';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Doctor } from '@/lib/firestore-data';
+import { Badge } from './ui/badge';
+import { Star } from 'lucide-react';
 
 interface DoctorSearchProps {
     doctors: Doctor[];
@@ -56,20 +57,24 @@ export function DoctorSearch({ doctors, departments }: DoctorSearchProps) {
                 {filteredDoctors.length > 0 ? (
                     filteredDoctors.map(doctor => (
                         <Card key={doctor.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
-                            <CardHeader className="p-0">
+                            <CardHeader className="p-0 relative">
                                <div className="relative h-64 w-full">
                                  <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} layout="fill" objectFit="cover" />
                                </div>
+                               <Badge className="absolute top-4 right-4 flex gap-1 items-center" variant="destructive">
+                                 <Star className="h-4 w-4" /> {doctor.rating.toFixed(1)}
+                               </Badge>
                             </CardHeader>
                             <CardContent className="p-6 flex flex-col flex-grow">
-                                <CardTitle className="text-2xl mb-2">{doctor.name}</CardTitle>
-                                <p className="text-primary font-semibold mb-2">{doctor.specialty}</p>
-                                <p className="text-sm text-muted-foreground mb-4">{doctor.experience} of experience</p>
-                                <p className="text-muted-foreground mb-6 flex-grow">{doctor.bio}</p>
-                                <Button className="w-full mt-auto" asChild>
-                                    <Link href="/#appointment">Book with Dr. {doctor.name.split(' ').pop()}</Link>
-                                </Button>
+                                <CardTitle className="text-2xl mb-1">{doctor.name}</CardTitle>
+                                <p className="text-primary font-semibold mb-4">{doctor.specialty}</p>
+                                <p className="text-muted-foreground mb-6 flex-grow line-clamp-3">{doctor.bio}</p>
                             </CardContent>
+                             <CardFooter className="p-6 pt-0">
+                                <Button className="w-full mt-auto" asChild>
+                                    <Link href={`/doctors/${doctor.id}`}>View Profile</Link>
+                                </Button>
+                            </CardFooter>
                         </Card>
                     ))
                 ) : (

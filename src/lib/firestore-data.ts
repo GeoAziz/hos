@@ -1,4 +1,3 @@
-
 'use server';
 
 import { db } from './firebase';
@@ -41,6 +40,10 @@ export interface Doctor {
     experience: string;
     bio: string;
     imageUrl: string;
+    education: string[];
+    services: string[];
+    rating: number;
+    testimonials: { name: string; quote: string }[];
 }
 
 export async function getDoctors(): Promise<Doctor[]> {
@@ -56,4 +59,16 @@ export async function getDoctors(): Promise<Doctor[]> {
         id: doc.id,
         ...doc.data()
     })) as Doctor[];
+}
+
+
+export async function getDoctorById(id: string): Promise<Doctor | null> {
+    const docRef = db.collection('doctors').doc(id);
+    const doc = await docRef.get();
+
+    if (!doc.exists) {
+        return null;
+    }
+
+    return { id: doc.id, ...doc.data() } as Doctor;
 }
