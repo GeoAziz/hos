@@ -46,10 +46,10 @@ export function Footer() {
               </Link>
                <Link href="#" className="p-2 bg-background rounded-full hover:bg-primary hover:text-white transition-colors">
                   <Instagram className="h-5 w-5" />
-              </Link>
+               </Link>
                <Link href="#" className="p-2 bg-background rounded-full hover:bg-primary hover:text-white transition-colors">
                   <Youtube className="h-5 w-5" />
-              </Link>
+               </Link>
               <Link href="#" className="p-2 bg-background rounded-full hover:bg-primary hover:text-white transition-colors">
                   <Linkedin className="h-5 w-5" />
               </Link>
