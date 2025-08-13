@@ -84,6 +84,11 @@ const patientInfoItems: { title: string; href: string; description: string }[] =
         href: "/patient-info/booking-guide",
         description: "A step-by-step guide to using our online appointment system."
     },
+     {
+        title: "Patient Stories",
+        href: "/patient-stories",
+        description: "Read real stories from patients we've cared for."
+    },
     {
         title: "Insurance Partners",
         href: "/patient-info/insurance",

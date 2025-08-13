@@ -18,6 +18,7 @@ import { ChatBot } from '@/components/chat-bot';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { SocialSidebar } from '@/components/social-sidebar';
+import { TestimonialCarousel } from '@/components/testimonial-carousel';
 
 export default function Home() {
   const services = [
@@ -83,24 +84,6 @@ export default function Home() {
         specialty: "Pediatrics",
         imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician,headshot",
         dataAiHint: 'doctor portrait'
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah L.',
-      quote:
-        'The care I received was exceptional. The doctors were knowledgeable and the staff was incredibly supportive. I felt safe and well-cared for throughout my treatment.',
-    },
-    {
-      name: 'John D.',
-      quote:
-        'Booking an appointment was so easy with their online system. I found a slot that worked for me without having to make a single phone call. Highly recommended!',
-    },
-    {
-      name: 'Emily R.',
-      quote:
-        'The facilities are top-notch and very clean. From the moment I walked in, I was impressed by the professionalism and the modern equipment they use.',
     },
   ];
 
@@ -233,26 +216,13 @@ export default function Home() {
         </section>
 
         <section id="testimonials" className="py-20 bg-background">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-12">
-              What Our Patients Say
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial) => (
-                <Card
-                  key={testimonial.name}
-                  className="bg-card text-card-foreground shadow-lg"
-                >
-                  <CardContent className="pt-6">
-                    <p className="italic text-muted-foreground mb-4">
-                      "{testimonial.quote}"
-                    </p>
-                    <p className="font-bold text-primary">{testimonial.name}</p>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold">What Our Patients Say</h2>
+                    <p className="text-muted-foreground mt-2">Real stories from the people we've cared for.</p>
+                </div>
+                <TestimonialCarousel />
             </div>
-          </div>
         </section>
 
         <section id="contact" className="py-20 bg-secondary">
