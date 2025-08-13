@@ -14,8 +14,10 @@ import { db } from '@/lib/firebase';
 const BookAppointmentInputSchema = z.object({
   name: z.string().describe('The name of the patient.'),
   phone: z.string().describe('The phone number of the patient.'),
+  dob: z.string().describe("The patient's date of birth."),
   date: z.string().describe('The preferred date for the appointment.'),
   department: z.string().describe('The department for the appointment.'),
+  doctor: z.string().describe('The selected doctor for the appointment.'),
   branch: z.string().describe('The hospital branch for the appointment.'),
   notes: z.string().optional().describe('Any additional notes from the patient.'),
 });
@@ -36,8 +38,10 @@ const appointmentPrompt = ai.definePrompt({
   prompt: `A patient is booking an appointment. Here are the details:
 - Name: {{name}}
 - Phone: {{phone}}
-- Date: {{date}}
+- Date of Birth: {{dob}}
 - Department: {{department}}
+- Doctor: {{doctor}}
+- Appointment Date: {{date}}
 - Branch: {{branch}}
 - Notes: {{notes}}
 
