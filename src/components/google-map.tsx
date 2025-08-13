@@ -32,31 +32,26 @@ function MapComponent({ center }: { center: { lat: number, lng: number } }) {
     )
 }
 
-
 export function GoogleMap({ center, apiKey }: GoogleMapProps) {
     const [error, setError] = useState<string | null>(null);
 
-    const handleApiLoad = (event: any) => {
-        // The Google Maps script has loaded, but we need to check for auth errors specifically.
-        // The @vis.gl/react-google-maps library doesn't expose the auth error directly in a hook,
-        // so we can listen to the global window object for the specific error.
-        const originalError = console.error;
-        console.error = (...args) => {
-            const errorMessage = args[0];
-            if (typeof errorMessage === 'string' && errorMessage.includes('BillingNotEnabledMapError')) {
-                setError('Google Maps has a billing error. Please ensure billing is enabled for the project.');
-            }
-            originalError.apply(console, args);
-        };
-    };
-
-    useEffect(() => {
-        window.addEventListener('google-maps-api-load', handleApiLoad);
-        return () => {
-            window.removeEventListener('google-maps-api-load', handleApiLoad);
+    const handleApiLoad = () => {
+        // This is a workaround to check for authentication errors after the API has loaded.
+        // The library doesn't expose auth errors directly, so we check a global object.
+        if ((window as any).google?.maps?.AuthenticationService) {
+           // This is an internal object, and this check is not foolproof, but it's
+           // a common indicator of an auth issue post-load.
+           // A more robust solution involves a full backend proxy, which is out of scope here.
+           const originalConsoleError = console.error;
+           console.error = (...args) => {
+               const msg = args[0];
+               if (typeof msg === 'string' && msg.includes('BillingNotEnabledMapError')) {
+                   setError('Google Maps has a billing error. Please ensure billing is enabled for the project in the Google Cloud Console.');
+               }
+               originalConsoleError(...args);
+           };
         }
-    }, []);
-    
+    };
 
     if(!apiKey) {
         return (
@@ -82,9 +77,8 @@ export function GoogleMap({ center, apiKey }: GoogleMapProps) {
     }
 
     return (
-        <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API loaded.')} >
+        <APIProvider apiKey={apiKey} onLoad={handleApiLoad}>
            <MapComponent center={center} />
         </APIProvider>
     );
 }
-
