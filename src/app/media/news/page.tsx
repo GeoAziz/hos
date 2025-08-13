@@ -50,7 +50,7 @@ export default function NewsPage() {
                     <Card key={item.title} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <CardHeader className="p-0">
                              <div className="relative h-64 w-full">
-                                <Image src={item.imageUrl} alt={item.title} layout="fill" objectFit="cover" data-ai-hint={item.dataAiHint}/>
+                                <Image src={item.imageUrl} alt={item.title} fill className="object-cover" data-ai-hint={item.dataAiHint}/>
                             </div>
                         </CardHeader>
                         <CardContent className="p-6 flex-grow">

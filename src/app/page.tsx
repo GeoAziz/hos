@@ -99,10 +99,10 @@ export default function Home() {
           <Image 
               src="https://source.unsplash.com/1600x900/?hospital,interior,modern"
               alt="Hero background image of a modern hospital interior"
-              layout="fill"
-              objectFit="cover"
-              className="z-0"
+              fill
+              className="z-0 object-cover"
               data-ai-hint="modern hospital interior"
+              priority
           />
           <div className="absolute inset-0 bg-black/50 z-10" />
           <div className="container mx-auto px-4 z-20 text-center">
@@ -181,7 +181,7 @@ export default function Home() {
                   <Card key={doctor.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col text-center">
                       <CardHeader className="p-0">
                         <div className="relative h-64 w-full">
-                          <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} layout="fill" objectFit="cover" data-ai-hint={doctor.dataAiHint} />
+                          <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} fill className="object-cover" data-ai-hint={doctor.dataAiHint} />
                         </div>
                       </CardHeader>
                       <CardContent className="p-6">

@@ -64,8 +64,8 @@ export default function BookingGuidePage() {
                                 <Image 
                                     src={step.image} 
                                     alt={step.title} 
-                                    layout="fill" 
-                                    objectFit="cover" 
+                                    fill 
+                                    className="object-cover"
                                     data-ai-hint={step.dataAiHint}
                                 />
                             </div>

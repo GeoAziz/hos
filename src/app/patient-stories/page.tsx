@@ -23,7 +23,7 @@ export default function PatientStoriesPage() {
                         <Card key={story.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
                             <CardHeader className="p-0">
                                 <div className="relative h-64 w-full">
-                                    <Image src={story.imageUrl} alt={story.name} layout="fill" objectFit="cover" />
+                                    <Image src={story.imageUrl} alt={story.name} fill className="object-cover" />
                                 </div>
                             </CardHeader>
                             <CardContent className="p-6 flex-grow flex flex-col">

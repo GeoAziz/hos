@@ -50,8 +50,8 @@ export default function SpecialistClinicsPage() {
                                 <Image 
                                     src={clinic.imageUrl} 
                                     alt={clinic.name} 
-                                    layout="fill" 
-                                    objectFit="cover" 
+                                    fill 
+                                    className="object-cover"
                                 />
                             </div>
                             <div className={`p-8 ${index % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}>

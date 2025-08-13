@@ -38,8 +38,8 @@ export default async function DoctorProfilePage({ params }: DoctorProfilePagePro
                             <Image
                                 src={doctor.imageUrl}
                                 alt={`Photo of ${doctor.name}`}
-                                layout="fill"
-                                objectFit="cover"
+                                fill
+                                className="object-cover"
                             />
                         </div>
                         <CardContent className="p-6 text-center">

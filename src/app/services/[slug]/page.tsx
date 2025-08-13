@@ -90,9 +90,8 @@ export default function ServicePage({ params }: ServicePageProps) {
                 <Image
                     src={service.image}
                     alt={`${service.name} cover image`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="z-0 opacity-40"
+                    fill
+                    className="z-0 opacity-40 object-cover"
                     data-ai-hint={`${service.slug} health`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/30 z-10" />

@@ -31,8 +31,8 @@ export default function InsurancePage() {
                            <Image 
                              src={partner.logoUrl}
                              alt={`${partner.name} logo`}
-                             layout="fill"
-                             objectFit="contain"
+                             fill
+                             className="object-contain"
                              data-ai-hint={partner.dataAiHint}
                            />
                         </div>

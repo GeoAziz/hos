@@ -35,9 +35,8 @@ export default function StoryPage({ params }: StoryPageProps) {
                  <Image 
                     src={story.imageUrl}
                     alt={story.name}
-                    layout="fill"
-                    objectFit="cover"
-                    className="opacity-20"
+                    fill
+                    className="object-cover opacity-20"
                 />
                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
                  <div className="container mx-auto px-4 relative h-full flex flex-col justify-center items-center text-center">

@@ -33,9 +33,8 @@ export function TestimonialCarousel() {
                     <Image 
                         src={story.imageUrl}
                         alt={`Photo of ${story.name}`}
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded-t-lg"
+                        fill
+                        className="object-cover rounded-t-lg"
                     />
                 </div>
                 <CardContent className="flex flex-col flex-grow items-center justify-center p-6 text-center">

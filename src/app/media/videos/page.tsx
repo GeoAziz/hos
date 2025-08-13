@@ -56,7 +56,7 @@ export default function VideoGalleryPage() {
                     <Card key={video.title} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
                         <CardHeader className="p-0 relative">
                             <div className="relative h-64 w-full">
-                                <Image src={video.thumbnailUrl} alt={video.title} layout="fill" objectFit="cover" data-ai-hint={video.dataAiHint}/>
+                                <Image src={video.thumbnailUrl} alt={video.title} fill className="object-cover" data-ai-hint={video.dataAiHint}/>
                                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <PlayCircle className="h-16 w-16 text-white" />
                                 </div>

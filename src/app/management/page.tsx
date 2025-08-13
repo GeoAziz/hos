@@ -47,7 +47,7 @@ export default function ManagementPage() {
                     <Card key={member.name} className="text-center overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <CardHeader className="p-0">
                             <div className="relative h-64 w-full">
-                                <Image src={member.imageUrl} alt={member.name} layout="fill" objectFit="cover" data-ai-hint={member.dataAiHint} />
+                                <Image src={member.imageUrl} alt={member.name} fill className="object-cover" data-ai-hint={member.dataAiHint} />
                             </div>
                         </CardHeader>
                         <CardContent className="p-6">

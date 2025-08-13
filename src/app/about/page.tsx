@@ -10,9 +10,8 @@ export default function AboutPage() {
         <Image 
           src="https://placehold.co/1600x600.png"
           alt="MediBook Hospital Building"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-20"
+          fill
+          className="object-cover opacity-20"
           data-ai-hint="hospital building"
         />
         <div className="container mx-auto px-4 text-center relative">
@@ -36,13 +35,12 @@ export default function AboutPage() {
                 To be the leading healthcare provider in the region, recognized for our commitment to patient-centered care, clinical excellence, and innovative health solutions. We aspire to create a healthier future for all.
               </p>
             </div>
-            <div>
+            <div className="relative h-[400px]">
               <Image 
                 src="https://placehold.co/600x400.png"
                 alt="Diverse team of doctors"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
+                fill
+                className="rounded-lg shadow-lg object-cover"
                 data-ai-hint="doctors team"
               />
             </div>

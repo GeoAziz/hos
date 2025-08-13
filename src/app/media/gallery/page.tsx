@@ -46,7 +46,7 @@ export default function GalleryPage() {
                         {galleryImages.facilities.map((image, index) => (
                             <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <div className="relative aspect-video w-full">
-                                    <Image src={image.src} alt={image.alt} layout="fill" objectFit="cover" data-ai-hint={image.dataAiHint}/>
+                                    <Image src={image.src} alt={image.alt} fill className="object-cover" data-ai-hint={image.dataAiHint}/>
                                 </div>
                             </Card>
                         ))}
@@ -57,7 +57,7 @@ export default function GalleryPage() {
                         {galleryImages.staff.map((image, index) => (
                              <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <div className="relative aspect-video w-full">
-                                    <Image src={image.src} alt={image.alt} layout="fill" objectFit="cover" data-ai-hint={image.dataAiHint}/>
+                                    <Image src={image.src} alt={image.alt} fill className="object-cover" data-ai-hint={image.dataAiHint}/>
                                 </div>
                             </Card>
                         ))}
@@ -68,7 +68,7 @@ export default function GalleryPage() {
                         {galleryImages.events.map((image, index) => (
                              <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <div className="relative aspect-video w-full">
-                                    <Image src={image.src} alt={image.alt} layout="fill" objectFit="cover" data-ai-hint={image.dataAiHint}/>
+                                    <Image src={image.src} alt={image.alt} fill className="object-cover" data-ai-hint={image.dataAiHint}/>
                                 </div>
                             </Card>
                         ))}
