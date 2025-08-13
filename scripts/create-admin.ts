@@ -10,8 +10,8 @@ import "dotenv/config";
 
 let serviceAccount: any;
 
-// Conditionally import the service account key if not in a Vercel environment
-if (process.env.SERVICE_ACCOUNT_PRIVATE_KEY) {
+// Conditionally import the service account key
+if (process.env.SERVICE_ACCOUNT_CLIENT_EMAIL && process.env.SERVICE_ACCOUNT_PRIVATE_KEY) {
     serviceAccount = {
         projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
         clientEmail: process.env.SERVICE_ACCOUNT_CLIENT_EMAIL,
