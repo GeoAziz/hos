@@ -12,7 +12,11 @@ export function GoogleMap({ center, apiKey }: GoogleMapProps) {
     if(!apiKey) {
         return (
             <div className="w-full h-full bg-secondary flex items-center justify-center">
-                <p className="text-muted-foreground">Google Maps API key is missing.</p>
+                <div className="text-center p-4">
+                    <p className="font-semibold text-lg mb-2">Map Unavailable</p>
+                    <p className="text-muted-foreground">The Google Maps API key is missing or invalid. Please provide a valid key in your environment configuration to enable maps.</p>
+                    <p className="text-xs text-muted-foreground mt-2">Note: This may also be caused by billing not being enabled on the associated Google Cloud project.</p>
+                </div>
             </div>
         )
     }
