@@ -26,7 +26,7 @@ export type BookAppointmentInput = z.infer<typeof BookAppointmentInputSchema>;
 
 const BookAppointmentOutputSchema = z.object({
   success: z.boolean(),
-  message: z.string(),
+  message: z.string().describe("A friendly confirmation message for the user, acknowledging their name and the appointment details they provided."),
 });
 
 export type BookAppointmentOutput = z.infer<typeof BookAppointmentOutputSchema>;
@@ -45,7 +45,7 @@ const appointmentPrompt = ai.definePrompt({
 - Branch: {{branch}}
 - Notes: {{notes}}
 
-Acknowledge the booking and confirm that the information has been received. The operation is always successful.`,
+Acknowledge the booking by creating a friendly confirmation message. Address the user by name ({{name}}). Confirm that the information has been received and that their request for an appointment with {{doctor}} on {{date}} is being processed. The operation is always successful.`,
 });
 
 const bookAppointmentFlow = ai.defineFlow(
@@ -65,7 +65,7 @@ const bookAppointmentFlow = ai.defineFlow(
     });
 
     const { output } = await appointmentPrompt(input);
-    return output || { success: true, message: "Your appointment has been successfully booked." };
+    return output || { success: true, message: `Thank you, ${input.name}. Your appointment has been successfully booked for ${input.date}.` };
   }
 );
 
