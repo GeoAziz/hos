@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -10,6 +11,7 @@ import {
   Stethoscope,
   HeartPulse,
   Briefcase,
+  Map,
 } from 'lucide-react';
 import {
   Sheet,
@@ -75,20 +77,6 @@ const servicesItems: { title: string; href: string; description: string, icon: R
         icon: <Briefcase className="h-6 w-6" />
     }
 ]
-
-const branchesItems: { title: string; href: string; description: string }[] = [
-    {
-        title: "All Branches",
-        href: "/branches",
-        description: "View a list of all our locations with details and booking options."
-    },
-    {
-        title: "Find a Branch Near You",
-        href: "/branches/map",
-        description: "Use our interactive map to find the closest MediBook facility."
-    }
-]
-
 
 const patientInfoItems: { title: string; href: string; description: string }[] = [
     {
@@ -196,20 +184,9 @@ export function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Branches</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {branchesItems.map((component) => (
-                    <ListItem
-                      key={component.title}
-                      title={component.title}
-                      href={component.href}
-                    >
-                      {component.description}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/branches">Branches</Link>
+                </NavigationMenuLink>
             </NavigationMenuItem>
 
              <NavigationMenuItem>
@@ -309,17 +286,10 @@ export function Header() {
                                 ))}
                             </AccordionContent>
                         </AccordionItem>
-
-                        <AccordionItem value="branches">
-                            <AccordionTrigger className="hover:no-underline">Branches</AccordionTrigger>
-                            <AccordionContent className="pl-4">
-                                {branchesItems.map(item => (
-                                    <SheetClose asChild key={item.href}>
-                                        <Link href={item.href} className="block p-2 rounded-md hover:bg-accent">{item.title}</Link>
-                                    </SheetClose>
-                                ))}
-                            </AccordionContent>
-                        </AccordionItem>
+                        
+                        <SheetClose asChild>
+                           <Link href="/branches" className="flex items-center p-2 rounded-md hover:bg-accent font-medium">Branches</Link>
+                        </SheetClose>
 
                         <AccordionItem value="media">
                             <AccordionTrigger className="hover:no-underline">Media</AccordionTrigger>
