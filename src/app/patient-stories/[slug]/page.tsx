@@ -2,11 +2,12 @@
 import { notFound } from 'next/navigation';
 import { patientStories, getStoryBySlug } from '@/lib/stories-data';
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, Clapperboard, HeartHandshake } from 'lucide-react';
+import { CheckCircle, Clapperboard, HeartHandshake, UserMd, Stethoscope } from 'lucide-react';
 import Link from 'next/link';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 type StoryPageProps = {
     params: {
@@ -95,6 +96,28 @@ export default function StoryPage({ params }: StoryPageProps) {
                                     </div>
                                 </div>
                             )}
+
+                             <Card className="mt-12 bg-secondary">
+                                <CardHeader>
+                                    <CardTitle className="flex items-center gap-3">
+                                        <Stethoscope className="h-7 w-7 text-primary" />
+                                        Meet the Doctor
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="flex flex-col sm:flex-row items-center gap-6">
+                                    <Avatar className="h-24 w-24">
+                                        <AvatarImage src={story.doctor.imageUrl} alt={story.doctor.name} />
+                                        <AvatarFallback>{story.doctor.name.charAt(0)}</AvatarFallback>
+                                    </Avatar>
+                                    <div className="text-center sm:text-left">
+                                        <h3 className="text-xl font-bold">{story.doctor.name}</h3>
+                                        <p className="text-muted-foreground mb-4">The specialist who led the care for {story.name}.</p>
+                                        <Button asChild>
+                                            <Link href={`/doctors/${story.doctor.id}`}>View Profile</Link>
+                                        </Button>
+                                    </div>
+                                </CardContent>
+                            </Card>
 
                         </CardContent>
                     </Card>
