@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -10,31 +11,43 @@ export default function BlogLoading() {
                     <Skeleton className="h-6 w-1/3 mx-auto mt-4" />
                 </div>
 
-                <div className="grid md:grid-cols-12 gap-8">
-                    <main className="md:col-span-8">
-                        <div className="space-y-12">
-                            {[...Array(3)].map((_, i) => (
-                                <Card key={i} className="flex flex-col md:flex-row overflow-hidden shadow-lg">
-                                    <Skeleton className="relative md:w-1/3 h-64 md:h-auto" />
-                                    <div className="md:w-2/3 p-6 flex flex-col">
-                                        <CardHeader className="p-0">
-                                           <Skeleton className="h-8 w-full mb-2" />
-                                           <Skeleton className="h-4 w-1/2" />
-                                        </CardHeader>
-                                        <CardContent className="p-0 pt-4 flex-grow space-y-2">
-                                            <Skeleton className="h-4 w-full" />
-                                            <Skeleton className="h-4 w-5/6" />
-                                        </CardContent>
-                                        <CardFooter className="p-0 pt-4">
-                                            <Skeleton className="h-6 w-24" />
-                                        </CardFooter>
-                                    </div>
+                <div className="grid md:grid-cols-12 gap-12">
+                    <main className="md:col-span-8 lg:col-span-9">
+                        <Card className="mb-12 shadow-xl border-l-4 border-primary overflow-hidden">
+                            <div className="grid md:grid-cols-2 items-center">
+                                <Skeleton className="relative h-80 w-full" />
+                                <div className="p-8 space-y-4">
+                                    <Skeleton className="h-5 w-1/4" />
+                                    <Skeleton className="h-8 w-full" />
+                                    <Skeleton className="h-8 w-3/4" />
+                                    <Skeleton className="h-5 w-1/2" />
+                                    <Skeleton className="h-5 w-full mt-4" />
+                                    <Skeleton className="h-5 w-full" />
+                                    <Skeleton className="h-5 w-5/6" />
+                                </div>
+                            </div>
+                        </Card>
+                        
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            {[...Array(2)].map((_, i) => (
+                                <Card key={i} className="overflow-hidden shadow-lg flex flex-col">
+                                    <CardHeader className="p-0">
+                                        <Skeleton className="h-56 w-full" />
+                                    </CardHeader>
+                                    <CardContent className="p-6 flex-grow space-y-3">
+                                        <Skeleton className="h-5 w-1/3" />
+                                        <Skeleton className="h-6 w-full" />
+                                        <Skeleton className="h-5 w-1/2" />
+                                    </CardContent>
+                                    <CardFooter className="p-6 pt-0">
+                                        <Skeleton className="h-6 w-24" />
+                                    </CardFooter>
                                 </Card>
                             ))}
                         </div>
                     </main>
 
-                    <aside className="md:col-span-4 space-y-8">
+                    <aside className="md:col-span-4 lg:col-span-3 space-y-8">
                         <Card>
                             <CardHeader>
                                 <Skeleton className="h-6 w-1/3" />
@@ -49,10 +62,9 @@ export default function BlogLoading() {
                             </CardHeader>
                             <CardContent>
                                 <ul className="space-y-3">
-                                   <Skeleton className="h-5 w-3/4" />
-                                   <Skeleton className="h-5 w-2/3" />
-                                   <Skeleton className="h-5 w-3/4" />
-                                   <Skeleton className="h-5 w-1/2" />
+                                   {[...Array(4)].map((_, i) => (
+                                      <Skeleton key={i} className="h-9 w-full" />
+                                   ))}
                                 </ul>
                             </CardContent>
                         </Card>
