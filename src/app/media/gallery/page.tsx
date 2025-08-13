@@ -4,23 +4,23 @@ import Image from "next/image";
 
 const galleryImages = {
     facilities: [
-        { src: "https://source.unsplash.com/600x400/?hospital,lobby", alt: "Modern hospital lobby", hint: "hospital lobby" },
-        { src: "https://source.unsplash.com/600x400/?operating,room,surgery", alt: "State-of-the-art operating room", hint: "operating room" },
-        { src: "https://source.unsplash.com/600x400/?hospital,room,patient", alt: "Patient recovery room", hint: "hospital room" },
-        { src: "https://source.unsplash.com/600x400/?mri,machine,medical", alt: "Advanced imaging center with MRI machine", hint: "mri machine" },
-        { src: "https://source.unsplash.com/600x400/?hospital,exterior,modern", alt: "Exterior view of the hospital building", hint: "hospital exterior" },
-        { src: "https://source.unsplash.com/600x400/?hospital,reception", alt: "Reception desk", hint: "hospital reception" },
+        { src: "https://placehold.co/600x400.png", alt: "Modern hospital lobby", hint: "hospital lobby" },
+        { src: "https://placehold.co/600x400.png", alt: "State-of-the-art operating room", hint: "operating room" },
+        { src: "https://placehold.co/600x400.png", alt: "Patient recovery room", hint: "hospital room" },
+        { src: "https://placehold.co/600x400.png", alt: "Advanced imaging center with MRI machine", hint: "mri machine" },
+        { src: "https://placehold.co/600x400.png", alt: "Exterior view of the hospital building", hint: "hospital exterior" },
+        { src: "https://placehold.co/600x400.png", alt: "Reception desk", hint: "hospital reception" },
     ],
     staff: [
-        { src: "https://source.unsplash.com/600x400/?doctors,team,group", alt: "Team of diverse doctors", hint: "doctors team" },
-        { src: "https://source.unsplash.com/600x400/?nurse,patient,care", alt: "Nurses providing patient care", hint: "nurse with patient" },
-        { src: "https://source.unsplash.com/600x400/?surgeons,operating,room", alt: "Surgeons in an operating room", hint: "surgeons working" },
-        { src: "https://source.unsplash.com/600x400/?hospital,staff,group,photo", alt: "Friendly administrative staff", hint: "hospital staff group" },
+        { src: "https://placehold.co/600x400.png", alt: "Team of diverse doctors", hint: "doctors team" },
+        { src: "https://placehold.co/600x400.png", alt: "Nurses providing patient care", hint: "nurse with patient" },
+        { src: "https://placehold.co/600x400.png", alt: "Surgeons in an operating room", hint: "surgeons working" },
+        { src: "https://placehold.co/600x400.png", alt: "Friendly administrative staff", hint: "hospital staff group" },
     ],
     events: [
-        { src: "https://source.unsplash.com/600x400/?community,health,fair", alt: "Community health fair", hint: "health fair" },
-        { src: "https://source.unsplash.com/600x400/?charity,run,marathon", alt: "Hospital charity run", hint: "charity run" },
-        { src: "https://source.unsplash.com/600x400/?medical,conference,audience", alt: "Medical conference hosted at the hospital", hint: "medical conference" },
+        { src: "https://placehold.co/600x400.png", alt: "Community health fair", hint: "health fair" },
+        { src: "https://placehold.co/600x400.png", alt: "Hospital charity run", hint: "charity run" },
+        { src: "https://placehold.co/600x400.png", alt: "Medical conference hosted at the hospital", hint: "medical conference" },
     ],
 };
 

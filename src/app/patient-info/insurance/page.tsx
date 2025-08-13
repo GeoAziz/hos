@@ -3,14 +3,14 @@ import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 
 const partners = [
-    { name: "MediCare Plus", logoUrl: "https://source.unsplash.com/150x50/?logo,abstract,blue", hint: "insurance logo" },
-    { name: "HealthGuard", logoUrl: "https://source.unsplash.com/150x50/?logo,abstract,green", hint: "insurance logo" },
-    { name: "United Wellness", logoUrl: "https://source.unsplash.com/150x50/?logo,abstract,red", hint: "insurance logo" },
-    { name: "Vitality Shield", logoUrl: "https://source.unsplash.com/150x50/?logo,abstract,shield", hint: "insurance logo" },
-    { name: "Prime Health", logoUrl: "https://source.unsplash.com/150x50/?logo,abstract,orange", hint: "insurance logo" },
-    { name: "Cigna", logoUrl: "https://source.unsplash.com/150x50/?logo,abstract,purple", hint: "insurance logo" },
-    { name: "Aetna", logoUrl: "https://source.unsplash.com/150x50/?logo,abstract,teal", hint: "insurance logo" },
-    { name: "BlueCross", logoUrl: "https://source.unsplash.com/150x50/?logo,abstract,cross", hint: "insurance logo" },
+    { name: "MediCare Plus", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
+    { name: "HealthGuard", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
+    { name: "United Wellness", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
+    { name: "Vitality Shield", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
+    { name: "Prime Health", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
+    { name: "Cigna", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
+    { name: "Aetna", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
+    { name: "BlueCross", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
 ];
 
 export default function InsurancePage() {

@@ -7,7 +7,7 @@ export default function AboutPage() {
     <div className="bg-background text-foreground">
       <section className="relative h-[50vh] flex items-center justify-center">
         <Image 
-          src="https://source.unsplash.com/1600x600/?hospital,building"
+          src="https://placehold.co/1600x600.png"
           alt="MediBook Hospital Building"
           layout="fill"
           objectFit="cover"
@@ -37,7 +37,7 @@ export default function AboutPage() {
             </div>
             <div>
               <Image 
-                src="https://source.unsplash.com/600x400/?doctors,team"
+                src="https://placehold.co/600x400.png"
                 alt="Diverse team of doctors"
                 width={600}
                 height={400}

@@ -12,21 +12,21 @@ export default function DoctorsPage() {
             specialty: "Cardiology",
             experience: "15+ Years",
             bio: "Dr. Reed is a board-certified cardiologist with over 15 years of experience in treating complex heart conditions. She is a fellow of the American College of Cardiology.",
-            imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,professional",
+            imageUrl: "https://placehold.co/400x400.png",
         },
         {
             name: "Dr. Marcus Chen",
             specialty: "Neurology",
             experience: "12+ Years",
             bio: "Dr. Chen specializes in neurological disorders, including epilepsy and stroke. He is known for his patient-centered approach and innovative treatment methods.",
-            imageUrl: "https://source.unsplash.com/400x400/?doctor,man,professional",
+            imageUrl: "https://placehold.co/400x400.png",
         },
         {
             name: "Dr. Sofia Garcia",
             specialty: "Pediatrics",
             experience: "10+ Years",
             bio: "With a passion for children's health, Dr. Garcia has dedicated her career to pediatrics. She is a trusted name for parents in the community.",
-            imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician",
+            imageUrl: "https://placehold.co/400x400.png",
         },
     ];
 

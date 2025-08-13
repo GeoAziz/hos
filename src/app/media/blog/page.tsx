@@ -11,7 +11,7 @@ const blogPosts = [
         date: "July 26, 2024",
         author: "Dr. Evelyn Reed",
         excerpt: "Regular health check-ups can help find problems before they start. They also can help find problems early, when your chances for treatment and cure are better.",
-        imageUrl: "https://source.unsplash.com/600x400/?doctor,patient,consultation",
+        imageUrl: "https://placehold.co/600x400.png",
         hint: "doctor consulting patient"
     },
     {
@@ -19,7 +19,7 @@ const blogPosts = [
         date: "July 22, 2024",
         author: "Dr. Evelyn Reed",
         excerpt: "A healthy diet is one of the best weapons you have to fight cardiovascular disease. Our experts share tips on what to eat to keep your heart in top shape.",
-        imageUrl: "https://source.unsplash.com/600x400/?healthy,food,heart",
+        imageUrl: "https://placehold.co/600x400.png",
         hint: "healthy heart food"
     },
     {
@@ -27,7 +27,7 @@ const blogPosts = [
         date: "July 18, 2024",
         author: "Dr. Sofia Garcia",
         excerpt: "Vaccinations are a key part of keeping your child healthy. Here’s a guide to understanding the recommended vaccination schedule and why it’s important.",
-        imageUrl: "https://source.unsplash.com/600x400/?vaccination,child,doctor",
+        imageUrl: "https://placehold.co/600x400.png",
         hint: "child vaccination doctor"
     },
     {
@@ -35,7 +35,7 @@ const blogPosts = [
         date: "July 15, 2024",
         author: "Dr. Marcus Chen",
         excerpt: "From migraines to epilepsy, our lead neurologist discusses the common signs and symptoms of neurological disorders and when to seek help.",
-        imageUrl: "https://source.unsplash.com/600x400/?mri,brain,scan",
+        imageUrl: "https://placehold.co/600x400.png",
         hint: "brain scan mri"
     }
 ];
