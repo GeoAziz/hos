@@ -17,7 +17,7 @@ const servicesData = {
         image: "https://source.unsplash.com/1600x600/?heart,health",
         description: "Our Cardiology department provides comprehensive care for heart-related conditions. We use state-of-the-art technology for diagnosis and treatment, ensuring the best possible outcomes for our patients. From preventive care to complex surgeries, your heart is in expert hands.",
         doctors: [
-            { name: "Dr. Evelyn Reed", specialty: "Cardiology", imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,professional,headshot" },
+            { id: "dr-evelyn-reed-cardiology", name: "Dr. Evelyn Reed", specialty: "Cardiology", imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,professional,headshot" },
         ],
         faqs: [
             { q: "What are common signs of a heart problem?", a: "Common signs include chest pain, shortness of breath, pain in the neck, jaw, or back, and swelling in the legs. If you experience these, seek medical attention immediately." },
@@ -37,7 +37,7 @@ const servicesData = {
         image: "https://source.unsplash.com/1600x600/?brain,science",
         description: "The Neurology department at MediBook specializes in the diagnosis and treatment of disorders affecting the nervous system, including the brain, spinal cord, and nerves. Our team is equipped to handle conditions like stroke, epilepsy, multiple sclerosis, and Parkinson's disease.",
         doctors: [
-            { name: "Dr. Marcus Chen", specialty: "Neurology", imageUrl: "https://source.unsplash.com/400x400/?doctor,man,professional,headshot" },
+            { id: "dr-marcus-chen-neurology", name: "Dr. Marcus Chen", specialty: "Neurology", imageUrl: "https://source.unsplash.com/400x400/?doctor,man,professional,headshot" },
         ],
         faqs: [
             { q: "What is an EEG?", a: "An electroencephalogram (EEG) is a test that detects electrical activity in your brain using small, metal discs (electrodes) attached to your scalp." },
@@ -56,7 +56,7 @@ const servicesData = {
         image: "https://source.unsplash.com/1600x600/?child,happy",
         description: "Our Pediatrics department is dedicated to the health and well-being of infants, children, and adolescents. We provide a friendly and comforting environment, offering everything from routine check-ups and vaccinations to specialized care for childhood illnesses.",
         doctors: [
-            { name: "Dr. Sofia Garcia", specialty: "Pediatrics", imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician,headshot" },
+            { id: "dr-sofia-garcia-pediatrics", name: "Dr. Sofia Garcia", specialty: "Pediatrics", imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician,headshot" },
         ],
         faqs: [
             { q: "What is the recommended vaccination schedule?", a: "We follow the national guidelines for vaccination. We will provide you with a personalized schedule for your child during your first visit." },
@@ -68,7 +68,6 @@ const servicesData = {
             "For younger children, bring a favorite toy or book to help them feel more comfortable.",
         ]
     },
-    // Add other services here as needed
 };
 
 type ServicePageProps = {
@@ -94,6 +93,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                     layout="fill"
                     objectFit="cover"
                     className="z-0 opacity-40"
+                    data-ai-hint={`${service.slug} health`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/30 z-10" />
                 <div className="container mx-auto px-4 z-20 text-center">
@@ -152,16 +152,16 @@ export default function ServicePage({ params }: ServicePageProps) {
                                 </CardHeader>
                                 <CardContent>
                                     <ul className="space-y-4">
-                                        {service.doctors.map((doctor: {name: string, specialty: string, imageUrl: string}) => (
+                                        {service.doctors.map((doctor: {id: string, name: string, specialty: string, imageUrl: string}) => (
                                             <li key={doctor.name} className="flex items-center gap-4">
                                                 <Avatar className="h-16 w-16">
-                                                    <AvatarImage src={doctor.imageUrl} alt={doctor.name} />
+                                                    <AvatarImage src={doctor.imageUrl} alt={doctor.name} data-ai-hint="doctor portrait" />
                                                     <AvatarFallback>{doctor.name.charAt(0)}</AvatarFallback>
                                                 </Avatar>
                                                 <div>
                                                     <h4 className="font-semibold">{doctor.name}</h4>
                                                     <p className="text-sm text-muted-foreground">{doctor.specialty}</p>
-                                                     <Link href="/doctors" className="text-sm text-primary hover:underline flex items-center gap-1 mt-1">
+                                                     <Link href={`/doctors/${doctor.id}`} className="text-sm text-primary hover:underline flex items-center gap-1 mt-1">
                                                         View Profile <LinkIcon className="h-3 w-3" />
                                                     </Link>
                                                 </div>
