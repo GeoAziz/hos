@@ -5,23 +5,23 @@ import Image from "next/image";
 
 const galleryImages = {
     facilities: [
-        { src: "https://placehold.co/600x400.png", alt: "Modern hospital lobby" },
-        { src: "https://placehold.co/600x400.png", alt: "State-of-the-art operating room" },
-        { src: "https://placehold.co/600x400.png", alt: "Patient recovery room" },
-        { src: "https://placehold.co/600x400.png", alt: "Advanced imaging center with MRI machine" },
-        { src: "https://placehold.co/600x400.png", alt: "Exterior view of the hospital building" },
-        { src: "https://placehold.co/600x400.png", alt: "Reception desk" },
+        { src: "https://placehold.co/600x400.png", alt: "Modern hospital lobby", dataAiHint: "hospital lobby" },
+        { src: "https://placehold.co/600x400.png", alt: "State-of-the-art operating room", dataAiHint: "operating room" },
+        { src: "https://placehold.co/600x400.png", alt: "Patient recovery room", dataAiHint: "patient room" },
+        { src: "https://placehold.co/600x400.png", alt: "Advanced imaging center with MRI machine", dataAiHint: "mri machine" },
+        { src: "https://placehold.co/600x400.png", alt: "Exterior view of the hospital building", dataAiHint: "hospital exterior" },
+        { src: "https://placehold.co/600x400.png", alt: "Reception desk", dataAiHint: "reception desk" },
     ],
     staff: [
-        { src: "https://placehold.co/600x400.png", alt: "Team of diverse doctors" },
-        { src: "https://placehold.co/600x400.png", alt: "Nurses providing patient care" },
-        { src: "https://placehold.co/600x400.png", alt: "Surgeons in an operating room" },
-        { src: "https://placehold.co/600x400.png", alt: "Friendly administrative staff" },
+        { src: "https://placehold.co/600x400.png", alt: "Team of diverse doctors", dataAiHint: "doctors team" },
+        { src: "https://placehold.co/600x400.png", alt: "Nurses providing patient care", dataAiHint: "nurses care" },
+        { src: "https://placehold.co/600x400.png", alt: "Surgeons in an operating room", dataAiHint: "surgeons operating" },
+        { src: "https://placehold.co/600x400.png", alt: "Friendly administrative staff", dataAiHint: "hospital staff" },
     ],
     events: [
-        { src: "https://placehold.co/600x400.png", alt: "Community health fair" },
-        { src: "https://placehold.co/600x400.png", alt: "Hospital charity run" },
-        { src: "https://placehold.co/600x400.png", alt: "Medical conference hosted at the hospital" },
+        { src: "https://placehold.co/600x400.png", alt: "Community health fair", dataAiHint: "health fair" },
+        { src: "https://placehold.co/600x400.png", alt: "Hospital charity run", dataAiHint: "charity run" },
+        { src: "https://placehold.co/600x400.png", alt: "Medical conference hosted at the hospital", dataAiHint: "medical conference" },
     ],
 };
 
@@ -46,7 +46,7 @@ export default function GalleryPage() {
                         {galleryImages.facilities.map((image, index) => (
                             <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <div className="relative aspect-video w-full">
-                                    <Image src={image.src} alt={image.alt} layout="fill" objectFit="cover" />
+                                    <Image src={image.src} alt={image.alt} layout="fill" objectFit="cover" data-ai-hint={image.dataAiHint}/>
                                 </div>
                             </Card>
                         ))}
@@ -57,7 +57,7 @@ export default function GalleryPage() {
                         {galleryImages.staff.map((image, index) => (
                              <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <div className="relative aspect-video w-full">
-                                    <Image src={image.src} alt={image.alt} layout="fill" objectFit="cover" />
+                                    <Image src={image.src} alt={image.alt} layout="fill" objectFit="cover" data-ai-hint={image.dataAiHint}/>
                                 </div>
                             </Card>
                         ))}
@@ -68,7 +68,7 @@ export default function GalleryPage() {
                         {galleryImages.events.map((image, index) => (
                              <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <div className="relative aspect-video w-full">
-                                    <Image src={image.src} alt={image.alt} layout="fill" objectFit="cover" />
+                                    <Image src={image.src} alt={image.alt} layout="fill" objectFit="cover" data-ai-hint={image.dataAiHint}/>
                                 </div>
                             </Card>
                         ))}
