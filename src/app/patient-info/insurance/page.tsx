@@ -1,16 +1,17 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 
 const partners = [
-    { name: "MediCare Plus", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
-    { name: "HealthGuard", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
-    { name: "United Wellness", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
-    { name: "Vitality Shield", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
-    { name: "Prime Health", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
-    { name: "Cigna", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
-    { name: "Aetna", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
-    { name: "BlueCross", logoUrl: "https://placehold.co/150x50.png", hint: "insurance logo" },
+    { name: "MediCare Plus", logoUrl: "https://placehold.co/150x50.png", dataAiHint: "logo design" },
+    { name: "HealthGuard", logoUrl: "https://placehold.co/150x50.png", dataAiHint: "logo design" },
+    { name: "United Wellness", logoUrl: "https://placehold.co/150x50.png", dataAiHint: "logo design" },
+    { name: "Vitality Shield", logoUrl: "https://placehold.co/150x50.png", dataAiHint: "logo design" },
+    { name: "Prime Health", logoUrl: "https://placehold.co/150x50.png", dataAiHint: "logo design" },
+    { name: "Cigna", logoUrl: "https://placehold.co/150x50.png", dataAiHint: "logo design" },
+    { name: "Aetna", logoUrl: "https://placehold.co/150x50.png", dataAiHint: "logo design" },
+    { name: "BlueCross", logoUrl: "https://placehold.co/150x50.png", dataAiHint: "logo design" },
 ];
 
 export default function InsurancePage() {
@@ -32,7 +33,7 @@ export default function InsurancePage() {
                              alt={`${partner.name} logo`}
                              layout="fill"
                              objectFit="contain"
-                             data-ai-hint={partner.hint}
+                             data-ai-hint={partner.dataAiHint}
                            />
                         </div>
                     </Card>

@@ -4,12 +4,12 @@ import { Stethoscope, Heart, Brain, Bone, Baby, Syringe } from "lucide-react";
 import Link from 'next/link';
 
 const departments = [
-    { name: 'Cardiology', description: 'Comprehensive heart care, from diagnostics to advanced surgical procedures.', icon: <Heart className="w-10 h-10 text-primary" /> },
-    { name: 'Neurology', description: 'Expert treatment for disorders of the nervous system, including the brain and spinal cord.', icon: <Brain className="w-10 h-10 text-primary" /> },
-    { name: 'Orthopedics', description: 'Specialized care for bones, joints, ligaments, tendons, and muscles.', icon: <Bone className="w-10 h-10 text-primary" /> },
-    { name: 'Pediatrics', description: 'Dedicated healthcare for infants, children, and adolescents.', icon: <Baby className="w-10 h-10 text-primary" /> },
-    { name: 'General Surgery', description: 'A wide range of surgical procedures performed by our expert team.', icon: <Stethoscope className="w-10 h-10 text-primary" /> },
-    { name: 'Immunology', description: 'Diagnosis and treatment of allergies and immune system disorders.', icon: <Syringe className="w-10 h-10 text-primary" /> },
+    { name: 'Cardiology', slug: 'cardiology', description: 'Comprehensive heart care, from diagnostics to advanced surgical procedures.', icon: <Heart className="w-10 h-10 text-primary" /> },
+    { name: 'Neurology', slug: 'neurology', description: 'Expert treatment for disorders of the nervous system, including the brain and spinal cord.', icon: <Brain className="w-10 h-10 text-primary" /> },
+    { name: 'Orthopedics', slug: 'orthopedics', description: 'Specialized care for bones, joints, ligaments, tendons, and muscles.', icon: <Bone className="w-10 h-10 text-primary" /> },
+    { name: 'Pediatrics', slug: 'pediatrics', description: 'Dedicated healthcare for infants, children, and adolescents.', icon: <Baby className="w-10 h-10 text-primary" /> },
+    { name: 'General Surgery', slug: 'general-surgery', description: 'A wide range of surgical procedures performed by our expert team.', icon: <Stethoscope className="w-10 h-10 text-primary" /> },
+    { name: 'Immunology', slug: 'immunology', description: 'Diagnosis and treatment of allergies and immune system disorders.', icon: <Syringe className="w-10 h-10 text-primary" /> },
 ];
 
 
@@ -34,7 +34,7 @@ export default function DepartmentsPage() {
                         </CardContent>
                         <div className="p-6 pt-0">
                            <Button className="w-full" asChild>
-                               <Link href="/#appointment">Book Now</Link>
+                               <Link href={`/services/${dept.slug}`}>Learn More</Link>
                            </Button>
                         </div>
                     </Card>

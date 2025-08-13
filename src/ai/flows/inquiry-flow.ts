@@ -8,6 +8,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
+import { db } from '@/lib/firebase';
 
 const InquiryInputSchema = z.object({
   name: z.string().describe("The user's name."),
@@ -61,25 +62,27 @@ const inquiryFlow = ai.defineFlow(
   async (input) => {
     console.log('Handling inquiry with data:', input);
     
-    // Here you would typically save the message to a database (e.g., Firestore).
-    // For now, we'll just log it.
-    
     const { output } = await inquiryAnalysisPrompt(input);
 
-    if (output) {
-      if (output.isUrgent) {
-        // In a real application, you would trigger an SMS notification to the on-call doctor.
-        console.log(`URGENT INQUIRY: Routing to ${output.department}. Summary: ${output.summary}`);
-      }
-      return output;
-    }
-
-    // Fallback in case AI fails to provide a structured response
-    return {
-      isUrgent: false,
-      department: 'General Inquiry',
-      summary: 'Could not automatically analyze message.',
+    const analysisResult = output || {
+        isUrgent: false,
+        department: 'General Inquiry',
+        summary: 'Could not automatically analyze message.',
     };
+
+    await db.collection('inquiries').add({
+      ...input,
+      ...analysisResult,
+      createdAt: new Date().toISOString(),
+      status: 'new',
+    });
+
+    if (analysisResult.isUrgent) {
+      // In a real application, you would trigger an SMS notification to the on-call doctor.
+      console.log(`URGENT INQUIRY: Routing to ${analysisResult.department}. Summary: ${analysisResult.summary}`);
+    }
+    
+    return analysisResult;
   }
 );
 

@@ -9,12 +9,15 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import { db } from '@/lib/firebase';
 
 const BookAppointmentInputSchema = z.object({
   name: z.string().describe('The name of the patient.'),
   phone: z.string().describe('The phone number of the patient.'),
+  dob: z.string().describe("The patient's date of birth."),
   date: z.string().describe('The preferred date for the appointment.'),
   department: z.string().describe('The department for the appointment.'),
+  doctor: z.string().describe('The selected doctor for the appointment.'),
   branch: z.string().describe('The hospital branch for the appointment.'),
   notes: z.string().optional().describe('Any additional notes from the patient.'),
 });
@@ -23,7 +26,7 @@ export type BookAppointmentInput = z.infer<typeof BookAppointmentInputSchema>;
 
 const BookAppointmentOutputSchema = z.object({
   success: z.boolean(),
-  message: z.string(),
+  message: z.string().describe("A friendly confirmation message for the user, acknowledging their name and the appointment details they provided."),
 });
 
 export type BookAppointmentOutput = z.infer<typeof BookAppointmentOutputSchema>;
@@ -35,12 +38,14 @@ const appointmentPrompt = ai.definePrompt({
   prompt: `A patient is booking an appointment. Here are the details:
 - Name: {{name}}
 - Phone: {{phone}}
-- Date: {{date}}
+- Date of Birth: {{dob}}
 - Department: {{department}}
+- Doctor: {{doctor}}
+- Appointment Date: {{date}}
 - Branch: {{branch}}
 - Notes: {{notes}}
 
-Acknowledge the booking and confirm that the information has been received. The operation is always successful.`,
+Acknowledge the booking by creating a friendly confirmation message. Address the user by name ({{name}}). Confirm that the information has been received and that their request for an appointment with {{doctor}} on {{date}} is being processed. The operation is always successful.`,
 });
 
 const bookAppointmentFlow = ai.defineFlow(
@@ -50,11 +55,17 @@ const bookAppointmentFlow = ai.defineFlow(
     outputSchema: BookAppointmentOutputSchema,
   },
   async (input) => {
-    console.log('Booking appointment with data:', input);
-    // In a real app, you would save this to a database like Firestore.
-    // For this prototype, we'll just log it and simulate a success response from the AI.
+    console.log('Saving appointment to Firestore with data:', input);
+
+    // Save to Firestore
+    await db.collection('bookings').add({
+      ...input,
+      createdAt: new Date().toISOString(),
+      status: 'pending', // Default status
+    });
+
     const { output } = await appointmentPrompt(input);
-    return output || { success: true, message: "Your appointment has been successfully booked." };
+    return output || { success: true, message: `Thank you, ${input.name}. Your appointment has been successfully booked for ${input.date}.` };
   }
 );
 

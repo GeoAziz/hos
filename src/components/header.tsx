@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -10,12 +11,16 @@ import {
   Stethoscope,
   HeartPulse,
   Briefcase,
+  Map,
 } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetClose,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
 } from '@/components/ui/sheet';
 import {
   NavigationMenu,
@@ -27,6 +32,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 
 const aboutUsItems: { title: string; href: string; description: string }[] = [
   {
@@ -72,25 +78,16 @@ const servicesItems: { title: string; href: string; description: string, icon: R
     }
 ]
 
-const branchesItems: { title: string; href: string; description: string }[] = [
-    {
-        title: "All Branches",
-        href: "/branches",
-        description: "View a list of all our locations with details and booking options."
-    },
-    {
-        title: "Find a Branch Near You",
-        href: "/branches/map",
-        description: "Use our interactive map to find the closest MediBook facility."
-    }
-]
-
-
 const patientInfoItems: { title: string; href: string; description: string }[] = [
     {
         title: "How to Book",
         href: "/patient-info/booking-guide",
         description: "A step-by-step guide to using our online appointment system."
+    },
+     {
+        title: "Patient Stories",
+        href: "/patient-stories",
+        description: "Read real stories from patients we've cared for."
     },
     {
         title: "Insurance Partners",
@@ -102,7 +99,30 @@ const patientInfoItems: { title: string; href: string; description: string }[] =
         href: "/patient-info/rights",
         description: "Understand your rights and responsibilities as our patient."
     }
-]
+];
+
+const mediaItems: { title: string; href: string; description: string }[] = [
+  {
+    title: 'News & Events',
+    href: '/media/news',
+    description: 'Read our latest announcements and find out about upcoming events.',
+  },
+  {
+    title: 'Photo Gallery',
+    href: '/media/gallery',
+    description: 'Explore our facilities, staff, and moments from our community.',
+  },
+  {
+    title: 'Video Gallery',
+    href: '/media/videos',
+    description: 'Watch videos about our services, patient stories, and health tips.',
+  },
+  {
+    title: 'Blog',
+    href: '/media/blog',
+    description: 'Check out our blog for articles on health, wellness, and more.',
+  },
+];
 
 
 export function Header() {
@@ -120,11 +140,9 @@ export function Header() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Home
+               <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/">Home</Link>
                 </NavigationMenuLink>
-              </Link>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
@@ -170,10 +188,16 @@ export function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Branches</NavigationMenuTrigger>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/branches">Branches</Link>
+                </NavigationMenuLink>
+            </NavigationMenuItem>
+
+             <NavigationMenuItem>
+              <NavigationMenuTrigger>Media</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {branchesItems.map((component) => (
+                  {mediaItems.map((component) => (
                     <ListItem
                       key={component.title}
                       title={component.title}
@@ -203,12 +227,10 @@ export function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-             <NavigationMenuItem>
-                <Link href="/contact" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                        Contact
-                    </NavigationMenuLink>
-                </Link>
+            <NavigationMenuItem>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/contact">Contact</Link>
+                </NavigationMenuLink>
             </NavigationMenuItem>
 
           </NavigationMenuList>
@@ -230,25 +252,80 @@ export function Header() {
                     </Button>
                 </SheetTrigger>
                 <SheetContent side="left">
-                <div className="flex flex-col p-6">
-                    <Link href="/" className="flex items-center gap-2 mb-8">
-                    <Hospital className="h-6 w-6 text-primary" />
-                    <span className="font-bold text-lg">MediBook</span>
-                    </Link>
-                    <nav className="flex flex-col gap-4">
-                       {/* Mobile Nav items here */}
-                       <SheetClose asChild><Link href="/">Home</Link></SheetClose>
-                       <SheetClose asChild><Link href="/about">About Us</Link></SheetClose>
-                       <SheetClose asChild><Link href="/doctors">Doctors</Link></SheetClose>
-                       <SheetClose asChild><Link href="/services/departments">Services</Link></SheetClose>
-                       <SheetClose asChild><Link href="/branches">Branches</Link></SheetClose>
-                       <SheetClose asChild><Link href="/contact">Contact</Link></SheetClose>
-                    </nav>
-                    <Button variant="destructive" className="mt-6">
-                      <Phone className="mr-2 h-4 w-4" />
-                      Emergency
-                    </Button>
+                <SheetHeader>
+                    <SheetTitle>
+                        <Link href="/" className="flex items-center gap-2 mb-4">
+                            <Hospital className="h-6 w-6 text-primary" />
+                            <span className="font-bold text-lg">MediBook</span>
+                        </Link>
+                    </SheetTitle>
+                    <SheetDescription>
+                        Navigate through our services and options.
+                    </SheetDescription>
+                </SheetHeader>
+                <div className="py-4">
+                    <Accordion type="multiple" className="w-full">
+                        <SheetClose asChild>
+                            <Link href="/" className="flex items-center p-2 rounded-md hover:bg-accent font-medium">Home</Link>
+                        </SheetClose>
+                        
+                        <AccordionItem value="about">
+                            <AccordionTrigger className="hover:no-underline">About Us</AccordionTrigger>
+                            <AccordionContent className="pl-4">
+                                {aboutUsItems.map(item => (
+                                    <SheetClose asChild key={item.href}>
+                                        <Link href={item.href} className="block p-2 rounded-md hover:bg-accent">{item.title}</Link>
+                                    </SheetClose>
+                                ))}
+                            </AccordionContent>
+                        </AccordionItem>
+                        
+                        <AccordionItem value="services">
+                            <AccordionTrigger className="hover:no-underline">Services</AccordionTrigger>
+                            <AccordionContent className="pl-4">
+                                {servicesItems.map(item => (
+                                    <SheetClose asChild key={item.href}>
+                                        <Link href={item.href} className="block p-2 rounded-md hover:bg-accent">{item.title}</Link>
+                                    </SheetClose>
+                                ))}
+                            </AccordionContent>
+                        </AccordionItem>
+                        
+                        <SheetClose asChild>
+                           <Link href="/branches" className="flex items-center p-2 rounded-md hover:bg-accent font-medium">Branches</Link>
+                        </SheetClose>
+
+                        <AccordionItem value="media">
+                            <AccordionTrigger className="hover:no-underline">Media</AccordionTrigger>
+                            <AccordionContent className="pl-4">
+                                {mediaItems.map(item => (
+                                    <SheetClose asChild key={item.href}>
+                                        <Link href={item.href} className="block p-2 rounded-md hover:bg-accent">{item.title}</Link>
+                                    </SheetClose>
+                                ))}
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <AccordionItem value="patient-info">
+                            <AccordionTrigger className="hover:no-underline">Patient Info</AccordionTrigger>
+                            <AccordionContent className="pl-4">
+                                {patientInfoItems.map(item => (
+                                    <SheetClose asChild key={item.href}>
+                                        <Link href={item.href} className="block p-2 rounded-md hover:bg-accent">{item.title}</Link>
+                                    </SheetClose>
+                                ))}
+                            </AccordionContent>
+                        </AccordionItem>
+
+                        <SheetClose asChild>
+                           <Link href="/contact" className="flex items-center p-2 rounded-md hover:bg-accent font-medium">Contact</Link>
+                        </SheetClose>
+                    </Accordion>
                 </div>
+                <Button variant="destructive" className="mt-6 w-full">
+                  <Phone className="mr-2 h-4 w-4" />
+                  Emergency
+                </Button>
                 </SheetContent>
             </Sheet>
         </div>
@@ -264,20 +341,19 @@ const ListItem = React.forwardRef<
   return (
     <li>
       <NavigationMenuLink asChild>
-        <Link href={props.href!} passHref legacyBehavior>
-          <a
-            ref={ref}
-            className={cn(
-              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-              className
-            )}
-            {...props}
-          >
-            <div className="text-sm font-medium leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-              {children}
-            </p>
-          </a>
+        <Link
+          ref={ref}
+          href={props.href || ''}
+          className={cn(
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
         </Link>
       </NavigationMenuLink>
     </li>

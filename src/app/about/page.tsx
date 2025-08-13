@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, Building, Heart, Users } from "lucide-react";
 import Image from "next/image";
@@ -12,7 +13,7 @@ export default function AboutPage() {
           layout="fill"
           objectFit="cover"
           className="opacity-20"
-          data-ai-hint="hospital building exterior"
+          data-ai-hint="hospital building"
         />
         <div className="container mx-auto px-4 text-center relative">
           <h1 className="text-5xl font-bold">About MediBook</h1>
@@ -42,7 +43,7 @@ export default function AboutPage() {
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"
-                data-ai-hint="diverse doctors team"
+                data-ai-hint="doctors team"
               />
             </div>
           </div>
