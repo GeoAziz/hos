@@ -48,7 +48,7 @@ export default function ContactPage() {
                     </div>
                 </div>
                  <div className="relative w-full h-64 rounded-lg overflow-hidden">
-                    <Image src="https://placehold.co/600x400.png" alt="Map to headquarters" layout="fill" objectFit="cover" data-ai-hint="city map" />
+                    <Image src="https://source.unsplash.com/600x400/?city,map,aerial" alt="Map to headquarters" layout="fill" objectFit="cover" data-ai-hint="city map" />
                  </div>
             </div>
         </div>

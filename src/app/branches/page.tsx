@@ -10,28 +10,28 @@ const branches = [
         name: 'Downtown Clinic',
         address: '123 Health St, Medical City',
         phone: '555-123-4567',
-        imageUrl: 'https://placehold.co/600x400.png',
+        imageUrl: 'https://source.unsplash.com/600x400/?hospital,building,daytime',
         services: ['Cardiology', 'Neurology', 'Pediatrics']
     },
     {
         name: 'Uptown Medical Center',
         address: '456 Wellness Ave, Medical City',
         phone: '555-987-6543',
-        imageUrl: 'https://placehold.co/600x400.png',
+        imageUrl: 'https://source.unsplash.com/600x400/?hospital,modern',
         services: ['General Check-up', 'Lab Tests', 'Vaccinations']
     },
     {
         name: 'Seaside Health',
         address: '789 Ocean View, Bayside',
         phone: '555-234-5678',
-        imageUrl: 'https://placehold.co/600x400.png',
+        imageUrl: 'https://source.unsplash.com/600x400/?clinic,exterior',
         services: ['Dermatology', 'Orthopedics']
     },
     {
         name: 'Mountainview Hospital',
         address: '101 Peak Rd, Summit City',
         phone: '555-345-6789',
-        imageUrl: 'https://placehold.co/600x400.png',
+        imageUrl: 'https://source.unsplash.com/600x400/?hospital,mountains',
         services: ['Emergency Care', 'Surgery', 'Radiology']
     }
 ];

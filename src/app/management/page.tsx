@@ -6,25 +6,25 @@ const managementTeam = [
         name: "Dr. James Wilson",
         role: "Chief Executive Officer",
         bio: "Dr. Wilson brings over 25 years of healthcare leadership experience, guiding MediBook's strategic vision and commitment to patient-first care.",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?ceo,man,portrait",
     },
     {
         name: "Maria Rodriguez",
         role: "Chief Operating Officer",
         bio: "Maria is responsible for the daily operations of the hospital, ensuring all departments run smoothly and efficiently to provide the best patient experience.",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?coo,woman,professional",
     },
     {
         name: "David Lee",
         role: "Chief Financial Officer",
         bio: "David manages the financial health of MediBook, overseeing budgeting, financial planning, and ensuring sustainable growth for the institution.",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?cfo,man,corporate",
     },
      {
         name: "Dr. Sarah Chen",
         role: "Chief Medical Officer",
         bio: "As the lead physician, Dr. Chen upholds the highest standards of medical excellence, overseeing all clinical staff and patient care protocols.",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,headshot",
     },
 ];
 

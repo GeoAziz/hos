@@ -29,7 +29,7 @@ export default function BranchMapPage() {
                     */}
                     <div className="relative w-full h-[60vh] bg-secondary">
                         <Image 
-                            src="https://placehold.co/1200x800.png"
+                            src="https://source.unsplash.com/1200x800/?city,map"
                             layout="fill"
                             objectFit="cover"
                             alt="Map of hospital branches"

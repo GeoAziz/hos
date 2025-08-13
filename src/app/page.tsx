@@ -65,17 +65,17 @@ export default function Home() {
     {
         name: "Dr. Evelyn Reed",
         specialty: "Cardiology",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,professional,headshot",
     },
     {
         name: "Dr. Marcus Chen",
         specialty: "Neurology",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?doctor,man,professional,headshot",
     },
     {
         name: "Dr. Sofia Garcia",
         specialty: "Pediatrics",
-        imageUrl: "https://placehold.co/400x400.png",
+        imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician,headshot",
     },
   ];
 
@@ -107,7 +107,7 @@ export default function Home() {
           className="relative w-full h-[85vh] flex items-center justify-center text-white"
         >
           <Image 
-              src="https://placehold.co/1600x900.png"
+              src="https://source.unsplash.com/1600x900/?hospital,interior,modern"
               alt="Hero background image of a modern hospital interior"
               layout="fill"
               objectFit="cover"

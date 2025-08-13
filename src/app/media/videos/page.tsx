@@ -6,37 +6,37 @@ const videos = [
     {
         title: "A Virtual Tour of MediBook Hospital",
         duration: "5:42",
-        thumbnailUrl: "https://placehold.co/600x400.png",
+        thumbnailUrl: "https://source.unsplash.com/600x400/?hospital,hallway,modern",
         hint: "hospital hallway"
     },
     {
         title: "Patient Testimonial: Sarah's Recovery Journey",
         duration: "3:15",
-        thumbnailUrl: "https://placehold.co/600x400.png",
+        thumbnailUrl: "https://source.unsplash.com/600x400/?patient,smiling,happy",
         hint: "patient smiling"
     },
     {
         title: "Meet Our Cardiology Team",
         duration: "8:30",
-        thumbnailUrl: "https://placehold.co/600x400.png",
+        thumbnailUrl: "https://source.unsplash.com/600x400/?doctors,team,discussion",
         hint: "doctors team"
     },
     {
         title: "Understanding Minimally Invasive Surgery",
         duration: "10:05",
-        thumbnailUrl: "https://placehold.co/600x400.png",
+        thumbnailUrl: "https://source.unsplash.com/600x400/?surgery,operating,room",
         hint: "surgery in progress"
     },
     {
         title: "A Day in the Life of a MediBook Nurse",
         duration: "6:50",
-        thumbnailUrl: "https://placehold.co/600x400.png",
+        thumbnailUrl: "https://source.unsplash.com/600x400/?nurse,working,hospital",
         hint: "nurse at work"
     },
      {
         title: "The Importance of Physical Therapy",
         duration: "4:20",
-        thumbnailUrl: "https://placehold.co/600x400.png",
+        thumbnailUrl: "https://source.unsplash.com/600x400/?physical,therapy,rehab",
         hint: "physical therapy session"
     },
 ];
