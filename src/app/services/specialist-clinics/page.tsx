@@ -10,25 +10,25 @@ const clinics = [
         name: "Advanced Imaging Center",
         description: "State-of-the-art MRI, CT, and X-ray facilities for precise diagnostics.",
         icon: <Eye className="w-12 h-12 text-primary" />,
-        imageUrl: "https://placehold.co/600x400.png",
+        imageUrl: "/images/advanced-imaging-center.jpg",
     },
     {
         name: "Dialysis Center",
         description: "Comfortable and modern facilities for patients requiring regular dialysis treatment.",
         icon: <Droplets className="w-12 h-12 text-primary" />,
-        imageUrl: "https://placehold.co/600x400.png",
+        imageUrl: "/images/dialysis-center.jpg",
     },
     {
         name: "Physiotherapy & Rehab",
         description: "Personalized rehabilitation programs to help you recover from injury and surgery.",
         icon: <Footprints className="w-12 h-12 text-primary" />,
-        imageUrl: "https://placehold.co/600x400.png",
+        imageUrl: "/images/physiotherapy-rehab.jpg",
     },
     {
         name: "Audiology Clinic",
         description: "Comprehensive hearing tests and solutions for all ages, from newborns to adults.",
         icon: <Ear className="w-12 h-12 text-primary" />,
-        imageUrl: "https://placehold.co/600x400.png",
+        imageUrl: "/images/audiology-clinic.jpg",
     },
 ];
 

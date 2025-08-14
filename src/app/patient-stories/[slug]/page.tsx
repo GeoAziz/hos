@@ -33,7 +33,7 @@ export default function StoryPage({ params }: StoryPageProps) {
         <div className="bg-background">
             <header className="relative h-[50vh]">
                  <Image 
-                    src={story.imageUrl}
+                    src={story.imageUrl.startsWith('http') ? story.imageUrl : `/images/${story.imageUrl}`}
                     alt={story.name}
                     fill
                     className="object-cover opacity-20"
@@ -105,7 +105,7 @@ export default function StoryPage({ params }: StoryPageProps) {
                                 </CardHeader>
                                 <CardContent className="flex flex-col sm:flex-row items-center gap-6">
                                     <Avatar className="h-24 w-24">
-                                        <AvatarImage src={story.doctor.imageUrl} alt={story.doctor.name} />
+                                        <AvatarImage src={story.doctor.imageUrl.startsWith('http') ? story.doctor.imageUrl : `/images/${story.doctor.imageUrl}`} alt={story.doctor.name} />
                                         <AvatarFallback>{story.doctor.name.charAt(0)}</AvatarFallback>
                                     </Avatar>
                                     <div className="text-center sm:text-left">

@@ -36,7 +36,7 @@ export default function BranchDetailPage({ params }: BranchDetailPageProps) {
         <div className="bg-background">
             <section className="relative h-[50vh]">
                 <Image
-                    src={branch.imageUrl}
+                    src={branch.imageUrl.startsWith('http') ? branch.imageUrl : `/images/${branch.imageUrl}`}
                     alt={`${branch.name} building`}
                     fill
                     className="object-cover opacity-20"

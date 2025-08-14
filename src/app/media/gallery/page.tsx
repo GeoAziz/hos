@@ -5,23 +5,23 @@ import Image from "next/image";
 
 const galleryImages = {
     facilities: [
-        { src: "https://placehold.co/600x400.png", alt: "Modern hospital lobby", dataAiHint: "hospital lobby" },
-        { src: "https://placehold.co/600x400.png", alt: "State-of-the-art operating room", dataAiHint: "operating room" },
-        { src: "https://placehold.co/600x400.png", alt: "Patient recovery room", dataAiHint: "patient room" },
-        { src: "https://placehold.co/600x400.png", alt: "Advanced imaging center with MRI machine", dataAiHint: "mri machine" },
-        { src: "https://placehold.co/600x400.png", alt: "Exterior view of the hospital building", dataAiHint: "hospital exterior" },
-        { src: "https://placehold.co/600x400.png", alt: "Reception desk", dataAiHint: "reception desk" },
+        { src: "/images/gallery-lobby.jpg", alt: "Modern hospital lobby", dataAiHint: "hospital lobby" },
+        { src: "/images/gallery-operating-room.jpg", alt: "State-of-the-art operating room", dataAiHint: "operating room" },
+        { src: "/images/gallery-patient-room.jpg", alt: "Patient recovery room", dataAiHint: "patient room" },
+        { src: "/images/mri-machine.jpg", alt: "Advanced imaging center with MRI machine", dataAiHint: "mri machine" },
+        { src: "/images/hospital-exterior.jpg", alt: "Exterior view of the hospital building", dataAiHint: "hospital exterior" },
+        { src: "/images/reception-desk.jpg", alt: "Reception desk", dataAiHint: "reception desk" },
     ],
     staff: [
-        { src: "https://placehold.co/600x400.png", alt: "Team of diverse doctors", dataAiHint: "doctors team" },
-        { src: "https://placehold.co/600x400.png", alt: "Nurses providing patient care", dataAiHint: "nurses care" },
-        { src: "https://placehold.co/600x400.png", alt: "Surgeons in an operating room", dataAiHint: "surgeons operating" },
-        { src: "https://placehold.co/600x400.png", alt: "Friendly administrative staff", dataAiHint: "hospital staff" },
+        { src: "/images/doctors-team.jpg", alt: "Team of diverse doctors", dataAiHint: "doctors team" },
+        { src: "/images/nurses-care.jpg", alt: "Nurses providing patient care", dataAiHint: "nurses care" },
+        { src: "/images/surgeons-operating.jpg", alt: "Surgeons in an operating room", dataAiHint: "surgeons operating" },
+        { src: "/images/hospital-staff.jpg", alt: "Friendly administrative staff", dataAiHint: "hospital staff" },
     ],
     events: [
-        { src: "https://placehold.co/600x400.png", alt: "Community health fair", dataAiHint: "health fair" },
-        { src: "https://placehold.co/600x400.png", alt: "Hospital charity run", dataAiHint: "charity run" },
-        { src: "https://placehold.co/600x400.png", alt: "Medical conference hosted at the hospital", dataAiHint: "medical conference" },
+        { src: "/images/health-fair.jpg", alt: "Community health fair", dataAiHint: "health fair" },
+        { src: "/images/charity-run.jpg", alt: "Hospital charity run", dataAiHint: "charity run" },
+        { src: "/images/medical-conference.jpg", alt: "Medical conference hosted at the hospital", dataAiHint: "medical conference" },
     ],
 };
 
