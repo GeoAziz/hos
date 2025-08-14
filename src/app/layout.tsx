@@ -33,7 +33,10 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <AuthProvider>
+            <Header />
+            <SocialSidebar />
             <main>{children}</main>
+            <Footer />
             <Toaster />
         </AuthProvider>
       </body>

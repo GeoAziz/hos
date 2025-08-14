@@ -17,9 +17,6 @@ import { AppointmentForm } from '@/components/appointment-form';
 import { InquiryForm } from '@/components/inquiry-form';
 import Link from 'next/link';
 import { ChatBot } from '@/components/chat-bot';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { SocialSidebar } from '@/components/social-sidebar';
 import { TestimonialCarousel } from '@/components/testimonial-carousel';
 import { HeroSlider } from '@/components/hero-slider';
 import { AnimatedCounter } from '@/components/animated-counter';
@@ -104,8 +101,6 @@ export default function Home() {
 
   return (
     <div>
-      <SocialSidebar />
-      <Header />
       <div className="min-h-screen">
         <HeroSlider />
         
@@ -253,7 +248,6 @@ export default function Home() {
         </section>
         <ChatBot />
       </div>
-      <Footer />
     </div>
   );
 }
