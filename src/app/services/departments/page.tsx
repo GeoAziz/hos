@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Stethoscope, Heart, Brain, Bone, Baby, Syringe, Microscope, Droplets, ShieldCheck, HeartPulse, ShieldHalf, UserMd, Scissors, Apple, Tooth, Glasses, Foot, Ear, Activity } from "lucide-react";
+import { Stethoscope, Heart, Brain, Bone, Baby, Syringe, Microscope, Droplets, ShieldCheck, HeartPulse, ShieldHalf, User, Scissors, Apple, Tooth, Glasses, Foot, Ear, Activity } from "lucide-react";
 import Link from 'next/link';
 
 const serviceCategories = [
@@ -9,7 +9,7 @@ const serviceCategories = [
         name: 'Primary Care',
         slug: 'primary-care',
         description: 'Your first point of contact for essential healthcare services.',
-        icon: <UserMd className="w-10 h-10 text-primary" />,
+        icon: <User className="w-10 h-10 text-primary" />,
         services: [
             { name: "Physiotherapy", icon: <Activity className="w-6 h-6 mr-2" /> },
             { name: "Nutrition", icon: <Apple className="w-6 h-6 mr-2" /> },
@@ -19,7 +19,7 @@ const serviceCategories = [
     },
     {
         name: 'Specialty Clinics',
-        slug: 'specialty-clinics',
+        slug: 'specialist-clinics',
         description: 'Focused care from our team of experienced medical specialists.',
         icon: <Stethoscope className="w-10 h-10 text-primary" />,
         services: [

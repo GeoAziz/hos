@@ -30,13 +30,13 @@ export default function BranchDetailPage({ params }: BranchDetailPageProps) {
         notFound();
     }
     
-    const apiKey = process.env.GOOGLE_MAPS_API_KEY || '';
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
     return (
         <div className="bg-background">
             <section className="relative h-[50vh]">
                 <Image
-                    src={branch.imageUrl.startsWith('http') ? branch.imageUrl : `/images/${branch.imageUrl}`}
+                    src={branch.imageUrl.startsWith('http') ? branch.imageUrl : `${branch.imageUrl}`}
                     alt={`${branch.name} building`}
                     fill
                     className="object-cover opacity-20"

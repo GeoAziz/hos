@@ -10,6 +10,7 @@ import {
   Phone,
   MapPin,
   Medal,
+  HeartHandshake,
 } from 'lucide-react';
 import { AppointmentForm } from '@/components/appointment-form';
 import { InquiryForm } from '@/components/inquiry-form';
@@ -71,18 +72,21 @@ export default function Home() {
     name: "Dr. Evelyn Reed",
     specialty: "Cardiology",
     imageUrl: "/images/doctor-evelyn-reed.jpg",
+    id: "dr-evelyn-reed-cardiology",
     dataAiHint: 'doctor portrait'
   },
   {
     name: "Dr. Marcus Chen",
     specialty: "Neurology",
     imageUrl: "/images/doctor-marcus-chen.jpg",
+    id: "dr-marcus-chen-neurology",
     dataAiHint: 'doctor portrait'
   },
   {
     name: "Dr. Sofia Garcia",
     specialty: "Pediatrics",
     imageUrl: "/images/doctor-sofia-garcia.jpg",
+    id: "dr-sofia-garcia-pediatrics",
     dataAiHint: 'doctor portrait'
   },
   ];
@@ -178,15 +182,17 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {featuredDoctors.map((doctor) => (
                   <Card key={doctor.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col text-center">
-                      <CardHeader className="p-0">
-                        <div className="relative h-64 w-full">
-                          <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} fill className="object-cover" />
-                        </div>
-                      </CardHeader>
-                      <CardContent className="p-6">
-                          <CardTitle className="text-2xl">{doctor.name}</CardTitle>
-                          <p className="text-primary font-semibold mt-1">{doctor.specialty}</p>
-                      </CardContent>
+                      <Link href={`/doctors/${doctor.id}`} className='flex flex-col flex-grow'>
+                        <CardHeader className="p-0">
+                          <div className="relative h-64 w-full">
+                            <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} fill className="object-cover" />
+                          </div>
+                        </CardHeader>
+                        <CardContent className="p-6">
+                            <CardTitle className="text-2xl">{doctor.name}</CardTitle>
+                            <p className="text-primary font-semibold mt-1">{doctor.specialty}</p>
+                        </CardContent>
+                      </Link>
                   </Card>
               ))}
             </div>
@@ -212,6 +218,21 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
+        </section>
+        
+        <section className="py-20 bg-primary/5">
+            <div className="container mx-auto px-4 text-center">
+                <div className="max-w-3xl mx-auto">
+                    <HeartHandshake className="h-16 w-16 mx-auto mb-4 text-primary" />
+                    <h2 className="text-3xl font-bold mb-4">The MediBook Foundation</h2>
+                    <p className="text-muted-foreground mb-8 text-lg">
+                        We believe quality healthcare is a right, not a privilege. The MediBook Foundation is our commitment to the community, running free medical camps, health awareness campaigns, and providing subsidized care for those in need.
+                    </p>
+                    <Button size="lg" asChild>
+                        <Link href="/about#foundation">Learn More & Get Involved</Link>
+                    </Button>
+                </div>
+            </div>
         </section>
 
         <section id="testimonials" className="py-20 bg-background">
