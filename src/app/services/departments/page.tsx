@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Stethoscope, Heart, Brain, Bone, Baby, Syringe, Microscope, Droplets, ShieldCheck, HeartPulse, ShieldHalf, User, Scissors, Apple, Tooth, Glasses, Foot, Ear, Activity } from "lucide-react";
+import { Stethoscope, Heart, Brain, Bone, Baby, Syringe, Microscope, Droplets, ShieldCheck, HeartPulse, ShieldHalf, User, Scissors, Apple, Glasses, Ear, Activity } from "lucide-react";
 import Link from 'next/link';
 
 const serviceCategories = [
@@ -13,7 +13,14 @@ const serviceCategories = [
         services: [
             { name: "Physiotherapy", icon: <Activity className="w-6 h-6 mr-2" /> },
             { name: "Nutrition", icon: <Apple className="w-6 h-6 mr-2" /> },
-            { name: "Dental Care", icon: <Tooth className="w-6 h-6 mr-2" /> },
+            { 
+                name: "Dental Care", 
+                icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 mr-2">
+                        <path d="M9.34 4.25a2.06 2.06 0 0 1 2.05 1.48 1.99 1.99 0 0 1-1.13 2.4c-1 .59-2.27.39-3.12-.5-1.12-1.21-.83-3.21.9-4.1a2.06 2.06 0 0 1 1.3-.28Z"/><path d="m14 13.5 4 4"/><path d="m18 13.5-4 4"/><path d="M12.55 6.06a1.22 1.22 0 0 0-1.88-.33 1.48 1.48 0 0 0-1.1 1.76c.1.66.73 1.07 1.38.91a1.22 1.22 0 0 0 1.12-1.22 1.48 1.48 0 0 0-.52-1.12Z"/><path d="M16.53 10.3c-1.12-1.21-2.22-2.66-3.43-3.54a2.06 2.06 0 0 0-2.83.63c-1.25 1.6-1.14 3.9.27 5.1s3.38 1.21 4.73.11c.54-.44.83-1.1.83-1.77.01-.56-.23-1.13-.57-1.53Z"/><path d="M16.53 10.3c1.12 1.21 2.22 2.66 3.43 3.54a2.06 2.06 0 0 1 .63 2.83c-1.6 1.25-3.9 1.14-5.1-.27s-1.21-3.38-.11-4.73c.44-.54 1.1-.83 1.77-.83.56-.01 1.13.23 1.53.57Z"/>
+                    </svg>
+                )
+            },
             { name: "General Consultation", icon: <Stethoscope className="w-6 h-6 mr-2" /> }
         ]
     },
