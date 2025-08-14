@@ -12,6 +12,17 @@ import {
   HeartPulse,
   Briefcase,
   Map,
+  Users,
+  Building,
+  GraduationCap,
+  Newspaper,
+  Image as ImageIcon,
+  Video,
+  BookOpen,
+  HelpCircle,
+  FileText,
+  Shield,
+  HeartHandshake
 } from 'lucide-react';
 import {
   Sheet,
@@ -34,26 +45,30 @@ import {
 import { cn } from '@/lib/utils';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 
-const aboutUsItems: { title: string; href: string; description: string }[] = [
+const aboutUsItems: { title: string; href: string; description: string, icon: React.ReactNode }[] = [
   {
     title: 'About MediBook',
     href: '/about',
     description: 'Our mission, vision, and history of providing excellent care.',
+    icon: <Building className="h-6 w-6" />
   },
   {
     title: 'Our Doctors',
     href: '/doctors',
     description: 'Meet our team of dedicated and experienced medical professionals.',
+     icon: <Users className="h-6 w-6" />
   },
   {
     title: 'Management Team',
     href: '/management',
     description: 'The leadership guiding our hospital to a healthier future.',
+    icon: <GraduationCap className="h-6 w-6" />
   },
   {
     title: 'Careers',
     href: '/careers',
     description: 'Join our team and help us make a difference.',
+    icon: <Briefcase className="h-6 w-6" />
   },
 ];
 
@@ -78,49 +93,57 @@ const servicesItems: { title: string; href: string; description: string, icon: R
     }
 ]
 
-const patientInfoItems: { title: string; href: string; description: string }[] = [
+const patientInfoItems: { title: string; href: string; description: string, icon: React.ReactNode }[] = [
     {
         title: "How to Book",
         href: "/patient-info/booking-guide",
-        description: "A step-by-step guide to using our online appointment system."
+        description: "A step-by-step guide to using our online appointment system.",
+        icon: <HelpCircle className="h-6 w-6" />
     },
      {
         title: "Patient Stories",
         href: "/patient-stories",
-        description: "Read real stories from patients we've cared for."
+        description: "Read real stories from patients we've cared for.",
+        icon: <BookOpen className="h-6 w-6" />
     },
     {
         title: "Insurance Partners",
         href: "/patient-info/insurance",
-        description: "View our list of accepted insurance providers."
+        description: "View our list of accepted insurance providers.",
+        icon: <FileText className="h-6 w-6" />
     },
     {
         title: "Patient Rights & Responsibilities",
         href: "/patient-info/rights",
-        description: "Understand your rights and responsibilities as our patient."
+        description: "Understand your rights and responsibilities as our patient.",
+        icon: <Shield className="h-6 w-6" />
     }
 ];
 
-const mediaItems: { title: string; href: string; description: string }[] = [
+const mediaItems: { title: string; href: string; description: string, icon: React.ReactNode }[] = [
   {
     title: 'News & Events',
     href: '/media/news',
     description: 'Read our latest announcements and find out about upcoming events.',
+     icon: <Newspaper className="h-6 w-6" />
   },
   {
     title: 'Photo Gallery',
     href: '/media/gallery',
     description: 'Explore our facilities, staff, and moments from our community.',
+     icon: <ImageIcon className="h-6 w-6" />
   },
   {
     title: 'Video Gallery',
     href: '/media/videos',
     description: 'Watch videos about our services, patient stories, and health tips.',
+     icon: <Video className="h-6 w-6" />
   },
   {
     title: 'Blog',
     href: '/media/blog',
     description: 'Check out our blog for articles on health, wellness, and more.',
+     icon: <BookOpen className="h-6 w-6" />
   },
 ];
 
@@ -154,6 +177,7 @@ export function Header() {
                       key={component.title}
                       title={component.title}
                       href={component.href}
+                      icon={component.icon}
                     >
                       {component.description}
                     </ListItem>
@@ -202,6 +226,7 @@ export function Header() {
                       key={component.title}
                       title={component.title}
                       href={component.href}
+                      icon={component.icon}
                     >
                       {component.description}
                     </ListItem>
@@ -219,6 +244,7 @@ export function Header() {
                       key={component.title}
                       title={component.title}
                       href={component.href}
+                      icon={component.icon}
                     >
                       {component.description}
                     </ListItem>
@@ -336,8 +362,8 @@ export function Header() {
 
 const ListItem = React.forwardRef<
   React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'>
->(({ className, title, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<'a'> & { icon?: React.ReactNode }
+>(({ className, title, children, icon, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -350,8 +376,11 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="flex items-center gap-2">
+            {icon && <div className="text-primary">{icon}</div>}
+            <div className="text-sm font-medium leading-none">{title}</div>
+          </div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground ml-8">
             {children}
           </p>
         </Link>
