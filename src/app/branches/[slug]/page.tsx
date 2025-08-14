@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Clock, Phone, Mail, MapPin, Building, Stethoscope, UserMd, Users } from 'lucide-react';
+import { Clock, Phone, Mail, MapPin, Building, Stethoscope, User, Users } from 'lucide-react';
 import Link from 'next/link';
 import { GoogleMap } from '@/components/google-map';
 
@@ -36,7 +36,7 @@ export default function BranchDetailPage({ params }: BranchDetailPageProps) {
         <div className="bg-background">
             <section className="relative h-[50vh]">
                 <Image
-                    src={branch.imageUrl}
+                    src={branch.imageUrl.startsWith('http') ? branch.imageUrl : `/images/${branch.imageUrl}`}
                     alt={`${branch.name} building`}
                     layout="fill"
                     objectFit="cover"

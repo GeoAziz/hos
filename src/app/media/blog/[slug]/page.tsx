@@ -40,7 +40,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="bg-background">
             <header className="relative h-[60vh]">
                 <Image 
-                    src={post.imageUrl}
+                    src={post.imageUrl.startsWith('http') ? post.imageUrl : `/images/${post.imageUrl}`}
                     alt={post.title}
                     layout="fill"
                     objectFit="cover"

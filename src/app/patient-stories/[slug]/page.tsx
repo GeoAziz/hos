@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, Clapperboard, HeartHandshake, UserMd, Stethoscope } from 'lucide-react';
+import { CheckCircle, Clapperboard, HeartHandshake, User, Stethoscope } from 'lucide-react';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -33,7 +33,7 @@ export default function StoryPage({ params }: StoryPageProps) {
         <div className="bg-background">
             <header className="relative h-[50vh]">
                  <Image 
-                    src={story.imageUrl}
+                    src={story.imageUrl.startsWith('http') ? story.imageUrl : `/images/${story.imageUrl}`}
                     alt={story.name}
                     layout="fill"
                     objectFit="cover"
@@ -106,7 +106,7 @@ export default function StoryPage({ params }: StoryPageProps) {
                                 </CardHeader>
                                 <CardContent className="flex flex-col sm:flex-row items-center gap-6">
                                     <Avatar className="h-24 w-24">
-                                        <AvatarImage src={story.doctor.imageUrl} alt={story.doctor.name} />
+                                        <AvatarImage src={story.doctor.imageUrl.startsWith('http') ? story.doctor.imageUrl : `/images/${story.doctor.imageUrl}`} alt={story.doctor.name} />
                                         <AvatarFallback>{story.doctor.name.charAt(0)}</AvatarFallback>
                                     </Avatar>
                                     <div className="text-center sm:text-left">

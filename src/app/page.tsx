@@ -67,24 +67,24 @@ export default function Home() {
   ];
 
   const featuredDoctors = [
-    {
-        name: "Dr. Evelyn Reed",
-        specialty: "Cardiology",
-        imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,professional,headshot",
-        dataAiHint: 'doctor portrait'
-    },
-    {
-        name: "Dr. Marcus Chen",
-        specialty: "Neurology",
-        imageUrl: "https://source.unsplash.com/400x400/?doctor,man,professional,headshot",
-        dataAiHint: 'doctor portrait'
-    },
-    {
-        name: "Dr. Sofia Garcia",
-        specialty: "Pediatrics",
-        imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician,headshot",
-        dataAiHint: 'doctor portrait'
-    },
+  {
+    name: "Dr. Evelyn Reed",
+    specialty: "Cardiology",
+    imageUrl: "/images/doctor-evelyn-reed.jpg",
+    dataAiHint: 'doctor portrait'
+  },
+  {
+    name: "Dr. Marcus Chen",
+    specialty: "Neurology",
+    imageUrl: "/images/doctor-marcus-chen.jpg",
+    dataAiHint: 'doctor portrait'
+  },
+  {
+    name: "Dr. Sofia Garcia",
+    specialty: "Pediatrics",
+    imageUrl: "/images/doctor-sofia-garcia.jpg",
+    dataAiHint: 'doctor portrait'
+  },
   ];
 
   return (
@@ -96,14 +96,14 @@ export default function Home() {
           id="hero"
           className="relative w-full h-[85vh] flex items-center justify-center text-white"
         >
-          <Image 
-              src="https://source.unsplash.com/1600x900/?hospital,interior,modern"
-              alt="Hero background image of a modern hospital interior"
-              layout="fill"
-              objectFit="cover"
-              className="z-0"
-              data-ai-hint="modern hospital interior"
-          />
+      <Image 
+        src="/images/hero.jpg"
+        alt="Hero background image of a modern hospital interior"
+        layout="fill"
+        objectFit="cover"
+        className="z-0"
+        data-ai-hint="modern hospital interior"
+      />
           <div className="absolute inset-0 bg-black/50 z-10" />
           <div className="container mx-auto px-4 z-20 text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-4">
