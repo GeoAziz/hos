@@ -48,7 +48,7 @@ export default function BranchesPage() {
                         <Card key={branch.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
                              <CardHeader className="p-0">
                                 <div className="relative h-64 w-full">
-                                    <Image src={branch.imageUrl} alt={branch.name} layout="fill" objectFit="cover" />
+                                    <Image src={branch.imageUrl.startsWith('http') ? branch.imageUrl : `/images/${branch.imageUrl}`} alt={branch.name} layout="fill" objectFit="cover" />
                                 </div>
                              </CardHeader>
                             <CardContent className="p-6 flex-grow">
