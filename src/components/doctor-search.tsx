@@ -60,7 +60,7 @@ export function DoctorSearch({ doctors, departments }: DoctorSearchProps) {
                         <Card key={doctor.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
                             <CardHeader className="p-0 relative">
                                                              <div className="relative h-64 w-full">
-                                                                 <Image src={doctor.imageUrl.startsWith('/images/') ? doctor.imageUrl : `/images/${doctor.imageUrl}`} alt={`Dr. ${doctor.name}`} fill className="object-cover" />
+                                                                 <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} fill className="object-cover" />
                                                              </div>
                                <Badge className="absolute top-4 right-4 flex gap-1 items-center" variant="destructive">
                                  <Star className="h-4 w-4" /> {doctor.rating.toFixed(1)}
