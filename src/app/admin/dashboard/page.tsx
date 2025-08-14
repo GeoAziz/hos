@@ -11,7 +11,7 @@ import { DepartmentChart } from '@/components/department-chart';
 interface Booking extends BookAppointmentInput {
   id: string;
   createdAt: string;
-  status: string;
+  status: 'Pending' | 'Confirmed' | 'Cancelled' | 'pending';
 }
 
 interface Inquiry extends InquiryInput, InquiryOutput {
@@ -19,11 +19,24 @@ interface Inquiry extends InquiryInput, InquiryOutput {
     createdAt: string;
 }
 
-export default async function DashboardPage() {
-    const bookings = await getBookings();
-    const inquiries = await getInquiries();
+const getStatusVariant = (status: Booking['status']) => {
+    switch (status?.toLowerCase()) {
+        case 'confirmed':
+            return 'default';
+        case 'cancelled':
+            return 'destructive';
+        case 'pending':
+        default:
+            return 'secondary';
+    }
+};
 
-    const totalBookings = bookings.length; 
+
+export default async function DashboardPage() {
+    const bookings = (await getBookings()) as Booking[];
+    const inquiries = (await getInquiries()) as Inquiry[];
+
+    const totalBookings = bookings.length;
     const urgentInquiriesCount = inquiries.filter(i => i.isUrgent).length;
     const totalInquiries = inquiries.length;
 
@@ -39,7 +52,6 @@ export default async function DashboardPage() {
     }));
 
     const recentBookings = bookings.slice(0, 5);
-    const recentInquiries = inquiries.slice(0, 5);
 
     return (
         <div className="space-y-8">
@@ -111,7 +123,7 @@ export default async function DashboardPage() {
                                         <TableCell>{booking.department}</TableCell>
                                         <TableCell>{booking.date}</TableCell>
                                         <TableCell>
-                                            <Badge variant={booking.status === 'pending' ? 'secondary' : 'default'}>{booking.status}</Badge>
+                                            <Badge variant={getStatusVariant(booking.status)}>{booking.status || 'Pending'}</Badge>
                                         </TableCell>
                                     </TableRow>
                                 ))}

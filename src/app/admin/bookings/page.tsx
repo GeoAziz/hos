@@ -3,9 +3,8 @@ import { getBookings } from '@/lib/firestore-data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { MoreHorizontal } from 'lucide-react';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { BookingActions } from '@/components/booking-actions';
+import { cn } from '@/lib/utils';
 
 interface Booking {
   id: string;
@@ -16,13 +15,15 @@ interface Booking {
   branch: string;
   notes?: string;
   createdAt: string;
-  status: string;
+  status: 'Pending' | 'Confirmed' | 'Cancelled' | 'pending';
 }
 
 function formatDate(dateString: string) {
     if (!dateString) return 'N/A';
     try {
-        return new Date(dateString).toLocaleDateString('en-US', {
+        const date = new Date(dateString);
+        if (isNaN(date.getTime())) return dateString;
+        return date.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
@@ -34,8 +35,20 @@ function formatDate(dateString: string) {
     }
 }
 
+const getStatusVariant = (status: Booking['status']) => {
+    switch (status?.toLowerCase()) {
+        case 'confirmed':
+            return 'default';
+        case 'cancelled':
+            return 'destructive';
+        case 'pending':
+        default:
+            return 'secondary';
+    }
+};
+
 export default async function BookingsPage() {
-    const bookings = await getBookings(); // Fetch all
+    const bookings = await getBookings();
 
     return (
         <Card>
@@ -48,42 +61,33 @@ export default async function BookingsPage() {
                     <TableHeader>
                         <TableRow>
                             <TableHead>Patient</TableHead>
-                            <TableHead>Contact</TableHead>
-                            <TableHead>Appointment Date</TableHead>
-                            <TableHead>Department</TableHead>
-                            <TableHead>Branch</TableHead>
+                            <TableHead className="hidden md:table-cell">Contact</TableHead>
+                            <TableHead>Appointment</TableHead>
+                            <TableHead className="hidden lg:table-cell">Department</TableHead>
                             <TableHead>Status</TableHead>
-                            <TableHead>Submitted</TableHead>
                             <TableHead><span className="sr-only">Actions</span></TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {(bookings as Booking[]).map((booking) => (
                             <TableRow key={booking.id}>
-                                <TableCell className="font-medium">{booking.name}</TableCell>
-                                <TableCell>{booking.phone}</TableCell>
-                                <TableCell>{booking.date}</TableCell>
-                                <TableCell>{booking.department}</TableCell>
-                                <TableCell>{booking.branch}</TableCell>
-                                <TableCell>
-                                    <Badge variant={booking.status === 'pending' ? 'secondary' : 'default'}>{booking.status}</Badge>
+                                <TableCell className="font-medium">
+                                    <div className="font-semibold">{booking.name}</div>
+                                    <div className="text-sm text-muted-foreground md:hidden">{booking.phone}</div>
                                 </TableCell>
-                                <TableCell>{formatDate(booking.createdAt)}</TableCell>
+                                <TableCell className="hidden md:table-cell">{booking.phone}</TableCell>
                                 <TableCell>
-                                    <DropdownMenu>
-                                        <DropdownMenuTrigger asChild>
-                                            <Button aria-haspopup="true" size="icon" variant="ghost">
-                                                <MoreHorizontal className="h-4 w-4" />
-                                                <span className="sr-only">Toggle menu</span>
-                                            </Button>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent align="end">
-                                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                            <DropdownMenuItem>Confirm</DropdownMenuItem>
-                                            <DropdownMenuItem>Reschedule</DropdownMenuItem>
-                                            <DropdownMenuItem>Cancel</DropdownMenuItem>
-                                        </DropdownMenuContent>
-                                    </DropdownMenu>
+                                     <div>{booking.date}</div>
+                                     <div className="text-sm text-muted-foreground">{booking.branch}</div>
+                                </TableCell>
+                                <TableCell className="hidden lg:table-cell">{booking.department}</TableCell>
+                                <TableCell>
+                                     <Badge variant={getStatusVariant(booking.status)}>
+                                        {booking.status || 'Pending'}
+                                     </Badge>
+                                </TableCell>
+                                <TableCell>
+                                   <BookingActions bookingId={booking.id} />
                                 </TableCell>
                             </TableRow>
                         ))}
