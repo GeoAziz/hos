@@ -14,10 +14,10 @@ const servicesData = {
         name: "Cardiology",
         slug: "cardiology",
         icon: <Heart className="h-12 w-12 text-primary" />,
-        image: "https://source.unsplash.com/1600x600/?heart,health",
+        image: "/images/service-cardiology.jpg",
         description: "Our Cardiology department provides comprehensive care for heart-related conditions. We use state-of-the-art technology for diagnosis and treatment, ensuring the best possible outcomes for our patients. From preventive care to complex surgeries, your heart is in expert hands.",
         doctors: [
-            { id: "dr-evelyn-reed-cardiology", name: "Dr. Evelyn Reed", specialty: "Cardiology", imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,professional,headshot" },
+            { id: "dr-evelyn-reed-cardiology", name: "Dr. Evelyn Reed", specialty: "Cardiology", imageUrl: "/images/doctor-evelyn-reed.jpg" },
         ],
         faqs: [
             { q: "What are common signs of a heart problem?", a: "Common signs include chest pain, shortness of breath, pain in the neck, jaw, or back, and swelling in the legs. If you experience these, seek medical attention immediately." },
@@ -34,10 +34,10 @@ const servicesData = {
         name: "Neurology",
         slug: "neurology",
         icon: <Brain className="h-12 w-12 text-primary" />,
-        image: "https://source.unsplash.com/1600x600/?brain,science",
+        image: "/images/service-neurology.jpg",
         description: "The Neurology department at MediBook specializes in the diagnosis and treatment of disorders affecting the nervous system, including the brain, spinal cord, and nerves. Our team is equipped to handle conditions like stroke, epilepsy, multiple sclerosis, and Parkinson's disease.",
         doctors: [
-            { id: "dr-marcus-chen-neurology", name: "Dr. Marcus Chen", specialty: "Neurology", imageUrl: "https://source.unsplash.com/400x400/?doctor,man,professional,headshot" },
+            { id: "dr-marcus-chen-neurology", name: "Dr. Marcus Chen", specialty: "Neurology", imageUrl: "/images/doctor-marcus-chen.jpg" },
         ],
         faqs: [
             { q: "What is an EEG?", a: "An electroencephalogram (EEG) is a test that detects electrical activity in your brain using small, metal discs (electrodes) attached to your scalp." },
@@ -53,10 +53,10 @@ const servicesData = {
         name: "Pediatrics",
         slug: "pediatrics",
         icon: <Baby className="h-12 w-12 text-primary" />,
-        image: "https://source.unsplash.com/1600x600/?child,happy",
+        image: "/images/service-pediatrics.jpg",
         description: "Our Pediatrics department is dedicated to the health and well-being of infants, children, and adolescents. We provide a friendly and comforting environment, offering everything from routine check-ups and vaccinations to specialized care for childhood illnesses.",
         doctors: [
-            { id: "dr-sofia-garcia-pediatrics", name: "Dr. Sofia Garcia", specialty: "Pediatrics", imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician,headshot" },
+            { id: "dr-sofia-garcia-pediatrics", name: "Dr. Sofia Garcia", specialty: "Pediatrics", imageUrl: "/images/doctor-sofia-garcia.jpg" },
         ],
         faqs: [
             { q: "What is the recommended vaccination schedule?", a: "We follow the national guidelines for vaccination. We will provide you with a personalized schedule for your child during your first visit." },
@@ -92,7 +92,6 @@ export default function ServicePage({ params }: ServicePageProps) {
                     alt={`${service.name} cover image`}
                     fill
                     className="z-0 opacity-40 object-cover"
-                    data-ai-hint={`${service.slug} health`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/30 z-10" />
                 <div className="container mx-auto px-4 z-20 text-center">
@@ -154,7 +153,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                                         {service.doctors.map((doctor: {id: string, name: string, specialty: string, imageUrl: string}) => (
                                             <li key={doctor.name} className="flex items-center gap-4">
                                                 <Avatar className="h-16 w-16">
-                                                    <AvatarImage src={doctor.imageUrl} alt={doctor.name} data-ai-hint="doctor portrait" />
+                                                    <AvatarImage src={doctor.imageUrl} alt={doctor.name} />
                                                     <AvatarFallback>{doctor.name.charAt(0)}</AvatarFallback>
                                                 </Avatar>
                                                 <div>

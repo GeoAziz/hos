@@ -70,20 +70,17 @@ export default function Home() {
     {
         name: "Dr. Evelyn Reed",
         specialty: "Cardiology",
-        imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,professional,headshot",
-        dataAiHint: 'doctor portrait'
+        imageUrl: "/images/doctor-evelyn-reed.jpg",
     },
     {
         name: "Dr. Marcus Chen",
         specialty: "Neurology",
-        imageUrl: "https://source.unsplash.com/400x400/?doctor,man,professional,headshot",
-        dataAiHint: 'doctor portrait'
+        imageUrl: "/images/doctor-marcus-chen.jpg",
     },
     {
         name: "Dr. Sofia Garcia",
         specialty: "Pediatrics",
-        imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician,headshot",
-        dataAiHint: 'doctor portrait'
+        imageUrl: "/images/doctor-sofia-garcia.jpg",
     },
   ];
 
@@ -97,11 +94,10 @@ export default function Home() {
           className="relative w-full h-[85vh] flex items-center justify-center text-white"
         >
           <Image 
-              src="https://source.unsplash.com/1600x900/?hospital,interior,modern"
+              src="/images/hero-background.jpg"
               alt="Hero background image of a modern hospital interior"
               fill
               className="z-0 object-cover"
-              data-ai-hint="modern hospital interior"
               priority
           />
           <div className="absolute inset-0 bg-black/50 z-10" />
@@ -181,7 +177,7 @@ export default function Home() {
                   <Card key={doctor.name} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col text-center">
                       <CardHeader className="p-0">
                         <div className="relative h-64 w-full">
-                          <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} fill className="object-cover" data-ai-hint={doctor.dataAiHint} />
+                          <Image src={doctor.imageUrl} alt={`Dr. ${doctor.name}`} fill className="object-cover" />
                         </div>
                       </CardHeader>
                       <CardContent className="p-6">

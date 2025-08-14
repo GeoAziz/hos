@@ -36,6 +36,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
     const relatedPosts = blogPosts.filter(p => p.category === post.category && p.slug !== post.slug).slice(0, 2);
 
+    const getAuthorImage = (author: string) => {
+        if (author.includes('Evelyn Reed')) return '/images/doctor-evelyn-reed.jpg';
+        if (author.includes('Marcus Chen')) return '/images/doctor-marcus-chen.jpg';
+        if (author.includes('Sofia Garcia')) return '/images/doctor-sofia-garcia.jpg';
+        return 'https://source.unsplash.com/100x100/?headshot';
+    }
+
     return (
         <div className="bg-background">
             <header className="relative h-[60vh]">
@@ -51,7 +58,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     <h1 className="text-4xl md:text-6xl font-bold max-w-4xl">{post.title}</h1>
                     <div className="flex items-center gap-4 mt-6">
                         <Avatar>
-                            <AvatarImage src={`https://source.unsplash.com/100x100/?doctor,headshot,${post.author.split(" ").pop()}`} alt={post.author} />
+                            <AvatarImage src={getAuthorImage(post.author)} alt={post.author} />
                             <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
                         </Avatar>
                         <div>

@@ -22,7 +22,7 @@ export const patientStories: Story[] = [
         slug: "sarah-l-recovery",
         name: "Sarah L.",
         category: "Cardiology",
-        imageUrl: "https://source.unsplash.com/800x600/?woman,portrait,happy",
+        imageUrl: "/images/patient-sarah-l.jpg",
         quote: "The care I received was exceptional. The doctors were knowledgeable and the staff was incredibly supportive.",
         story: `
 Sarah, a 54-year-old teacher, arrived at MediBook experiencing persistent chest pain and shortness of breath. She was worried, with a family history of heart conditions.
@@ -39,7 +39,7 @@ Dr. Reed performed a minimally invasive angioplasty, inserting a stent to open t
         doctor: {
             name: "Dr. Evelyn Reed",
             id: "dr-evelyn-reed-cardiology",
-            imageUrl: "https://source.unsplash.com/400x400/?doctor,woman,professional,headshot"
+            imageUrl: "/images/doctor-evelyn-reed.jpg"
         }
     },
     {
@@ -47,7 +47,7 @@ Dr. Reed performed a minimally invasive angioplasty, inserting a stent to open t
         slug: "john-d-knee-surgery",
         name: "John D.",
         category: "Orthopedics",
-        imageUrl: "https://source.unsplash.com/800x600/?man,portrait,outdoors",
+        imageUrl: "/images/patient-john-d.jpg",
         quote: "Thanks to Dr. Carter, I was back on my feet in record time. I never thought I'd be able to hike again.",
         story: `
 John, an avid 62-year-old hiker, suffered a severe knee injury during a mountain trek. The pain was debilitating, and he feared he would never be able to pursue his passion again.
@@ -62,7 +62,7 @@ The surgery was performed at our Uptown Medical Center. Post-operation, John beg
         doctor: {
             name: "Dr. Ben Carter",
             id: "dr-ben-carter-orthopedics",
-            imageUrl: "https://source.unsplash.com/400x400/?doctor,male,surgeon,headshot"
+            imageUrl: "/images/doctor-ben-carter.jpg"
         }
     },
     {
@@ -70,7 +70,7 @@ The surgery was performed at our Uptown Medical Center. Post-operation, John beg
         slug: "emily-r-pediatrics",
         name: "Emily R.",
         category: "Pediatrics",
-        imageUrl: "https://source.unsplash.com/800x600/?mother,child,happy",
+        imageUrl: "/images/patient-emily-r.jpg",
         quote: "Dr. Garcia is amazing with kids! She made my son feel comfortable and took the time to answer all of my questions.",
         story: `
 Emily's 5-year-old son, Leo, had been suffering from recurrent, severe allergies that other clinics struggled to diagnose and manage effectively.
@@ -85,7 +85,7 @@ The tests identified a rare allergy to a common food additive. Dr. Garcia provid
         doctor: {
             name: "Dr. Sofia Garcia",
             id: "dr-sofia-garcia-pediatrics",
-            imageUrl: "https://source.unsplash.com/400x400/?doctor,female,pediatrician,headshot"
+            imageUrl: "/images/doctor-sofia-garcia.jpg"
         }
     },
 ];
