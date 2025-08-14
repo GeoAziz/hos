@@ -96,12 +96,11 @@ export default function Home() {
           id="hero"
           className="relative w-full h-[85vh] flex items-center justify-center text-white"
         >
-      <Image 
-        src="/images/hero.jpg"
+      <Image
+        src="/images/hero-background.jpg"
         alt="Hero background image of a modern hospital interior"
-        layout="fill"
-        objectFit="cover"
-        className="z-0"
+        fill
+        className="object-cover z-0"
         data-ai-hint="modern hospital interior"
       />
           <div className="absolute inset-0 bg-black/50 z-10" />
