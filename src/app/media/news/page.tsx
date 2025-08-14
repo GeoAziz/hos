@@ -66,10 +66,6 @@ export default function NewsPage() {
                     </Card>
                 ))}
             </div>
-
-            <div className="text-center mt-12">
-                <Button size="lg">Load More</Button>
-            </div>
         </div>
     );
 }

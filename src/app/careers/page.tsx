@@ -57,17 +57,13 @@ export default function CareersPage() {
                         <CardContent className="flex-grow">
                             <p className="text-muted-foreground">{job.description}</p>
                         </CardContent>
-                        <CardFooter>
-                            <Button className="w-full">Apply Now</Button>
-                        </CardFooter>
                     </Card>
                 ))}
             </div>
             
             <div className="text-center mt-16">
                  <h2 className="text-2xl font-bold">Don't see a fit?</h2>
-                 <p className="text-muted-foreground mt-2 mb-4">Send us your resume and we'll keep it on file for future openings.</p>
-                 <Button variant="outline">Submit Your Resume</Button>
+                 <p className="text-muted-foreground mt-2 mb-4">We are always looking for talented individuals. Contact us at careers@medibook.com.</p>
             </div>
         </div>
     );

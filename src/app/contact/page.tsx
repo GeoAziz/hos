@@ -1,10 +1,16 @@
 
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin } from "lucide-react";
 import Image from 'next/image';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { InquiryForm } from "@/components/inquiry-form";
 
 const branchContacts = [
     { name: 'Downtown Clinic', phone: '555-123-4567', address: '123 Health St, Medical City' },
@@ -30,12 +36,7 @@ export default function ContactPage() {
                         <CardTitle>Send us a Message</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <form className="space-y-4">
-                            <Input placeholder="Your Name" />
-                            <Input type="email" placeholder="Your Email" />
-                            <Textarea placeholder="Your Message" rows={5} />
-                            <Button type="submit" className="w-full">Send Message</Button>
-                        </form>
+                       <InquiryForm />
                     </CardContent>
                 </Card>
             </div>
@@ -73,7 +74,6 @@ export default function ContactPage() {
                                                         </div>
                                                         <p className="flex items-center text-muted-foreground"><MapPin className="h-4 w-4 mr-2 text-primary" />{branch.address}</p>
                                                         <p className="flex items-center text-muted-foreground"><Phone className="h-4 w-4 mr-2 text-primary" />{branch.phone}</p>
-                                                        <Button variant="outline" className="mt-2 w-full">Call Now</Button>
                                                 </CardContent>
                                         </Card>
                                     );
