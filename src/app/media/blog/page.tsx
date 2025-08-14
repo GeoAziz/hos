@@ -42,7 +42,7 @@ export default function BlogPage() {
                              <Card className="mb-12 shadow-xl border-l-4 border-primary overflow-hidden">
                                 <Link href={`/media/blog/${featuredPost.slug}`} className="grid md:grid-cols-2 items-center">
                                     <div className="relative h-80 w-full">
-                                        <Image src={featuredPost.imageUrl} alt={featuredPost.title} fill className="object-cover hover:scale-105 transition-transform duration-300" />
+                                        <Image src={featuredPost.imageUrl.startsWith('http') ? featuredPost.imageUrl : `/images/${featuredPost.imageUrl}`} alt={featuredPost.title} fill className="object-cover hover:scale-105 transition-transform duration-300" />
                                     </div>
                                     <div className="p-8">
                                         <Badge variant="secondary" className="mb-4">{featuredPost.category}</Badge>
@@ -65,7 +65,7 @@ export default function BlogPage() {
                                     <Link href={`/media/blog/${post.slug}`}>
                                         <CardHeader className="p-0">
                                             <div className="relative h-56 w-full">
-                                                <Image src={post.imageUrl} alt={post.title} fill className="object-cover" />
+                                                <Image src={post.imageUrl.startsWith('http') ? post.imageUrl : `/images/${post.imageUrl}`} alt={post.title} fill className="object-cover" />
                                             </div>
                                         </CardHeader>
                                         <CardContent className="p-6 flex-grow">

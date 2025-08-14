@@ -56,20 +56,29 @@ export default function ContactPage() {
 
         <div className="mt-20">
             <h2 className="text-3xl font-bold text-center mb-8">Branch Contacts</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {branchContacts.map(branch => (
-                    <Card key={branch.name}>
-                        <CardHeader>
-                            <CardTitle>{branch.name}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="space-y-2">
-                            <p className="flex items-center text-muted-foreground"><MapPin className="h-4 w-4 mr-2 text-primary" />{branch.address}</p>
-                            <p className="flex items-center text-muted-foreground"><Phone className="h-4 w-4 mr-2 text-primary" />{branch.phone}</p>
-                            <Button variant="outline" className="mt-2 w-full">Call Now</Button>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                {branchContacts.map(branch => {
+                                    let imageSrc = "/images/branch-main.jpg";
+                                    if (branch.name === "Downtown Clinic") imageSrc = "/images/downtown-clinic.jpg";
+                                    if (branch.name === "Uptown Medical Center") imageSrc = "/images/uptown-medical-center.jpg";
+                                    if (branch.name === "Seaside Health") imageSrc = "/images/seaside-health.jpg";
+                                    return (
+                                        <Card key={branch.name}>
+                                                <CardHeader>
+                                                        <CardTitle>{branch.name}</CardTitle>
+                                                </CardHeader>
+                                                <CardContent className="space-y-2">
+                                                        <div className="relative w-full h-40 rounded-lg overflow-hidden mb-4">
+                                                            <Image src={imageSrc} alt={branch.name} fill className="object-cover" />
+                                                        </div>
+                                                        <p className="flex items-center text-muted-foreground"><MapPin className="h-4 w-4 mr-2 text-primary" />{branch.address}</p>
+                                                        <p className="flex items-center text-muted-foreground"><Phone className="h-4 w-4 mr-2 text-primary" />{branch.phone}</p>
+                                                        <Button variant="outline" className="mt-2 w-full">Call Now</Button>
+                                                </CardContent>
+                                        </Card>
+                                    );
+                                })}
+                        </div>
         </div>
 
       </div>

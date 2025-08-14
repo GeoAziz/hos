@@ -19,7 +19,7 @@ export const blogPosts: Post[] = [
         author: "Dr. Evelyn Reed",
         category: "Wellness",
         excerpt: "Regular health check-ups can help find problems before they start. They also can help find problems early, when your chances for treatment and cure are better.",
-        imageUrl: "https://source.unsplash.com/1200x800/?health,checkup",
+        imageUrl: "blog-health-checkup.jpg",
         content: `
 Regular health check-ups are one of the most important steps you can take to manage your health. They are a cornerstone of preventive medicine, helping to identify potential health issues before they become serious problems.
 
@@ -40,7 +40,7 @@ Don't wait until you're sick to see a doctor. Schedule your annual check-up toda
         author: "Dr. Evelyn Reed",
         category: "Wellness",
         excerpt: "A healthy diet is one of the best weapons you have to fight cardiovascular disease. Our experts share tips on what to eat to keep your heart in top shape.",
-        imageUrl: "https://source.unsplash.com/1200x800/?healthy,food",
+        imageUrl: "blog-healthy-food.jpg",
         content: `
 A heart-healthy diet is a powerful tool in preventing cardiovascular disease. It's not about deprivation; it's about making smart, enjoyable choices.
 
@@ -62,7 +62,7 @@ Making small, consistent changes to your diet can have a big impact on your hear
         author: "Dr. Sofia Garcia",
         category: "Patient Stories",
         excerpt: "Vaccinations are a key part of keeping your child healthy. Here’s a guide to understanding the recommended vaccination schedule and why it’s important.",
-        imageUrl: "https://source.unsplash.com/1200x800/?vaccine,child",
+        imageUrl: "blog-vaccine-child.jpg",
         content: `
 Vaccinations are safe and effective, and they are a critical part of your child's health journey. They work by preparing your child's immune system to fight off serious diseases.
 
@@ -78,7 +78,7 @@ If you have questions or concerns about vaccines, please talk to us. We are here
         author: "MediBook Staff",
         category: "Hospital News",
         excerpt: "We are thrilled to announce the opening of our new Advanced Imaging Center, featuring the latest in MRI and CT scan technology to provide faster, more accurate diagnoses.",
-        imageUrl: "https://source.unsplash.com/1200x800/?mri,machine",
+        imageUrl: "mri-machine.jpg",
         content: `
 In our commitment to providing the best possible care, MediBook is proud to announce the grand opening of our new Advanced Imaging Center at the Downtown Clinic.
 
@@ -94,7 +94,7 @@ The center is now open and accepting appointments. We believe this investment wi
         author: "Dr. Marcus Chen",
         category: "Medical Breakthroughs",
         excerpt: "Artificial Intelligence is no longer science fiction. It's transforming how we diagnose diseases, from analyzing medical images to predicting patient outcomes.",
-        imageUrl: "https://source.unsplash.com/1200x800/?ai,robot,medical",
+        imageUrl: "blog-hero.jpg",
         content: `
 Artificial intelligence (AI) is rapidly changing the landscape of medicine. At MediBook, we are at the forefront of adopting these new technologies to enhance patient care.
 

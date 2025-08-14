@@ -8,7 +8,7 @@ export default function AboutPage() {
     <div className="bg-background text-foreground">
       <section className="relative h-[50vh] flex items-center justify-center">
         <Image 
-          src="https://placehold.co/1600x600.png"
+          src="/images/hospital-exterior.jpg"
           alt="MediBook Hospital Building"
           fill
           className="object-cover opacity-20"
@@ -37,7 +37,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[400px]">
               <Image 
-                src="https://placehold.co/600x400.png"
+                src="/images/doctors-team.jpg"
                 alt="Diverse team of doctors"
                 fill
                 className="rounded-lg shadow-lg object-cover"
