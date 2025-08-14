@@ -11,21 +11,6 @@ import { blogPosts, Post } from "@/lib/blog-data";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
-import diabetesImg from "/public/images/blog-diabetes-management.jpg";
-import hypertensionImg from "/public/images/blog-hypertension.jpg";
-import vaccinationImg from "/public/images/blog-vaccination.jpg";
-import surgeryImg from "/public/images/blog-surgery.jpg";
-import eyeExamImg from "/public/images/blog-eye-exam.jpg";
-
-const imageMap: { [key: string]: StaticImageData } = {
-    "/images/blog-diabetes-management.jpg": diabetesImg,
-    "/images/blog-hypertension.jpg": hypertensionImg,
-    "/images/blog-vaccination.jpg": vaccinationImg,
-    "/images/blog-surgery.jpg": surgeryImg,
-    "/images/blog-eye-exam.jpg": eyeExamImg,
-};
-
-
 const allCategories = [...new Set(blogPosts.map(post => post.category))];
 
 export default function BlogPage() {
@@ -57,7 +42,7 @@ export default function BlogPage() {
                              <Card className="mb-12 shadow-xl border-l-4 border-primary overflow-hidden">
                                 <Link href={`/media/blog/${featuredPost.slug}`} className="grid md:grid-cols-2 items-center">
                                     <div className="relative h-80 w-full">
-                                        <Image src={imageMap[featuredPost.imageUrl]} alt={featuredPost.title} fill className="object-cover hover:scale-105 transition-transform duration-300" />
+                                        <Image src={featuredPost.imageUrl} alt={featuredPost.title} fill className="object-cover hover:scale-105 transition-transform duration-300" />
                                     </div>
                                     <div className="p-8">
                                         <Badge variant="secondary" className="mb-4">{featuredPost.category}</Badge>
@@ -80,7 +65,7 @@ export default function BlogPage() {
                                     <Link href={`/media/blog/${post.slug}`}>
                                         <CardHeader className="p-0">
                                             <div className="relative h-56 w-full">
-                                                <Image src={imageMap[post.imageUrl]} alt={post.title} fill className="object-cover" />
+                                                <Image src={post.imageUrl} alt={post.title} fill className="object-cover" />
                                             </div>
                                         </CardHeader>
                                         <CardContent className="p-6 flex-grow">
