@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A flow for handling user inquiries.
@@ -74,7 +75,7 @@ const inquiryFlow = ai.defineFlow(
       ...input,
       ...analysisResult,
       createdAt: new Date().toISOString(),
-      status: 'new',
+      status: 'new', // Default status for all new inquiries
     });
 
     if (analysisResult.isUrgent) {
