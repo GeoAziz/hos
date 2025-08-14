@@ -85,6 +85,32 @@ const doctors = [
         testimonials: [
             { name: "Jessica P.", quote: "Dr. White is incredibly knowledgeable and my skin has never looked better. Her advice is priceless." },
         ],
+    },
+    {
+        name: "Dr. Ahmed Hassan",
+        specialty: "Gastroenterology",
+        experience: "14+ Years",
+        bio: "Dr. Hassan is an expert in digestive health, treating conditions of the stomach, intestines, and liver. He is skilled in endoscopic procedures and committed to patient education.",
+        imageUrl: "/images/doctor-ahmed-hassan.jpg",
+        education: ["MBBS, University of Cairo", "Fellowship, Gastroenterology, Cleveland Clinic"],
+        services: ["Endoscopy", "Colonoscopy", "Hepatitis C Treatment", "IBD Management"],
+        rating: 4.8,
+        testimonials: [
+            { name: "Fatima K.", quote: "Dr. Hassan has a wonderful bedside manner and is an expert in his field. I am grateful for his care." },
+        ],
+    },
+    {
+        name: "Dr. Chloe Kim",
+        specialty: "Ophthalmology",
+        experience: "9+ Years",
+        bio: "Dr. Kim specializes in medical and surgical eye care. From routine eye exams to complex cataract surgery, she is dedicated to preserving and improving her patients' vision.",
+        imageUrl: "/images/doctor-chloe-kim.jpg",
+        education: ["MD, Johns Hopkins University", "Residency, Ophthalmology, Wilmer Eye Institute"],
+        services: ["Cataract Surgery", "Glaucoma Treatment", "Diabetic Eye Care", "LASIK Consultation"],
+        rating: 4.9,
+        testimonials: [
+            { name: "Tom W.", quote: "My vision is better than it has been in decades, all thanks to Dr. Kim's skill." },
+        ],
     }
 ];
 
