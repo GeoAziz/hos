@@ -89,7 +89,7 @@ const servicesItems: { title: string; href: string; description: string, icon: R
         title: "Emergency & Critical Care",
         href: "/services/emergency",
         description: "24/7 access to life-saving emergency and trauma services.",
-        icon: <Briefcase className="h-6 w-6" />
+        icon: <Shield className="h-6 w-6" />
     }
 ]
 
@@ -195,7 +195,7 @@ export function Header() {
                       <NavigationMenuLink asChild>
                         <Link href={item.href} legacyBehavior passHref>
                           <a className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
-                            {item.icon}
+                            <div className="text-primary">{item.icon}</div>
                             <div className="mb-2 mt-4 text-lg font-medium">
                               {item.title}
                             </div>
