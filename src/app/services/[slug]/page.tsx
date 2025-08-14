@@ -71,7 +71,7 @@ const servicesData = {
         image: "/images/service-primary-care.jpg",
         description: "Primary care is your first point of contact for health needs. Our general practitioners offer comprehensive services including routine check-ups, preventive care, and management of chronic illnesses.",
         doctors: [
-            { id: "dr-sofia-garcia-pediatrics", name: "Dr. Sofia Garcia", specialty: "Pediatrics", imageUrl: "/images/doctor-sofia-garcia.jpg" },
+            { id: "dr-sofia-garcia-pediatrics", name: "Dr. Sofia Garcia", specialty: "General Practice", imageUrl: "/images/doctor-sofia-garcia.jpg" },
             { id: "dr-evelyn-reed-cardiology", name: "Dr. Evelyn Reed", specialty: "General Practice", imageUrl: "/images/doctor-evelyn-reed.jpg" },
         ],
         faqs: [
@@ -178,7 +178,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/30 z-10" />
                 <div className="container mx-auto px-4 z-20 text-center">
-                    <div className="mb-4">{service.icon}</div>
+                    <div className="mb-4 flex justify-center">{service.icon}</div>
                     <h1 className="text-5xl font-bold text-foreground">{service.name}</h1>
                     <p className="text-xl mt-4 text-muted-foreground max-w-3xl mx-auto">
                         Specialized care for your well-being.
@@ -257,7 +257,9 @@ export default function ServicePage({ params }: ServicePageProps) {
                          <section id="cta">
                             <Card className="bg-primary text-primary-foreground text-center p-6">
                                 <CardHeader className="p-0">
-                                    <ShieldCheck className="h-12 w-12 mx-auto mb-4" />
+                                    <div className="flex justify-center mb-4">
+                                        <ShieldCheck className="h-12 w-12" />
+                                    </div>
                                     <CardTitle className="text-2xl">Book Your Consultation</CardTitle>
                                 </CardHeader>
                                 <CardContent className="p-0 pt-4">
@@ -281,3 +283,5 @@ export async function generateStaticParams() {
     slug,
   }));
 }
+
+    
