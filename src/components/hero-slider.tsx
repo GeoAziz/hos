@@ -63,7 +63,7 @@ export function HeroSlider() {
                             <div className="container mx-auto px-4 z-20 text-center">
                                 <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-down">
                                     {slide.title}
-                                <h1>
+                                </h1>
                                 <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto animate-fade-in-up">
                                     {slide.description}
                                 </p>
