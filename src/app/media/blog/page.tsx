@@ -11,11 +11,11 @@ import { blogPosts, Post } from "@/lib/blog-data";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
-import diabetesImg from "../../../../../public/images/blog-diabetes-management.jpg";
-import hypertensionImg from "../../../../../public/images/blog-hypertension.jpg";
-import vaccinationImg from "../../../../../public/images/blog-vaccination.jpg";
-import surgeryImg from "../../../../../public/images/blog-surgery.jpg";
-import eyeExamImg from "../../../../../public/images/blog-eye-exam.jpg";
+import diabetesImg from "/public/images/blog-diabetes-management.jpg";
+import hypertensionImg from "/public/images/blog-hypertension.jpg";
+import vaccinationImg from "/public/images/blog-vaccination.jpg";
+import surgeryImg from "/public/images/blog-surgery.jpg";
+import eyeExamImg from "/public/images/blog-eye-exam.jpg";
 
 const imageMap: { [key: string]: StaticImageData } = {
     "/images/blog-diabetes-management.jpg": diabetesImg,
