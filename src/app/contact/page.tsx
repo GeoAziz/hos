@@ -2,15 +2,10 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin } from "lucide-react";
 import Image from 'next/image';
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
 import { InquiryForm } from "@/components/inquiry-form";
+import { GoogleMap } from "@/components/google-map";
 
 const branchContacts = [
     { name: 'Downtown Clinic', phone: '555-123-4567', address: '123 Health St, Medical City' },
@@ -19,6 +14,9 @@ const branchContacts = [
 ];
 
 export default function ContactPage() {
+  const hqPosition = { lat: 34.0522, lng: -118.2437 }; // Example: Los Angeles
+  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
+
   return (
     <div className="bg-background">
       <div className="container mx-auto px-4 py-16">
@@ -49,8 +47,8 @@ export default function ContactPage() {
                         <p className="flex items-center"><Mail className="h-5 w-5 mr-3 text-primary" /> contact@medibook.com</p>
                     </div>
                 </div>
-                 <div className="relative w-full h-64 rounded-lg overflow-hidden">
-                    <Image src="https://placehold.co/600x400.png" alt="Map to headquarters" fill className="object-cover" />
+                 <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg">
+                    <GoogleMap center={hqPosition} apiKey={apiKey} />
                  </div>
             </div>
         </div>

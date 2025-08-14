@@ -58,11 +58,15 @@ export default function NewsPage() {
                             <CardTitle className="text-2xl mt-2 mb-4">{item.title}</CardTitle>
                             <p className="text-muted-foreground">{item.excerpt}</p>
                         </CardContent>
+                        {/* 
+                          This button can be wired up later to link to a full news article page.
+                          For now, it is removed to avoid non-functional UI elements.
                         <CardFooter className="p-6 pt-0">
                             <Button variant="outline">
                                 Read More <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
-                        </CardFooter>
+                        </CardFooter> 
+                        */}
                     </Card>
                 ))}
             </div>
