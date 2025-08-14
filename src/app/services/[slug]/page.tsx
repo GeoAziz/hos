@@ -151,6 +151,24 @@ const servicesData = {
             "Request that your primary care doctor send your records to the specialist's office before your visit.",
         ]
     },
+    'emergency': {
+        name: "Emergency Care",
+        icon: <ShieldCheck className="h-12 w-12 text-primary" />,
+        image: "/images/service-critical-care.jpg",
+        description: "Our Emergency Department provides 24/7 access to life-saving emergency and trauma services. Our expert team of emergency physicians and nurses is equipped to handle any medical crisis.",
+        doctors: [
+            { id: "dr-marcus-chen-neurology", name: "Dr. Marcus Chen", specialty: "Emergency Medicine", imageUrl: "/images/doctor-marcus-chen.jpg" },
+            { id: "dr-ben-carter-orthopedics", name: "Dr. Ben Carter", specialty: "Trauma Surgery", imageUrl: "/images/doctor-ben-carter.jpg" },
+        ],
+        faqs: [
+            { q: "What should I do in a medical emergency?", a: "Call our emergency hotline immediately or come to the nearest MediBook emergency room. Do not attempt to drive yourself if you are experiencing severe symptoms like chest pain or difficulty breathing." },
+            { q: "What is triage?", a: "Triage is the process of determining the priority of patients' treatments based on the severity of their condition. Patients with the most serious conditions are seen first." },
+        ],
+        preparation: [
+            "Keep a list of your medications and allergies in your wallet or on your phone.",
+            "Have an emergency contact person's information readily available.",
+        ]
+    },
 };
 
 type ServicePageProps = {
