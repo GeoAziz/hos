@@ -11,6 +11,7 @@ import {
   MapPin,
   Medal,
   HeartHandshake,
+  BedDouble,
 } from 'lucide-react';
 import { AppointmentForm } from '@/components/appointment-form';
 import { InquiryForm } from '@/components/inquiry-form';
@@ -20,6 +21,9 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { SocialSidebar } from '@/components/social-sidebar';
 import { TestimonialCarousel } from '@/components/testimonial-carousel';
+import { HeroSlider } from '@/components/hero-slider';
+import { AnimatedCounter } from '@/components/animated-counter';
+
 
 export default function Home() {
   const services = [
@@ -91,42 +95,35 @@ export default function Home() {
   },
   ];
 
+  const stats = [
+    { value: 12000, label: "Patients Served", icon: <Users className="h-12 w-12 text-primary" /> },
+    { value: 75, label: "Qualified Doctors", icon: <Stethoscope className="h-12 w-12 text-primary" /> },
+    { value: 250, label: "Hospital Beds", icon: <BedDouble className="h-12 w-12 text-primary" /> },
+    { value: 3000, label: "Surgeries Performed", icon: <HeartPulse className="h-12 w-12 text-primary" /> },
+  ];
+
   return (
     <div>
       <SocialSidebar />
       <Header />
       <div className="min-h-screen">
-        <section
-          id="hero"
-          className="relative w-full h-[85vh] flex items-center justify-center text-white"
-        >
-      <Image
-        src="/images/hero-background.jpg"
-        alt="Hero background image of a modern hospital interior"
-        fill
-        className="object-cover z-0"
-        data-ai-hint="modern hospital interior"
-      />
-          <div className="absolute inset-0 bg-black/50 z-10" />
-          <div className="container mx-auto px-4 z-20 text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                Your Health, Our Priority
-              </h1>
-              <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-                Providing compassionate, comprehensive, and high-quality healthcare you can trust. Welcome to a better healthcare experience.
-              </p>
-              <div className="flex gap-4 justify-center">
-                <Button size="lg" asChild>
-                  <Link href="/#appointment">Book an Appointment</Link>
-                </Button>
-                <Button size="lg" variant="secondary" asChild>
-                  <Link href="/about">Learn More</Link>
-                </Button>
-              </div>
-          </div>
+        <HeroSlider />
+        
+        <section className="py-20 bg-background">
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    {stats.map(stat => (
+                        <div key={stat.label}>
+                            <div className="flex justify-center mb-2">{stat.icon}</div>
+                            <AnimatedCounter to={stat.value} />
+                            <p className="text-muted-foreground font-semibold">{stat.label}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </section>
 
-        <section id="why-choose-us" className="py-20 bg-background">
+        <section id="why-choose-us" className="py-20 bg-secondary">
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl font-bold mb-2">Why Choose MediBook?</h2>
                 <p className="text-muted-foreground mb-12">Your health is in the best hands.</p>
@@ -146,7 +143,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section id="services" className="py-20 bg-secondary">
+        <section id="services" className="py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-2">Our Core Services</h2>
             <p className="text-muted-foreground mb-12">Comprehensive care for all your needs.</p>
@@ -175,7 +172,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="specialists" className="py-20 bg-background">
+        <section id="specialists" className="py-20 bg-secondary">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-2">Meet Our Specialists</h2>
             <p className="text-muted-foreground mb-12">A team of dedicated professionals at your service.</p>
@@ -202,7 +199,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="appointment" className="py-20 bg-secondary">
+        <section id="appointment" className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <Card className="max-w-4xl mx-auto shadow-xl border-t-4 border-primary">
               <CardHeader className="text-center">
@@ -229,7 +226,7 @@ export default function Home() {
                         We believe quality healthcare is a right, not a privilege. The MediBook Foundation is our commitment to the community, running free medical camps, health awareness campaigns, and providing subsidized care for those in need.
                     </p>
                     <Button size="lg" asChild>
-                        <Link href="/about#foundation">Learn More & Get Involved</Link>
+                        <Link href="/about">Learn More & Get Involved</Link>
                     </Button>
                 </div>
             </div>
