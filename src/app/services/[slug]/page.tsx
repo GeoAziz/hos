@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Heart, Stethoscope, Brain, Bone, Baby, Syringe, CheckCircle, ShieldCheck, Clock, Users, Link as LinkIcon } from "lucide-react";
+import { Heart, Stethoscope, Brain, Bone, Baby, Syringe, CheckCircle, ShieldCheck, Clock, Users, Link as LinkIcon, Microscope, ShieldHalf, User, Activity, Apple, Droplets, Scissors, Glasses, Ear } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,7 +12,6 @@ import { notFound } from "next/navigation";
 const servicesData = {
     cardiology: {
         name: "Cardiology",
-        slug: "cardiology",
         icon: <Heart className="h-12 w-12 text-primary" />,
         image: "/images/service-cardiology.jpg",
         description: "Our Cardiology department provides comprehensive care for heart-related conditions. We use state-of-the-art technology for diagnosis and treatment, ensuring the best possible outcomes for our patients. From preventive care to complex surgeries, your heart is in expert hands.",
@@ -32,7 +31,6 @@ const servicesData = {
     },
     neurology: {
         name: "Neurology",
-        slug: "neurology",
         icon: <Brain className="h-12 w-12 text-primary" />,
         image: "/images/service-neurology.jpg",
         description: "The Neurology department at MediBook specializes in the diagnosis and treatment of disorders affecting the nervous system, including the brain, spinal cord, and nerves. Our team is equipped to handle conditions like stroke, epilepsy, multiple sclerosis, and Parkinson's disease.",
@@ -51,7 +49,6 @@ const servicesData = {
     },
      pediatrics: {
         name: "Pediatrics",
-        slug: "pediatrics",
         icon: <Baby className="h-12 w-12 text-primary" />,
         image: "/images/service-pediatrics.jpg",
         description: "Our Pediatrics department is dedicated to the health and well-being of infants, children, and adolescents. We provide a friendly and comforting environment, offering everything from routine check-ups and vaccinations to specialized care for childhood illnesses.",
@@ -66,6 +63,92 @@ const servicesData = {
             "Bring your child's vaccination records to every visit.",
             "Prepare a list of any questions or concerns you have about your child's health or behavior.",
             "For younger children, bring a favorite toy or book to help them feel more comfortable.",
+        ]
+    },
+    'primary-care': {
+        name: "Primary Care",
+        icon: <User className="h-12 w-12 text-primary" />,
+        image: "/images/service-primary-care.jpg",
+        description: "Primary care is your first point of contact for health needs. Our general practitioners offer comprehensive services including routine check-ups, preventive care, and management of chronic illnesses.",
+        doctors: [
+            { id: "dr-sofia-garcia-pediatrics", name: "Dr. Sofia Garcia", specialty: "Pediatrics", imageUrl: "/images/doctor-sofia-garcia.jpg" },
+            { id: "dr-evelyn-reed-cardiology", name: "Dr. Evelyn Reed", specialty: "General Practice", imageUrl: "/images/doctor-evelyn-reed.jpg" },
+        ],
+        faqs: [
+            { q: "What services fall under primary care?", a: "Primary care includes wellness checks, treatment for common illnesses like colds and flu, management of chronic conditions like diabetes and hypertension, vaccinations, and health education." },
+            { q: "How often should I see a primary care doctor?", a: "It's recommended to have an annual check-up, even if you feel healthy, for preventive screening and to maintain a relationship with your doctor." },
+        ],
+        preparation: [
+            "Make a list of your health concerns or questions before your visit.",
+            "Bring a list of all medications you are currently taking, including over-the-counter drugs and supplements.",
+        ]
+    },
+    'laboratory': {
+        name: "Laboratory Services",
+        icon: <Microscope className="h-12 w-12 text-primary" />,
+        image: "/images/service-laboratory.jpg",
+        description: "Our accredited laboratory provides a wide range of diagnostic tests. With advanced technology and experienced technicians, we deliver accurate and timely results to support your doctor's treatment plan.",
+        doctors: [],
+        faqs: [
+            { q: "Do I need an appointment for lab tests?", a: "While some tests can be done on a walk-in basis, we recommend scheduling an appointment to minimize wait times. Some specialized tests require appointments." },
+            { q: "How do I get my lab results?", a: "Your results will be sent directly to your referring physician, who will discuss them with you. You can also access results through our secure patient portal." },
+        ],
+        preparation: [
+            "Follow any fasting instructions carefully. This usually means no food or drink (except water) for 8-12 hours before the test.",
+            "Inform the lab technician of any medications you are taking.",
+        ]
+    },
+    'radiology': {
+        name: "Radiology & Imaging",
+        icon: <ShieldHalf className="h-12 w-12 text-primary" />,
+        image: "/images/service-radiology.jpg",
+        description: "Our Radiology department uses advanced imaging technologies like MRI, CT scans, X-rays, and ultrasounds to get a clear picture of what's happening inside your body, aiding in accurate diagnosis.",
+        doctors: [],
+        faqs: [
+            { q: "Are radiology procedures safe?", a: "Yes. We use the lowest dose of radiation possible to get high-quality images (ALARA principle). For non-radiation procedures like MRI and Ultrasound, there are no known long-term risks." },
+            { q: "How should I prepare for an MRI?", a: "You will be asked to remove all metal objects, including jewelry, piercings, and hearing aids. Inform our staff if you have any metal implants, a pacemaker, or are pregnant." },
+        ],
+        preparation: [
+            "Wear comfortable clothing without metal zippers or buttons.",
+            "Follow any specific instructions about eating or drinking before your scan.",
+            "Arrive a few minutes early to complete any necessary paperwork.",
+        ]
+    },
+    'critical-care': {
+        name: "Critical Care",
+        icon: <ShieldCheck className="h-12 w-12 text-primary" />,
+        image: "/images/service-critical-care.jpg",
+        description: "Our Critical Care Unit (CCU) is a specialized facility dedicated to patients who require intensive monitoring and life-support. Our expert team of intensivists and nurses provides 24/7 care for the most critically ill patients.",
+        doctors: [
+            { id: "dr-marcus-chen-neurology", name: "Dr. Marcus Chen", specialty: "Critical Care", imageUrl: "/images/doctor-marcus-chen.jpg" },
+            { id: "dr-ben-carter-orthopedics", name: "Dr. Ben Carter", specialty: "Trauma Surgery", imageUrl: "/images/doctor-ben-carter.jpg" },
+        ],
+        faqs: [
+            { q: "What is the difference between ICU and HDU?", a: "The Intensive Care Unit (ICU) provides the highest level of care and life support. The High Dependency Unit (HDU) is a step-down unit for patients who are stable but still require close observation." },
+            { q: "What are the visiting hours for the CCU?", a: "Visiting hours are restricted to ensure patients get adequate rest. Please check with the nursing station for the current policy, which is typically limited to immediate family." },
+        ],
+        preparation: [
+            "In an emergency, call our hotline immediately.",
+            "If possible, provide the patient's medical history, allergies, and current medications to the emergency team.",
+        ]
+    },
+     'specialty-clinics': {
+        name: "Specialist Clinics",
+        icon: <Stethoscope className="h-12 w-12 text-primary" />,
+        image: "/images/specialist-clinics-hero.jpg",
+        description: "MediBook offers a wide array of specialist clinics, providing focused expertise and advanced treatments for specific medical fields. From eye care to digestive health, our specialists are here for you.",
+        doctors: [
+            { id: "dr-olivia-white-dermatology", name: "Dr. Olivia White", specialty: "Dermatology", imageUrl: "/images/doctor-olivia-white.jpg" },
+            { id: "dr-ahmed-hassan-gastroenterology", name: "Dr. Ahmed Hassan", specialty: "Gastroenterology", imageUrl: "/images/doctor-ahmed-hassan.jpg" },
+            { id: "dr-chloe-kim-ophthalmology", name: "Dr. Chloe Kim", specialty: "Ophthalmology", imageUrl: "/images/doctor-chloe-kim.jpg" },
+        ],
+        faqs: [
+            { q: "Do I need a referral to see a specialist?", a: "While some insurance plans require a referral from a primary care physician, many of our clinics accept self-referrals. It's best to check with your insurance provider first." },
+            { q: "What should I bring to my specialist appointment?", a: "Please bring your ID, insurance card, any referral letters, and relevant medical records or test results from other doctors." },
+        ],
+        preparation: [
+            "Write down your symptoms and questions beforehand.",
+            "Request that your primary care doctor send your records to the specialist's office before your visit.",
         ]
     },
 };
@@ -143,7 +226,8 @@ export default function ServicePage({ params }: ServicePageProps) {
                     </main>
 
                     <aside className="space-y-8 lg:mt-0">
-                        <section id="doctors">
+                       {service.doctors && service.doctors.length > 0 && (
+                         <section id="doctors">
                             <Card>
                                 <CardHeader>
                                     <CardTitle>Our Specialists</CardTitle>
@@ -151,7 +235,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                                 <CardContent>
                                     <ul className="space-y-4">
                                         {service.doctors.map((doctor: {id: string, name: string, specialty: string, imageUrl: string}) => (
-                                            <li key={doctor.name} className="flex items-center gap-4">
+                                            <li key={doctor.id} className="flex items-center gap-4">
                                                 <Avatar className="h-16 w-16">
                                                     <AvatarImage src={doctor.imageUrl} alt={doctor.name} />
                                                     <AvatarFallback>{doctor.name.charAt(0)}</AvatarFallback>
@@ -169,6 +253,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                                 </CardContent>
                             </Card>
                         </section>
+                       )}
                          <section id="cta">
                             <Card className="bg-primary text-primary-foreground text-center p-6">
                                 <CardHeader className="p-0">

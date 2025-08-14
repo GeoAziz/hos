@@ -26,7 +26,7 @@ const serviceCategories = [
     },
     {
         name: 'Specialty Clinics',
-        slug: 'specialist-clinics',
+        slug: 'specialty-clinics',
         description: 'Focused care from our team of experienced medical specialists.',
         icon: <Stethoscope className="w-10 h-10 text-primary" />,
         services: [
