@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A flow for booking appointments.
@@ -10,15 +11,18 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 import { db } from '@/lib/firebase';
+import { sendBookingConfirmation } from '@/lib/notifications';
 
 const BookAppointmentInputSchema = z.object({
   name: z.string().describe('The name of the patient.'),
   phone: z.string().describe('The phone number of the patient.'),
+  email: z.string().email().describe("The patient's email address."),
   dob: z.string().describe("The patient's date of birth."),
   date: z.string().describe('The preferred date for the appointment.'),
   department: z.string().describe('The department for the appointment.'),
   doctor: z.string().describe('The selected doctor for the appointment.'),
   branch: z.string().describe('The hospital branch for the appointment.'),
+  notificationPreference: z.enum(['email', 'sms']).describe("The patient's preferred method of notification."),
   notes: z.string().optional().describe('Any additional notes from the patient.'),
 });
 
@@ -38,14 +42,16 @@ const appointmentPrompt = ai.definePrompt({
   prompt: `A patient is booking an appointment. Here are the details:
 - Name: {{name}}
 - Phone: {{phone}}
+- Email: {{email}}
 - Date of Birth: {{dob}}
 - Department: {{department}}
 - Doctor: {{doctor}}
 - Appointment Date: {{date}}
 - Branch: {{branch}}
+- Notification Preference: {{notificationPreference}}
 - Notes: {{notes}}
 
-Acknowledge the booking by creating a friendly confirmation message. Address the user by name ({{name}}). Confirm that their request for an appointment with {{doctor}} on {{date}} at the {{branch}} has been received. Mention that they will receive an SMS and email with the appointment details shortly. The operation is always successful.`,
+Acknowledge the booking by creating a friendly confirmation message. Address the user by name ({{name}}). Confirm that their request for an appointment with {{doctor}} on {{date}} has been received. Mention that a confirmation will be sent to their {{notificationPreference}} shortly. The operation is always successful.`,
 });
 
 const bookAppointmentFlow = ai.defineFlow(
@@ -64,8 +70,13 @@ const bookAppointmentFlow = ai.defineFlow(
       status: 'pending', // Default status
     });
 
+    // This is a placeholder for sending a real notification.
+    // In a production app, you would integrate a third-party service
+    // like SendGrid for email or Twilio for SMS.
+    await sendBookingConfirmation(input);
+
     const { output } = await appointmentPrompt(input);
-    return output || { success: true, message: `Thank you, ${input.name}. Your appointment request for ${input.date} has been received. You will get a confirmation email/SMS shortly.` };
+    return output || { success: true, message: `Thank you, ${input.name}. Your appointment request for ${input.date} has been received. You will get a confirmation via ${input.notificationPreference} shortly.` };
   }
 );
 

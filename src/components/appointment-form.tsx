@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -21,7 +22,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { User, Calendar as CalendarIcon, Stethoscope, Building, MessageSquare, Phone, UserPlus, Briefcase, Cake, CheckCircle } from 'lucide-react';
+import { User, Calendar as CalendarIcon, Stethoscope, Building, MessageSquare, Phone, Mail, Briefcase, Cake, CheckCircle } from 'lucide-react';
 import { bookAppointment, BookAppointmentOutput } from '@/ai/flows/book-appointment-flow';
 import { Textarea } from './ui/textarea';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
@@ -30,10 +31,12 @@ import { Calendar } from './ui/calendar';
 import { format } from 'date-fns';
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 
 const appointmentFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
   phone: z.string().min(10, 'Please enter a valid phone number.'),
+  email: z.string().email('Please enter a valid email address.'),
   dob: z.date({
     required_error: "A date of birth is required.",
   }),
@@ -48,6 +51,9 @@ const appointmentFormSchema = z.object({
   }),
   date: z.date({
     required_error: "An appointment date is required.",
+  }),
+  notificationPreference: z.enum(['email', 'sms'], {
+    required_error: "You need to select a notification type.",
   }),
   notes: z.string().optional(),
 });
@@ -76,6 +82,7 @@ export function AppointmentForm() {
     defaultValues: {
       name: '',
       phone: '',
+      email: '',
       notes: '',
     },
   });
@@ -109,7 +116,7 @@ export function AppointmentForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div>
               <h3 className="text-lg font-medium mb-4 border-b pb-2">Your Details</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                       control={form.control}
                       name="name"
@@ -120,22 +127,6 @@ export function AppointmentForm() {
                           <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                           <FormControl>
                               <Input placeholder="John Doe" {...field} className="pl-10" />
-                          </FormControl>
-                          </div>
-                          <FormMessage />
-                      </FormItem>
-                      )}
-                  />
-                  <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                      <FormItem>
-                          <FormLabel>Phone Number</FormLabel>
-                          <div className="relative">
-                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                          <FormControl>
-                              <Input placeholder="555-555-5555" {...field} className="pl-10" />
                           </FormControl>
                           </div>
                           <FormMessage />
@@ -182,7 +173,73 @@ export function AppointmentForm() {
                           <FormMessage />
                           </FormItem>
                       )}
-                      />
+                  />
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                      <FormItem>
+                          <FormLabel>Phone Number</FormLabel>
+                          <div className="relative">
+                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                          <FormControl>
+                              <Input placeholder="555-555-5555" {...field} className="pl-10" />
+                          </FormControl>
+                          </div>
+                          <FormMessage />
+                      </FormItem>
+                      )}
+                    />
+                     <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                      <FormItem>
+                          <FormLabel>Email Address</FormLabel>
+                          <div className="relative">
+                          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                          <FormControl>
+                              <Input placeholder="john.doe@example.com" {...field} className="pl-10" />
+                          </FormControl>
+                          </div>
+                          <FormMessage />
+                      </FormItem>
+                      )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="notificationPreference"
+                    render={({ field }) => (
+                        <FormItem className="space-y-3 md:col-span-2">
+                        <FormLabel>Notification Preference</FormLabel>
+                        <FormControl>
+                            <RadioGroup
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                            className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8"
+                            >
+                            <FormItem className="flex items-center space-x-3 space-y-0">
+                                <FormControl>
+                                <RadioGroupItem value="email" />
+                                </FormControl>
+                                <FormLabel className="font-normal">
+                                Email
+                                </FormLabel>
+                            </FormItem>
+                            <FormItem className="flex items-center space-x-3 space-y-0">
+                                <FormControl>
+                                <RadioGroupItem value="sms" />
+                                </FormControl>
+                                <FormLabel className="font-normal">
+                                SMS (Text Message)
+                                </FormLabel>
+                            </FormItem>
+                            </RadioGroup>
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
               </div>
           </div>
           
