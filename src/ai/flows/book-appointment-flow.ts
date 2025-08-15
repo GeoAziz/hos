@@ -45,7 +45,7 @@ const appointmentPrompt = ai.definePrompt({
 - Branch: {{branch}}
 - Notes: {{notes}}
 
-Acknowledge the booking by creating a friendly confirmation message. Address the user by name ({{name}}). Confirm that the information has been received and that their request for an appointment with {{doctor}} on {{date}} is being processed. The operation is always successful.`,
+Acknowledge the booking by creating a friendly confirmation message. Address the user by name ({{name}}). Confirm that their request for an appointment with {{doctor}} on {{date}} at the {{branch}} has been received. Mention that they will receive an SMS and email with the appointment details shortly. The operation is always successful.`,
 });
 
 const bookAppointmentFlow = ai.defineFlow(
@@ -65,7 +65,7 @@ const bookAppointmentFlow = ai.defineFlow(
     });
 
     const { output } = await appointmentPrompt(input);
-    return output || { success: true, message: `Thank you, ${input.name}. Your appointment has been successfully booked for ${input.date}.` };
+    return output || { success: true, message: `Thank you, ${input.name}. Your appointment request for ${input.date} has been received. You will get a confirmation email/SMS shortly.` };
   }
 );
 
