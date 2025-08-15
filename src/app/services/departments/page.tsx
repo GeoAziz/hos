@@ -26,7 +26,7 @@ const serviceCategories = [
     },
     {
         name: 'Specialty Clinics',
-        slug: 'specialty-clinics',
+        slug: 'specialist-clinics',
         description: 'Focused care from our team of experienced medical specialists.',
         icon: <Stethoscope className="w-10 h-10 text-primary" />,
         services: [
@@ -64,7 +64,7 @@ const serviceCategories = [
     },
     {
         name: 'Critical Care',
-        slug: 'critical-care',
+        slug: 'emergency',
         description: '24/7 life-saving care for patients in critical condition.',
         icon: <ShieldCheck className="w-10 h-10 text-primary" />,
         services: [
@@ -116,5 +116,3 @@ export default function DepartmentsPage() {
         </div>
     );
 }
-
-    
