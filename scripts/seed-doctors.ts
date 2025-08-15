@@ -121,10 +121,14 @@ async function seedDoctors() {
         return;
     }
     const doctorsCollection = db.collection('doctors');
-    console.log('Starting to seed doctors with enhanced data...');
+    console.log('Clearing existing doctors collection...');
+    const snapshot = await doctorsCollection.get();
+    const deleteBatch = db.batch();
+    snapshot.docs.forEach(doc => deleteBatch.delete(doc.ref));
+    await deleteBatch.commit();
+    console.log('Existing doctors deleted. Seeding new data...');
 
     const batch = db.batch();
-
     for (const doctor of doctors) {
         // Use a combination of name and specialty to create a unique ID
         const docId = `${doctor.name.replace(/\s+/g, '-')}-${doctor.specialty}`.toLowerCase();
